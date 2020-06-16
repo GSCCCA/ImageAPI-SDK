@@ -1,0 +1,9 @@
+/GSCCCA.ImageAPI.Client/bin
+/GSCCCA.ImageAPI.Client/obj
+/GSCCCA.ImageAPI.TestProgram.Core/bin
+/GSCCCA.ImageAPI.TestProgram.Core/obj
+/GSCCCA.ImageAPI.TestProgram.Framework/bin
+/GSCCCA.ImageAPI.TestProgram.Framework/obj
+/packages
+/.vs/ImageAPI-SDK/DesignTimeBuild/.dtbcache.v2
+/.vs/ImageAPI-SDK/v16/.suo
