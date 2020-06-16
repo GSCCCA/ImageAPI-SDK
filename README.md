@@ -10,7 +10,8 @@ await client.UploadImageAsync(@"c:\DEED0442492000448.TIF","mybatchname");
 ## Download Image:
 ```C#
 var client = new ImageApiClient("clientid", "secret");
-await client.DownloadImageAsync(@"c:\downloadedimages\DEED0442492000448.TIF","mybatchname");
+var myImageId = 22123;
+await client.DownloadImageAsync(myImageId, @"c:\downloadedimages\DEED0442492000448.TIF");
 ```
 
 ## Upload All Images in a Folder (3 at a time)
