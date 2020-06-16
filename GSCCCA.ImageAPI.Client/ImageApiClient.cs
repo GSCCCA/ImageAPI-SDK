@@ -141,8 +141,17 @@ namespace GSCCCA.ImageAPI.Client
                 ,
                 tasks =>
                 {
-                    results.AddRange(tasks.Select(kvp => new ParallelTransferResult(kvp.Value,
-                        !kvp.Key.IsFaulted, kvp.Key.Exception?.InnerException)));
+                    foreach (var kvp in tasks)
+                    {
+                        if (kvp.Key.IsFaulted)
+                        {
+                            results.Add(new ParallelTransferResult(kvp.Value, false, null, kvp.Key.Exception?.InnerException));
+                        }
+                        else
+                        {
+                            results.Add(new ParallelTransferResult(kvp.Value, true, kvp.Key.Result, kvp.Key.Exception?.InnerException));
+                        }
+                    }
                 }).ConfigureAwait(false);
             statusIndicator?.SetComplete();
             return results;
@@ -227,7 +236,7 @@ namespace GSCCCA.ImageAPI.Client
                 tasks =>
                 {
                     results.AddRange(tasks.Select(kvp => new ParallelTransferResult(kvp.Value.TargetPath,
-                        !kvp.Key.IsFaulted, kvp.Key.Exception?.InnerException)));
+                        !kvp.Key.IsFaulted, null, kvp.Key.Exception?.InnerException)));
                 }).ConfigureAwait(false);
 
             statusIndicator?.SetComplete();
@@ -276,7 +285,7 @@ namespace GSCCCA.ImageAPI.Client
         /// <param name="path">The path of the TIF image to upload</param>
         /// <param name="batchName">The name of the batch that the image should be attached to. If the batch does not exist, it will be created.</param>
         /// <returns></returns>
-        public async Task UploadImageAsync(string path, string batchName)
+        public async Task<ImageUploadResult> UploadImageAsync(string path, string batchName)
         {
             ValidateBatchName(batchName);
             ValidateFilePaths(path);
@@ -284,7 +293,7 @@ namespace GSCCCA.ImageAPI.Client
             using (var f = File.OpenRead(path))
             {
                 var fileName = Path.GetFileName(path);
-                await UploadImageAsync(f, fileName, batchName).ConfigureAwait(false);
+                return await UploadImageAsync(f, fileName, batchName).ConfigureAwait(false);
             }
         }
 
@@ -294,11 +303,11 @@ namespace GSCCCA.ImageAPI.Client
         /// <param name="gscccaTiff">The GSCCCATiff object to upload</param>
         /// <param name="batchName">The name of the batch that the image should be attached to. If the batch does not exist, it will be created.</param>
         /// <returns></returns>
-        public async Task UploadImageAsync(GSCCCATiff gscccaTiff, string batchName)
+        public async Task<ImageUploadResult> UploadImageAsync(GSCCCATiff gscccaTiff, string batchName)
         {
             var fn = Path.GetFileName(gscccaTiff.FileName);
             var str = gscccaTiff.GetUnderlyingStream();
-            await UploadImageAsync(str, fn, batchName);
+            return await UploadImageAsync(str, fn, batchName);
         }
 
         /// <summary>
@@ -308,7 +317,7 @@ namespace GSCCCA.ImageAPI.Client
         /// <param name="fileName">A filename that represents the image. It must have the .TIF extension.</param>
         /// <param name="batchName">The name of the batch that the image should be attached to. If the batch does not exist, it will be created.</param>
         /// <returns></returns>
-        public async Task UploadImageAsync(Stream imageContent, string fileName, string batchName)
+        public async Task<ImageUploadResult> UploadImageAsync(Stream imageContent, string fileName, string batchName)
         {
             
             ValidateBatchName(batchName);
@@ -317,7 +326,7 @@ namespace GSCCCA.ImageAPI.Client
             using (var ms = new MemoryStream())
             {
                 await imageContent.CopyToAsync(ms).ConfigureAwait(false);
-                await UploadImageAsync(ms.ToArray(), fileName, batchName).ConfigureAwait(false);
+                return await UploadImageAsync(ms.ToArray(), fileName, batchName).ConfigureAwait(false);
             }
         }
 
@@ -328,7 +337,7 @@ namespace GSCCCA.ImageAPI.Client
         /// <param name="fileName">A filename that represents the image. It must have the .TIF extension.</param>
         /// <param name="batchName">The name of the batch that the image should be attached to. If the batch does not exist, it will be created.</param>
         /// <returns></returns>
-        public async Task UploadImageAsync(byte[] imageContent, string fileName, string batchName)
+        public async Task<ImageUploadResult> UploadImageAsync(byte[] imageContent, string fileName, string batchName)
         {
             ValidateBatchName(batchName);
             ValidateFileName(fileName);
@@ -358,6 +367,7 @@ namespace GSCCCA.ImageAPI.Client
 
                var result = await GetHttpResult(request).ConfigureAwait(false);
                result.EnsureSuccessStatusCode();
+               return await DeserializeResultAsync<ImageUploadResult>(result);
            }
         }
 
@@ -434,12 +444,12 @@ namespace GSCCCA.ImageAPI.Client
         }
 
 
-        private async Task ParallelFileOperation<T>(T[] items, Func<T, Task> forEachItem, Action<Dictionary<Task, T>> forEachGroup)
+        private async Task ParallelFileOperation<T,TTask>(T[] items, Func<T, TTask> forEachItem, Action<Dictionary<TTask, T>> forEachGroup) where TTask : Task
         {
             var maxP = GetMaxParallelFiles();
             for (int i0 = 0; i0 < items.Length; i0 += maxP)
             {
-                var tasks = new Dictionary<Task, T>();
+                var tasks = new Dictionary<TTask, T>();
                 for (int i1 = 0; i1 < maxP; i1++)
                 {
                     var idx = i0 + i1;

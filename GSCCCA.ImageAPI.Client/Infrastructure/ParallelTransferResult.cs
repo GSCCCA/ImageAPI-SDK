@@ -7,15 +7,17 @@ namespace GSCCCA.ImageAPI.Client.Infrastructure
 {
     public class ParallelTransferResult
     {
-        internal ParallelTransferResult(string filePath, bool success, Exception error)
+        internal ParallelTransferResult(string filePath, bool success, ImageUploadResult uploadResult, Exception error)
         {
             FilePath = filePath;
             Success = success;
             Error = error;
+            UploadResult = uploadResult;
         }
 
         public string FilePath { get; }
         public bool Success { get; }
         public Exception Error { get; }
+        public ImageUploadResult UploadResult { get; }
     }
 }

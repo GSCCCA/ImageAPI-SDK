@@ -35,7 +35,7 @@ namespace GSCCCA.ImageAPI.Client.Infrastructure
 
     public class TransferStatusIndicator
     {
-        private volatile int _currentFile;
+        private volatile int _completedFiles;
         private volatile bool _isComplete = false;
         public int TotalFiles { get; internal set; }
 
@@ -62,15 +62,21 @@ namespace GSCCCA.ImageAPI.Client.Infrastructure
         {
             if (StatusUpdate != null)
             {
+                int completedFiles = 0;
+                lock (this)
+                {
+                    completedFiles = _completedFiles;
+                }
+
                 if (ThreadContext == null)
                 {
-                    StatusUpdate(this, new TransferStatusEventArgs(TotalFiles, _currentFile, currentEvent, filePath, error));
+                    StatusUpdate(this, new TransferStatusEventArgs(TotalFiles, completedFiles, currentEvent, filePath, error));
                 }
                 else
                 {
                     ThreadContext.Post(s =>
                     {
-                        StatusUpdate(this, new TransferStatusEventArgs(TotalFiles, _currentFile, currentEvent, filePath, error));
+                        StatusUpdate(this, new TransferStatusEventArgs(TotalFiles, completedFiles, currentEvent, filePath, error));
                     }, null);
                 }
             }
@@ -80,24 +86,17 @@ namespace GSCCCA.ImageAPI.Client.Infrastructure
         {
             if (currentEvent == CurrentEventType.FileCompleted || currentEvent == CurrentEventType.FileError)
             {
-                CompletedFiles++;
+                lock (this)
+                {
+                    _completedFiles++;
+                }
             }
             FireUpdateEvent(currentEvent,path, error);
         }
 
 
 
-        public int CompletedFiles
-        {
-            get => _currentFile;
-            private set
-            {
-                if (_currentFile < value)
-                {
-                    _currentFile = value;
-                }
-            }
-        }
+
 
         public event EventHandler<TransferStatusEventArgs> StatusUpdate;
 

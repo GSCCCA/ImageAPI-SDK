@@ -4,7 +4,7 @@
 ## Basic Usage:
 ```C#
 var client = new ImageApiClient("clientid", "secret");
-await client.UploadImageAsync(@"c:\DEED0442492000448.TIF","mybatchname");
+var uploadResult = await client.UploadImageAsync(@"c:\DEED0442492000448.TIF","mybatchname");
 ```
 
 ## Download Image:

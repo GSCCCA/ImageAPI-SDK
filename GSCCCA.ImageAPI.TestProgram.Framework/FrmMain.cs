@@ -435,7 +435,7 @@ namespace GSCCCA.ImageAPI.TestApplication
                     if (!string.IsNullOrWhiteSpace(path))
                         files.Add(new ImageDownloadRequest{ImageId = id, TargetPath = path});
                 }
-
+                PrgDownloadProgress.Value = 0;
                 PrgDownloadProgress.Maximum = files.Count;
                 var statusIndicator = new TransferStatusIndicator(SynchronizationContext.Current);
 

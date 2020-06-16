@@ -433,6 +433,7 @@ namespace GSCCCA.ImageAPI.TestProgram
                         files.Add(new ImageDownloadRequest{ImageId = id, TargetPath = path});
                 }
 
+                PrgDownloadProgress.Value = 0;
                 PrgDownloadProgress.Maximum = files.Count;
                 var statusIndicator = new TransferStatusIndicator(SynchronizationContext.Current);
 
