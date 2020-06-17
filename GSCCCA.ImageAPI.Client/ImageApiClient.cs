@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using GSCCCA.ImageAPI.Client.ApiObjects;
 using GSCCCA.ImageAPI.Client.ImageSupport;
 using GSCCCA.ImageAPI.Client.Infrastructure;
@@ -62,7 +59,7 @@ namespace GSCCCA.ImageAPI.Client
         {
             ValidateBatchName(batchName);
 
-            var bnEncoded = HttpUtility.UrlEncode(batchName);
+            var bnEncoded = Uri.EscapeDataString(batchName);
             var url = GetApiUrl($"reports/{bnEncoded}/{sendEmail}");
             return PerformGet<BatchReport>(url);
         }
@@ -75,8 +72,7 @@ namespace GSCCCA.ImageAPI.Client
         public async Task<BatchCloseResult> CloseBatchAsync(string batchName)
         {
             ValidateBatchName(batchName);
-
-            var bnEncoded = HttpUtility.UrlEncode(batchName);
+            var bnEncoded = Uri.EscapeDataString(batchName);
             var url = GetApiUrl($"batches/{bnEncoded}");
             using (var request = new HttpRequestMessage(HttpMethod.Put, url))
             {
@@ -351,7 +347,7 @@ namespace GSCCCA.ImageAPI.Client
                 }
             }
 
-            var bnEncoded = HttpUtility.UrlEncode(batchName);
+            var bnEncoded = Uri.EscapeDataString(batchName);
             var url = GetApiUrl($"images/{bnEncoded}");
 
             var content = new MultipartFormDataContent();
@@ -380,7 +376,7 @@ namespace GSCCCA.ImageAPI.Client
         public async Task<BatchCreationResult> CreateBatchAsync(string batchName)
         {
             ValidateBatchName(batchName);
-            var bnEncoded = HttpUtility.UrlEncode(batchName);
+            var bnEncoded = Uri.EscapeDataString(batchName);
             var url = GetApiUrl($"batches/{bnEncoded}");
             using (var request = new HttpRequestMessage(HttpMethod.Post, url))
             {
@@ -439,8 +435,8 @@ namespace GSCCCA.ImageAPI.Client
             if (string.IsNullOrWhiteSpace(batchName))
                 throw new ArgumentException("Batch name cannot be null or empty", nameof(batchName));
 
-            if (batchName.Contains(" "))
-                throw new ArgumentException("Batch name cannot contain spaces", nameof(batchName));
+            if (batchName.Length > 25)
+                throw new ArgumentException("Batch name must be a maximum of 25 characters", nameof(batchName));
         }
 
 
@@ -531,8 +527,6 @@ namespace GSCCCA.ImageAPI.Client
             var jsResult = await result.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             _bearerToken = new BearerToken(jsResult, result.Headers.Date);
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken.AccessToken);
-
         }
 
         private SemaphoreSlim _loginLock = new SemaphoreSlim(1, 1);
@@ -541,7 +535,7 @@ namespace GSCCCA.ImageAPI.Client
             await _loginLock.WaitAsync().ConfigureAwait(false);
             try
             {
-                if (_bearerToken == null || _bearerToken.IsExpired())
+                if (_bearerToken?.AccessToken == null || _bearerToken.IsExpired())
                 {
                     await Login().ConfigureAwait(false);
                 }
