@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BitMiracle.LibTiff.Classic;
+using GSCCCA.ImageAPI.Client.Infrastructure;
 
 namespace GSCCCA.ImageAPI.Client.ImageSupport
 {
@@ -69,7 +70,7 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
             set => SetDocumentNameField(DocumentNameField.DocumentType, value.ToString());
         }
 
-
+        public string Checksum => _checksum ?? (_checksum = ChecksumCalc.Calculate(_tms.GetUnderlyingStream().ToArray()));
 
         public decimal XRes => GetTagField<decimal>(TiffTag.XRESOLUTION);
         public decimal YRes => GetTagField<decimal>(TiffTag.YRESOLUTION);
@@ -231,6 +232,7 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
 
 
         private Dictionary<DocumentNameField, string> _documentNameValues = new Dictionary<DocumentNameField, string>();
+        private  string _checksum;
 
 
         private bool AreAllDocumentNameFieldsSet()

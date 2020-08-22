@@ -6,44 +6,39 @@ using Newtonsoft.Json;
 
 namespace GSCCCA.ImageAPI.Client.ApiObjects
 {
-    public class Batch
+
+
+
+    public class BatchSummary
     {
-        [JsonProperty("batch")]
+
+        [JsonProperty("batchId")]
+        public int BatchId { get; set; }
+
+        [JsonProperty("batchName")]
         public string BatchName { get; set; }
 
-        [JsonProperty("vendor")]
-        public int Vendor { get; set; }
+        [JsonProperty("created")]
+        public DateTime Created { get; set; }
 
-        [JsonProperty("createDate")]
-        public DateTime CreatedDate { get; set; }
+        [JsonProperty("closed")]
+        public DateTime? Closed { get; set; }
 
-        [JsonProperty("closedDate")]
-        public DateTime? ClosedDate { get; set; }
-
-        [JsonProperty("submittedImages")]
-        public int SubmittedImages { get; set; }
+        [JsonProperty("submittedImagesCount")]
+        public int SubmittedImagesCount { get; set; }
+        [JsonProperty("acceptedImagesCount")]
+        public int AcceptedImagesCount { get; set; }
+        [JsonProperty("rejectedImagesCount")]
+        public int RejectedImagesCount { get; set; }
 
     }
 
-    public class BatchCloseResult
+    public class Batch : BatchSummary
     {
-        [JsonProperty("title")]
-        public string Title { get; set; }
-
-        [JsonProperty("detail")]
-        public string Detail { get; set; }
+        [JsonProperty("imageSubmissions")]
+        public List<ImageSubmission> ImageSubmissions { get; set; }
     }
 
 
-    public class BatchCreationResult
-    {
-        [JsonProperty("batch")]
-        public string BatchName { get; set; }
 
-        [JsonProperty("vendor")]
-        public string Vendor { get; set; }
-
-        [JsonProperty("createdDate")]
-        public DateTime CreatedDate { get; set; }
-    }
 }

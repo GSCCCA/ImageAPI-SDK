@@ -54,7 +54,7 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
             }
         }
 
-        public Stream GetUnderlyingStream()
+        public MemoryStream GetUnderlyingStream()
         {
             _ms.Position = 0;
             return _ms;

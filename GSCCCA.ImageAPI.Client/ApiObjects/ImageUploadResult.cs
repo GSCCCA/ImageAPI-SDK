@@ -7,11 +7,11 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
 {
     public class ImageUploadResult
     {
-        [JsonProperty("batchCode")]
-        public string BatchCode { get; set; }
+        [JsonProperty("batchName")]
+        public string BatchName { get; set; }
 
-        [JsonProperty("filename")]
-        public string Filename { get; set; }
+        [JsonProperty("fileName")]
+        public string FileName { get; set; }
 
         [JsonProperty("imageId")]
         public long ImageId { get; set; }
@@ -21,5 +21,8 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
 
         [JsonProperty("reason")]
         public string Reason { get; set; }
+
+        [JsonProperty("previousImageIds")]
+        public List<int> PreviousImageIds { get; set; }
     }
 }

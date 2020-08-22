@@ -32,7 +32,7 @@ namespace GSCCCA.ImageAPI.TestProgram
         private async void BtnTest_Click(object sender, EventArgs e)
         {
             var client = GetClient();
-            var result = await client.GetBatchesAsync(DateTime.Today);
+            var result = await client.GetBatchesAsync();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -208,10 +208,10 @@ namespace GSCCCA.ImageAPI.TestProgram
             var client = GetClient();
             try
             {
-                var batches = await client.GetBatchesAsync(dateGetBatch.Value.Date);
+                var batches = await client.GetBatchesAsync();
 
                 LstBatches.Items.Clear();
-                var bArray = batches.ToArray();
+                var bArray = batches.BatchResults.ToArray();
                 LstBatches.Items.AddRange(bArray);
                 LblGetBatchStatus.Text = $"Get Batches Complete";
             }
@@ -229,9 +229,9 @@ namespace GSCCCA.ImageAPI.TestProgram
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
             if (LstBatches.SelectedItem is Batch batch)
             {
-                BtnCloseBatch.Enabled = !batch.ClosedDate.HasValue;
-                BtnBatchReport.Enabled = batch.ClosedDate.HasValue;
-                BtnDownload.Enabled = batch.ClosedDate.HasValue;
+                BtnCloseBatch.Enabled = !batch.Closed.HasValue;
+                BtnBatchReport.Enabled = batch.Closed.HasValue;
+                BtnDownload.Enabled = batch.Closed.HasValue;
             }
         }
 
@@ -321,7 +321,7 @@ namespace GSCCCA.ImageAPI.TestProgram
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
             if (LstBatches.SelectedItem is Batch batch)
             {
-                if (batch.ClosedDate.HasValue)
+                if (batch.Closed.HasValue)
                 {
                     LblGetBatchStatus.Text = "Error: Batch is already closed";
                     return;
@@ -334,7 +334,7 @@ namespace GSCCCA.ImageAPI.TestProgram
                 {
                     var client = GetClient();
                     var result = await client.CloseBatchAsync(batch.BatchName);
-                    LblGetBatchStatus.Text = result.Detail;
+                    LblGetBatchStatus.Text = $"{result.BatchName} closed on {result.Closed}";
                 }
                 catch (Exception exception)
                 {
@@ -358,7 +358,7 @@ namespace GSCCCA.ImageAPI.TestProgram
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
             if (LstBatches.SelectedItem is Batch batch)
             {
-                if (batch.ClosedDate.HasValue)
+                if (batch.Closed.HasValue)
                 {
                     TxtDownloadBatchName.Text = batch.BatchName;
                     MainTabControl.SelectTab(TabDownloadBatch);
@@ -462,7 +462,7 @@ namespace GSCCCA.ImageAPI.TestProgram
 
                     var file = files.FirstOrDefault(f => f.TargetPath == args.FilePath);
                     if (file != null) 
-                        AddOrSetDownloadFileStatus(file.ImageId, Path.GetFileName(file.TargetPath), image, resultText);
+                        AddOrSetDownloadFileStatus(file.ImageId.GetValueOrDefault(), Path.GetFileName(file.TargetPath), image, resultText);
 
                 };
 
@@ -609,7 +609,7 @@ namespace GSCCCA.ImageAPI.TestProgram
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
             if (LstBatches.SelectedItem is Batch batch)
             {
-                if (batch.ClosedDate.HasValue)
+                if (batch.Closed.HasValue)
                 {
                     TxtBatchNameGetReport.Text = batch.BatchName;
                     MainTabControl.SelectTab(TabReports);

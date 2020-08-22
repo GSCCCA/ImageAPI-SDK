@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -53,48 +54,203 @@ namespace GSCCCA.ImageAPI.Client
         /// Gets details of a batch including all images it contains
         /// </summary>
         /// <param name="batchName">The name of the batch to get</param>
-        /// <param name="sendEmail">If this parameter is true. An email containing the batch contents will be sent to the vendor email on file.</param>
         /// <returns></returns>
-        public Task<BatchReport> GetBatchReportAsync(string batchName, bool sendEmail = false)
+        public Task<BatchReportResult> GetBatchReportAsync(string batchName)
         {
             ValidateBatchName(batchName);
 
             var bnEncoded = Uri.EscapeDataString(batchName);
-            var url = GetApiUrl($"reports/{bnEncoded}/{sendEmail}");
-            return PerformGet<BatchReport>(url);
+            var url = GetApiUrl($"reports/BatchReport?batchName={bnEncoded}");
+            return PerformGet<BatchReportResult>(url);
         }
+
+        /// <summary>
+        /// Gets a summary of a batch including the ranges of images it contains
+        /// </summary>
+        /// <param name="batchName">The name of the batch to get</param>
+        /// <returns></returns>
+        public Task<BatchSummaryReportResult> GetBatchSummaryReportAsync(string batchName)
+        {
+            ValidateBatchName(batchName);
+
+            var bnEncoded = Uri.EscapeDataString(batchName);
+            var url = GetApiUrl($"Reports/BatchSummaryReport?batchName={bnEncoded}");
+            return PerformGet<BatchSummaryReportResult>(url);
+        }
+
+        /// <summary>
+        /// Gets a list of reports that are available for download
+        /// </summary>
+        /// <returns>A list of reports along with their descriptions and parameters</returns>
+        public Task<List<ReportListResult>> ListAvailableReports()
+        {
+            var url = GetApiUrl($"reports");
+            return PerformGet<List<ReportListResult>>(url);
+        }
+
+        private string AddParametersToReportUrl(string url, Dictionary<string, string> parameters)
+        {
+            var uri = new Uri(url);
+
+            if (parameters != null && parameters.Count > 0)
+            {
+                var query = uri.Query ?? "";
+                if (query.StartsWith("?"))
+                {
+                    query = query.Substring(1);
+                }
+                foreach (var kvp in parameters)
+                {
+                    if (query.Length > 2)
+                        query += "&";
+                    
+                    query += $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}";
+                }
+
+                var builder = new UriBuilder(uri);
+                builder.Query = query;
+                return builder.Uri.ToString();
+            }
+
+            return url;
+        }
+
+
+        /// <summary>
+        /// Use this call to get the JSON contents of a report not yet available when this SDK was released
+        /// </summary>
+        /// <param name="reportName">The name of the report</param>
+        /// <param name="parameters">A dictionary of query parameters that should be included in the call</param>
+        /// <returns>The JSON representation of the report</returns>
+        public Task<string> GetReport(string reportName, Dictionary<string, string> parameters)
+        {
+            var rnEncoded = Uri.EscapeDataString(reportName);
+            var url = GetApiUrl($"Reports/{rnEncoded}");
+            url = AddParametersToReportUrl(url, parameters);
+
+            return PerformGetString(url);
+
+        }
+
+        /// <summary>
+        /// Use this call to get the File Size and Checksum of an image without downloading it
+        /// </summary>
+        /// <param name="imageId">The id of the image to retrieve</param>
+        /// <returns>FileSize, Checksum, LastModified</returns>
+        public  Task<ImageHeaderInformation> GetImageHeaderInformation(int imageId)
+        {
+            var url = GetApiUrl($"images/{imageId}");
+            return GetImageHeader(url);
+        }
+
+        /// <summary>
+        /// Use this call to get the File Size and Checksum of an image without downloading it
+        /// </summary>
+        /// <param name="batchName">name of the batch that contains the file</param>
+        /// <param name="fileName">the name of the uploaded file</param>
+        /// <returns>FileSize, Checksum, LastModified</returns>
+        public Task<ImageHeaderInformation> GetImageHeaderInformation(string batchName, string fileName)
+        {
+            ValidateBatchName(batchName);
+            ValidateFileName(fileName);
+            var url = GetApiUrl($"/Batches/{batchName}/Images/{fileName}");
+            return GetImageHeader(url);
+        }
+
+
+        /// <summary>
+        /// Use this call to email an HTML representation of a report not yet available when this SDK was released
+        /// </summary>
+        /// <param name="reportName">The name of the report</param>
+        /// <param name="emailTo">he email address to send the report to. You must be authorized to send to this address.</param>
+        /// <param name="parameters">A dictionary of query parameters that should be included in the call</param>
+        /// <returns>Information about the results of the email operation</returns>
+        public Task<EmailReportResult> EmailReport(string reportName, string emailTo,
+            Dictionary<string, string> parameters)
+        {
+            if (string.IsNullOrWhiteSpace(emailTo))
+                throw new ArgumentException("The emailTo address is required.");
+            var rnEncoded = Uri.EscapeDataString(reportName);
+            var eEncoded = Uri.EscapeDataString(emailTo);
+            var url = GetApiUrl($"Reports/{rnEncoded}/EmailReport?emailTo={eEncoded}");
+            url = AddParametersToReportUrl(url, parameters);
+            return PerformPostNoBody<EmailReportResult>(url);
+        }
+
+        /// <summary>
+        /// Use this call to email an HTML representation of a report not yet available when this SDK was released
+        /// </summary>
+        /// <param name="reportName">The name of the report</param>
+        /// <param name="emailTo">he email address to send the report to. You must be authorized to send to this address.</param>
+        /// <param name="batchName">the name of the batch to report on.</param>
+        /// <returns>Information about the results of the email operation</returns>
+        public Task<EmailReportResult> EmailBatchReport(string emailTo,
+            string batchName)
+        {
+            return EmailReport("BatchReport", emailTo, new Dictionary<string, string> {{"batchName", batchName}});
+        }
+
+        /// <summary>
+        /// Use this call to email an HTML representation of a report not yet available when this SDK was released
+        /// </summary>
+        /// <param name="reportName">The name of the report</param>
+        /// <param name="emailTo">he email address to send the report to. You must be authorized to send to this address.</param>
+        /// <param name="batchName">the name of the batch to report on.</param>
+        /// <returns>Information about the results of the email operation</returns>
+        public Task<EmailReportResult> EmailBatchSummaryReport(string emailTo,
+            string batchName)
+        {
+            return EmailReport("BatchSummaryReport", emailTo, new Dictionary<string, string> { { "batchName", batchName } });
+        }
+
+
 
         /// <summary>
         /// Closes a batch. After the batch is closed, no more images may be added to it.
         /// </summary>
         /// <param name="batchName">the name of the batch to close.</param>
         /// <returns>CloseBatchAsync</returns>
-        public async Task<BatchCloseResult> CloseBatchAsync(string batchName)
+        public async Task<BatchSummary> CloseBatchAsync(string batchName)
         {
             ValidateBatchName(batchName);
             var bnEncoded = Uri.EscapeDataString(batchName);
-            var url = GetApiUrl($"batches/{bnEncoded}");
-            using (var request = new HttpRequestMessage(HttpMethod.Put, url))
+            var url = GetApiUrl($"batches/{bnEncoded}/closebatch");
+            using (var request = new HttpRequestMessage(HttpMethod.Post, url))
             {
                 var result = await GetHttpResult(request).ConfigureAwait(false);
-                return await DeserializeResultAsync<BatchCloseResult>(result).ConfigureAwait(false);
+                return await DeserializeResultAsync<BatchSummary>(result).ConfigureAwait(false);
             }
 
             
         }
 
         /// <summary>
-        /// Returns a list of batch summaries for each batch created on a specific date (EST)
+        /// Returns a list of batch summaries for open batches or closed batches if that option is specified
         /// </summary>
-        /// <param name="date">the date the batch was created</param>
-        /// <returns>A list of batch</returns>
-        public async Task<List<Batch>> GetBatchesAsync(DateTime date)
+        /// <returns>A paged list of batches. This call has a default pageSize of 25.</returns>
+        public async Task<BatchListResult> GetBatchesAsync(bool showClosed = false, PageAndDateOptions<BatchOrderingOptions> options = null)
         {
             //making param required until result of paramless method is fixed
             //var url = date.HasValue ? GetApiUrl($"batches/{date:yyyy-MM-dd}"): GetApiUrl("batches");
-            var url = GetApiUrl($"batches/{date:yyyy-MM-dd}");
-            return await PerformGet<List<Batch>>(url).ConfigureAwait(false);
+            var url = GetApiUrl($"batches");
+            if (showClosed)
+                url += "?showClosed=true";
+            url = options.ApplyQueryParamsToUrl(url);
+            return await PerformGet<BatchListResult>(url).ConfigureAwait(false);
         }
+
+        // <summary>
+        /// Returns a list of batch summaries for open batches or closed batches if that option is specified
+        /// </summary>
+        /// <returns>details about the along with a paged list of images it contains. The list shows 25 images at a time by default.</returns>
+        public async Task<Batch> GetBatchAsync(string batchName, PageAndDateOptions<ImageOrderingOptions> options = null)
+        {
+            var bnEncoded = Uri.EscapeDataString(batchName);
+            var url = GetApiUrl($"batches/{bnEncoded}");
+            url = options.ApplyQueryParamsToUrl(url);
+            return await PerformGet<Batch>(url).ConfigureAwait(false);
+        }
+
 
         /// <summary>
         /// Uploads a list of local TIF images to GSCCCA. Multiple uploads are performed in parallel.
@@ -195,8 +351,8 @@ namespace GSCCCA.ImageAPI.Client
         public async Task<List<ParallelTransferResult>> DownloadImagesAsync(ImageDownloadRequest[] imageDownloads,
             TransferStatusIndicator statusIndicator = null)
         {
-            var paths = imageDownloads.Select(d => d.TargetPath).ToArray();
-            ValidateTargetPaths(paths);
+            ValidateImageDownloadRequests(imageDownloads);
+            
 
             if (statusIndicator != null)
                 statusIndicator.TotalFiles = imageDownloads.Length;
@@ -214,7 +370,8 @@ namespace GSCCCA.ImageAPI.Client
                         });
                     }
 
-                    var task = DownloadImageAsync(id.ImageId, id.TargetPath);
+                    var task = id.ImageId.HasValue ? DownloadImageAsync(id.ImageId.Value, id.TargetPath) :
+                        DownloadImageAsync(id.BatchName,id.FileName, id.TargetPath);
 
                     if (statusIndicator != null)
                     {
@@ -239,14 +396,12 @@ namespace GSCCCA.ImageAPI.Client
             return results;
         }
 
-
-
-       /// <summary>
-       /// Downloads a single image
-       /// </summary>
-       /// <param name="imageId">the GSCCCA id of the image</param>
-       /// <param name="targetPath">the path, including filename, where the image should be stored</param>
-       /// <returns></returns>
+        /// <summary>
+        /// Downloads a single image
+        /// </summary>
+        /// <param name="imageId">the GSCCCA id of the image</param>
+        /// <param name="targetPath">the path, including filename, where the image should be stored</param>
+        /// <returns></returns>
         public async Task DownloadImageAsync(long imageId, string targetPath)
         {
 
@@ -261,7 +416,42 @@ namespace GSCCCA.ImageAPI.Client
 
         }
 
-       
+
+        /// <summary>
+        /// Downloads a single image
+        /// </summary>
+        /// <param name="batchName">name of the batch that contains the file</param>
+        /// <param name="fileName">the name of the uploaded file</param>
+        /// <param name="targetPath">the path, including filename, where the image should be stored</param>
+        /// <returns></returns>
+        public async Task DownloadImageAsync(string batchName, string fileName, string targetPath)
+        {
+
+            ValidateTargetPaths(targetPath);
+            var bytes = await DownloadImageBytesAsync(batchName, fileName).ConfigureAwait(false);
+
+            using (var ms = new MemoryStream(bytes))
+            using (var f = File.OpenWrite(targetPath))
+            {
+                await ms.CopyToAsync(f).ConfigureAwait(false);
+            }
+
+        }
+
+        /// <summary>
+        /// Downloads an image and returns a byte array
+        /// </summary>
+        /// <param name="batchName">name of the batch that contains the file</param>
+        /// <param name="fileName">the name of the uploaded file</param>
+        /// <returns>an array of bytes that compose the tiff image</returns>
+        public async Task<byte[]> DownloadImageBytesAsync(string batchName, string fileName)
+       {
+           ValidateBatchName(batchName);
+           ValidateFileName(fileName);
+           var url = GetApiUrl($"/Batches/{batchName}/Images/{fileName}");
+           var result = await PerformGetFile(url).ConfigureAwait(false);
+           return result;
+       }
 
         /// <summary>
         /// Downloads an image and returns a byte array
@@ -271,8 +461,8 @@ namespace GSCCCA.ImageAPI.Client
         public async Task<byte[]> DownloadImageBytesAsync(long imageId)
         {
             var url = GetApiUrl($"images/{imageId}");
-            var result = await PerformGet<string>(url).ConfigureAwait(false);
-            return Convert.FromBase64String(result);
+            var result = await PerformGetFile(url).ConfigureAwait(false);
+            return result;
         }
 
         /// <summary>
@@ -348,7 +538,7 @@ namespace GSCCCA.ImageAPI.Client
             }
 
             var bnEncoded = Uri.EscapeDataString(batchName);
-            var url = GetApiUrl($"images/{bnEncoded}");
+            var url = GetApiUrl($"batches/{bnEncoded}/images");
 
             var content = new MultipartFormDataContent();
 
@@ -373,7 +563,7 @@ namespace GSCCCA.ImageAPI.Client
         /// </summary>
         /// <param name="batchName">The name of the batch to create</param>
         /// <returns>BatchCreationResult</returns>
-        public async Task<BatchCreationResult> CreateBatchAsync(string batchName)
+        public async Task<BatchSummary> CreateBatchAsync(string batchName)
         {
             ValidateBatchName(batchName);
             var bnEncoded = Uri.EscapeDataString(batchName);
@@ -382,7 +572,7 @@ namespace GSCCCA.ImageAPI.Client
             {
                 var result = await GetHttpResult(request).ConfigureAwait(false);
 
-                return await DeserializeResultAsync<BatchCreationResult>(result).ConfigureAwait(false);
+                return await DeserializeResultAsync<BatchSummary>(result).ConfigureAwait(false);
             }
 
         }
@@ -413,6 +603,21 @@ namespace GSCCCA.ImageAPI.Client
                 if (!Directory.Exists(dir))
                     throw new ArgumentException($"Path {path} does not exist");
             }
+        }
+
+        private void ValidateImageDownloadRequests(ImageDownloadRequest[] downloadRequests)
+        {
+            foreach (var request in downloadRequests)
+            {
+                if (!request.ImageId.HasValue)
+                {
+                    if (string.IsNullOrWhiteSpace(request.BatchName) || string.IsNullOrWhiteSpace(request.FileName))
+                    {
+                        throw new ArgumentException($"for each download request either an ImageId must be specified or both a BatchName and FileName must be specified");
+                    }
+                }
+            }
+            ValidateTargetPaths(downloadRequests.Select(r => r.TargetPath).ToArray());
         }
 
 
@@ -591,7 +796,8 @@ namespace GSCCCA.ImageAPI.Client
                     return await GetHttpResult(requestClone, retryNumber + 1).ConfigureAwait(false);
                 }
 
-                if (result.StatusCode == HttpStatusCode.Conflict)
+                if (result.StatusCode == HttpStatusCode.Conflict || result.StatusCode == HttpStatusCode.BadRequest 
+                    || result.StatusCode == HttpStatusCode.RequestEntityTooLarge || result.StatusCode == (HttpStatusCode)422)
                 {
                     throw await CreateServerValidationExceptionAsync(result).ConfigureAwait(false);
                 }
@@ -621,12 +827,67 @@ namespace GSCCCA.ImageAPI.Client
             return JsonConvert.DeserializeObject<T>(jsResult);
         }
 
-        private async Task<T> PerformGet<T>(string url)
+        private async Task<T> PerformBodylessRequest<T>(string url, HttpMethod method)
+        {
+            using (var request = new HttpRequestMessage(method, url))
+            {
+                var result = await GetHttpResult(request).ConfigureAwait(false);
+                return await DeserializeResultAsync<T>(result).ConfigureAwait(false);
+            }
+        }
+
+        private Task<T> PerformGet<T>(string url)
+        {
+            return PerformBodylessRequest<T>(url, HttpMethod.Get);
+        }
+
+        private Task<T> PerformPostNoBody<T>(string url)
+        {
+            return PerformBodylessRequest<T>(url, HttpMethod.Post);
+        }
+
+        private async Task<string> PerformGetString(string url)
         {
             using (var request = new HttpRequestMessage(HttpMethod.Get, url))
             {
                 var result = await GetHttpResult(request).ConfigureAwait(false);
-                return await DeserializeResultAsync<T>(result).ConfigureAwait(false);
+                return await result.Content.ReadAsStringAsync().ConfigureAwait(false);
+            }
+        }
+
+        private async Task<ImageHeaderInformation> GetImageHeader(string url)
+        {
+            var result = await GetHeaderResult(url).ConfigureAwait(false);
+            string checksum = null;
+            if (result.Headers.Contains("checksum"))
+                checksum = result.Headers.GetValues("checksum").FirstOrDefault();
+            var headresult = new ImageHeaderInformation
+            {
+                Checksum = checksum,
+                FileSize = (int?) result.Content.Headers.ContentLength,
+                LastModified = result.Content.Headers.LastModified
+            };
+
+           
+
+            return headresult;
+        }
+
+        private async Task<HttpResponseMessage> GetHeaderResult(string url)
+        {
+            using (var request = new HttpRequestMessage(HttpMethod.Head, url))
+            {
+                var result = await GetHttpResult(request).ConfigureAwait(false);
+                return result;
+            }
+        }
+
+        private async Task<byte[]> PerformGetFile(string url)
+        {
+            using (var request = new HttpRequestMessage(HttpMethod.Get, url))
+            {
+                var result = await GetHttpResult(request).ConfigureAwait(false);
+                return await result.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
             }
         }
 

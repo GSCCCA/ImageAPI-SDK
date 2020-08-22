@@ -22,6 +22,8 @@ namespace GSCCCA.ImageAPI.TestApplication
         public FrmMain()
         {
             InitializeComponent();
+            PropGridBatchOptions.SelectedObject = _batchesGetOptions;
+            PropGridGetBatchOptions.SelectedObject = _batchGetOptions;
         }
 
         private ImageApiClient GetClient()
@@ -29,13 +31,16 @@ namespace GSCCCA.ImageAPI.TestApplication
             return new ImageApiClient(TxtClientId.Text, TxtClientSecret.Text, ClientOptions);
         }
 
+        private PageAndDateOptions<BatchOrderingOptions> _batchesGetOptions = new PageAndDateOptions<BatchOrderingOptions>();
+        private PageAndDateOptions<ImageOrderingOptions> _batchGetOptions = new PageAndDateOptions<ImageOrderingOptions>();
+
 
         public ImageApiClientOptions ClientOptions = new ImageApiClientOptions();
 
         private async void BtnTest_Click(object sender, EventArgs e)
         {
             var client = GetClient();
-            var result = await client.GetBatchesAsync(DateTime.Today);
+            var result = await client.ListAvailableReports();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -191,6 +196,7 @@ namespace GSCCCA.ImageAPI.TestApplication
         private void SetGetBatchesControlDisabled()
         {
             BtnGetBatches.Enabled = false;
+            BtnGetBatch.Enabled = false;
             BtnCloseBatch.Enabled = false;
             BtnBatchReport.Enabled = false;
             BtnDownload.Enabled = false;
@@ -211,10 +217,10 @@ namespace GSCCCA.ImageAPI.TestApplication
             var client = GetClient();
             try
             {
-                var batches = await client.GetBatchesAsync(dateGetBatch.Value.Date);
+                var batches = await client.GetBatchesAsync(ChkShowClosed.Checked, _batchesGetOptions);
 
                 LstBatches.Items.Clear();
-                var bArray = batches.ToArray();
+                var bArray = batches.BatchResults.ToArray();
                 LstBatches.Items.AddRange(bArray);
                 LblGetBatchStatus.Text = $"Get Batches Complete";
             }
@@ -230,11 +236,12 @@ namespace GSCCCA.ImageAPI.TestApplication
         private void LstBatches_SelectedValueChanged(object sender, EventArgs e)
         {
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
-            if (LstBatches.SelectedItem is Batch batch)
+            if (LstBatches.SelectedItem is BatchSummary batch)
             {
-                BtnCloseBatch.Enabled = !batch.ClosedDate.HasValue;
-                BtnBatchReport.Enabled = batch.ClosedDate.HasValue;
-                BtnDownload.Enabled = batch.ClosedDate.HasValue;
+                BtnCloseBatch.Enabled = !batch.Closed.HasValue;
+                BtnBatchReport.Enabled = batch.Closed.HasValue;
+                BtnDownload.Enabled = true;
+                BtnGetBatch.Enabled = true;
             }
         }
 
@@ -297,12 +304,31 @@ namespace GSCCCA.ImageAPI.TestApplication
 
             try
             {
+                var pageSize = 50;
                 var client = GetClient();
-                var batchReport = await client.GetBatchReportAsync(TxtDownloadBatchName.Text);
+
+                var options = new PageAndDateOptions<ImageOrderingOptions>();
+                options.PageNumber = 1;
+                options.PageSize = pageSize;
+                options.SortBy = ImageOrderingOptions.Created;
+                options.SortDirection = SortDirection.Ascending;
+
+                Batch batch;
+                
+
+                var images = new List<ImageSubmission>();
+
+                do
+                {
+                    batch = await client.GetBatchAsync(TxtDownloadBatchName.Text, options);
+                    images.AddRange(batch.ImageSubmissions);
+                    options.PageNumber++;
+                } while (batch.ImageSubmissions.Count == pageSize);
+
+                DownloadFilesTable.Clear();
 
 
-
-                batchReport.ImageSubmissions.Where(i => i.Success)
+                    images.Where(i => i.Success)
                     .ToList().ForEach(f =>
                     {
                         AddOrSetDownloadFileStatus(f.ImageSubmissionId, f.FileName, "Pending", "Pending");
@@ -322,9 +348,9 @@ namespace GSCCCA.ImageAPI.TestApplication
         {
 
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
-            if (LstBatches.SelectedItem is Batch batch)
+            if (LstBatches.SelectedItem is BatchSummary batch)
             {
-                if (batch.ClosedDate.HasValue)
+                if (batch.Closed.HasValue)
                 {
                     LblGetBatchStatus.Text = "Error: Batch is already closed";
                     return;
@@ -337,7 +363,7 @@ namespace GSCCCA.ImageAPI.TestApplication
                 {
                     var client = GetClient();
                     var result = await client.CloseBatchAsync(batch.BatchName);
-                    LblGetBatchStatus.Text = result.Detail;
+                    LblGetBatchStatus.Text = $"{result.BatchName} closed on {result.Closed}";
                 }
                 catch (Exception exception)
                 {
@@ -359,18 +385,13 @@ namespace GSCCCA.ImageAPI.TestApplication
         private void BtnDownload_Click(object sender, EventArgs e)
         {
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
-            if (LstBatches.SelectedItem is Batch batch)
+            if (LstBatches.SelectedItem is BatchSummary batch)
             {
-                if (batch.ClosedDate.HasValue)
-                {
+    
                     TxtDownloadBatchName.Text = batch.BatchName;
                     MainTabControl.SelectTab(TabDownloadBatch);
                     BtnListFiles_Click(BtnListFiles, EventArgs.Empty);
-                }
-                else
-                {
-                    LblDownloadStatus.Text = "Error: Batch not closed";
-                }
+               
             }
         }
 
@@ -464,7 +485,7 @@ namespace GSCCCA.ImageAPI.TestApplication
 
                     var file = files.FirstOrDefault(f => f.TargetPath == args.FilePath);
                     if (file != null) 
-                        AddOrSetDownloadFileStatus(file.ImageId, Path.GetFileName(file.TargetPath), image, resultText);
+                        AddOrSetDownloadFileStatus(file.ImageId.GetValueOrDefault(), Path.GetFileName(file.TargetPath), image, resultText);
 
                 };
 
@@ -575,14 +596,23 @@ namespace GSCCCA.ImageAPI.TestApplication
 
         }
 
+        private void SetReportPageControlsEnabled(bool enabled)
+        {
+            TxtBatchNameGetReport.Enabled = enabled;
+            BtnGetReport.Enabled = enabled;
+            BtnGetBatchSummaryReport.Enabled = enabled;
+            BtnEmailBatchReport.Enabled = enabled;
+            BtnEmailBatchSummaryReport.Enabled = enabled;
+        }
+
+
         private async void BtnGetReport_Click(object sender, EventArgs e)
         {
             if (!ValidateChildren(ValidationConstraints.Visible))
                 return;
 
             var bn = TxtBatchNameGetReport.Text;
-            BtnGetReport.Enabled = false;
-            TxtBatchNameGetReport.Enabled = false;
+            SetReportPageControlsEnabled(false);
             LblGetReportStatus.Text = "Getting Batch Report";
             try
             {
@@ -598,8 +628,7 @@ namespace GSCCCA.ImageAPI.TestApplication
                 LblGetReportStatus.Text = exception.ToString();
             }
 
-            BtnGetReport.Enabled = true;
-            TxtBatchNameGetReport.Enabled = true;
+            SetReportPageControlsEnabled(true);
 
 
 
@@ -609,9 +638,9 @@ namespace GSCCCA.ImageAPI.TestApplication
         {
 
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
-            if (LstBatches.SelectedItem is Batch batch)
+            if (LstBatches.SelectedItem is BatchSummary batch)
             {
-                if (batch.ClosedDate.HasValue)
+                if (batch.Closed.HasValue)
                 {
                     TxtBatchNameGetReport.Text = batch.BatchName;
                     MainTabControl.SelectTab(TabReports);
@@ -624,6 +653,141 @@ namespace GSCCCA.ImageAPI.TestApplication
             }
 
             
+        }
+
+        private async void BtnGetBatchGetBatch_Click(object sender, EventArgs e)
+        {
+            if (!ValidateChildren(ValidationConstraints.Visible))
+            {
+                return;
+            }
+            LblGetBatchStatusGetBatch.Text = $"Getting Batch ...";
+            BtnGetBatchGetBatch.Enabled = false;
+            PropGridImageInfo.SelectedObject = null;
+
+            var client = GetClient();
+            try
+            {
+                var batch = await client.GetBatchAsync(TxtBatchNameGetBatch.Text,_batchGetOptions);
+
+                LstImages.Items.Clear();
+                var bArray = batch.ImageSubmissions.ToArray();
+                LstImages.Items.AddRange(bArray);
+                LblGetBatchStatusGetBatch.Text = $"Get Batches Complete";
+            }
+            catch (Exception exception)
+            {
+                LblGetBatchStatusGetBatch.Text = $"Error: {exception}";
+            }
+
+            BtnGetBatchGetBatch.Enabled = true;
+        }
+
+        private void LstImages_SelectedValueChanged(object sender, EventArgs e)
+        {
+            PropGridImageInfo.SelectedObject = LstImages.SelectedItem;
+        }
+
+        private void BtnGetBatch_Click(object sender, EventArgs e)
+        {
+
+            PropGridBatch.SelectedObject = LstBatches.SelectedItem;
+            if (LstBatches.SelectedItem is BatchSummary batch)
+            {
+
+                TxtBatchNameGetBatch.Text = batch.BatchName;
+                MainTabControl.SelectTab(TabGetBatch);
+                BtnGetBatchGetBatch_Click(BtnGetBatchGetBatch, EventArgs.Empty);
+            }
+        }
+
+        private async void BtnGetBatchSummaryReport_Click(object sender, EventArgs e)
+        {
+            if (!ValidateChildren(ValidationConstraints.Visible))
+                return;
+
+            var bn = TxtBatchNameGetReport.Text;
+            SetReportPageControlsEnabled(false);
+            LblGetReportStatus.Text = "Getting Batch Summary Report";
+            try
+            {
+                var client = GetClient();
+                var result = await client.GetBatchSummaryReportAsync(bn);
+
+                var json = JsonConvert.SerializeObject(result, Formatting.Indented);
+                TxtJsonReport.Text = json;
+                LblGetReportStatus.Text = "Batch Summary Report Success";
+            }
+            catch (Exception exception)
+            {
+                LblGetReportStatus.Text = exception.ToString();
+            }
+
+            SetReportPageControlsEnabled(true);
+        }
+
+        private async void BtnEmailBatchSummaryReport_Click(object sender, EventArgs e)
+        {
+
+            if (!ValidateChildren(ValidationConstraints.Visible))
+                return;
+
+            if (string.IsNullOrWhiteSpace(TxtEmailTo.Text))
+            {
+                MessageBox.Show("Email to is required");
+                return;
+            }
+
+            var bn = TxtBatchNameGetReport.Text;
+            SetReportPageControlsEnabled(false);
+            LblGetReportStatus.Text = "Emailing Batch Summary Report";
+            try
+            {
+                var client = GetClient();
+                var result = await client.EmailBatchSummaryReport(TxtEmailTo.Text,bn);
+
+                var json = JsonConvert.SerializeObject(result, Formatting.Indented);
+                TxtJsonReport.Text = json;
+                LblGetReportStatus.Text = "Email Batch Summary Report Success";
+            }
+            catch (Exception exception)
+            {
+                LblGetReportStatus.Text = exception.ToString();
+            }
+
+            SetReportPageControlsEnabled(true);
+
+        }
+
+        private async void BtnEmailBatchReport_Click(object sender, EventArgs e)
+        {
+            if (!ValidateChildren(ValidationConstraints.Visible))
+                return;
+
+            if (string.IsNullOrWhiteSpace(TxtEmailTo.Text))
+            {
+                MessageBox.Show("Email to is required");
+                return;
+            }
+
+            var bn = TxtBatchNameGetReport.Text;
+            SetReportPageControlsEnabled(false);
+            LblGetReportStatus.Text = "Emailing Batch Report";
+            try
+            {
+                var client = GetClient();
+                var result = await client.EmailBatchReport(TxtEmailTo.Text, bn);
+
+                var json = JsonConvert.SerializeObject(result, Formatting.Indented);
+                TxtJsonReport.Text = json;
+                LblGetReportStatus.Text = "Email Batch Report Success";
+            }
+            catch (Exception exception)
+            {
+                LblGetReportStatus.Text = exception.ToString();
+            }
+
+            SetReportPageControlsEnabled(true);
         }
     }
 }

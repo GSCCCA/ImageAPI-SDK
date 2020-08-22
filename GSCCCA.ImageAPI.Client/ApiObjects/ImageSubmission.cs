@@ -10,6 +10,12 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
         [JsonProperty("imageSubmissionId")]
         public int ImageSubmissionId { get; set; }
 
+        [JsonProperty("batchName")]
+        public string BatchName { get; set; }
+
+        [JsonProperty("county")]
+        public string County { get; set; }
+
         [JsonProperty("countyCode")]
         public int CountyCode { get; set; }
 
@@ -22,11 +28,20 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
         [JsonProperty("fileName")]
         public string FileName { get; set; }
 
-        [JsonProperty("submissionTime")]
-        public DateTime? SubmissionTime { get; set; }
+        [JsonProperty("Created")]
+        public DateTime Created { get; set; }
 
         [JsonProperty("success")]
         public bool Success { get; set; }
+
+        [JsonProperty("documentType")]
+        public string DocumentType { get; set; }
+
+        [JsonProperty("fileSize")]
+        public int FileSize { get; set; }
+
+        [JsonProperty("checksum")]
+        public string Checksum { get; set; }
 
     }
 }
