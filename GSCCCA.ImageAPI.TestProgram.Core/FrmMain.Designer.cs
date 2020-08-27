@@ -1,4 +1,4 @@
-﻿namespace GSCCCA.ImageAPI.TestProgram
+﻿namespace GSCCCA.ImageAPI.TestProgram.Core
 {
     partial class FrmMain
     {
@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.BtnTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -75,9 +75,7 @@
             this.BtnBatchReport = new System.Windows.Forms.Button();
             this.LblGetBatchStatus = new System.Windows.Forms.Label();
             this.BtnCloseBatch = new System.Windows.Forms.Button();
-            this.dateGetBatch = new System.Windows.Forms.DateTimePicker();
             this.BtnGetBatches = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.TabDownloadBatch = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -97,33 +95,53 @@
             this.BtnDownloadAll = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.TabReports = new System.Windows.Forms.TabPage();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.TxtJsonReport = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.LblGetReportStatus = new System.Windows.Forms.Label();
+            this.BtnGetReport = new System.Windows.Forms.Button();
+            this.TxtBatchNameGetReport = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.TabImageSupport = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.LstImageBrowser = new System.Windows.Forms.ListBox();
+            this.BtnBrowseImageFolder = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.PropertyGridImageInfo = new System.Windows.Forms.PropertyGrid();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.LblUploadImageInfoStatus = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtBatchNameImageInfo = new System.Windows.Forms.TextBox();
+            this.BtnUploadImageFromInfo = new System.Windows.Forms.Button();
+            this.BtnSaveImage = new System.Windows.Forms.Button();
             this.BtnTestImage = new System.Windows.Forms.Button();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.dataColumn8 = new System.Data.DataColumn();
-            this.PropertyGridImageInfo = new System.Windows.Forms.PropertyGrid();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.BtnSaveImage = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.folderBrowserDialogImageInfo = new System.Windows.Forms.FolderBrowserDialog();
-            this.BtnBrowseImageFolder = new System.Windows.Forms.Button();
-            this.LstImageBrowser = new System.Windows.Forms.ListBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.BtnUploadImageFromInfo = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.TxtBatchNameImageInfo = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LblUploadImageInfoStatus = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.TxtJsonReport = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TxtBatchNameGetReport = new System.Windows.Forms.TextBox();
-            this.BtnGetReport = new System.Windows.Forms.Button();
-            this.LblGetReportStatus = new System.Windows.Forms.Label();
+            this.PropGridBatchOptions = new System.Windows.Forms.PropertyGrid();
+            this.BtnGetBatch = new System.Windows.Forms.Button();
+            this.ChkShowClosed = new System.Windows.Forms.CheckBox();
+            this.TabGetBatch = new System.Windows.Forms.TabPage();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.BtnGetBatchGetBatch = new System.Windows.Forms.Button();
+            this.PropGridGetBatchOptions = new System.Windows.Forms.PropertyGrid();
+            this.LblGetBatchStatusGetBatch = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.propertyGrid2 = new System.Windows.Forms.PropertyGrid();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.LstImages = new System.Windows.Forms.ListBox();
+            this.PropGridImageInfo = new System.Windows.Forms.PropertyGrid();
+            this.TxtBatchNameGetBatch = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnGetBatchSummaryReport = new System.Windows.Forms.Button();
+            this.BtnEmailBatchReport = new System.Windows.Forms.Button();
+            this.BtnEmailBatchSummaryReport = new System.Windows.Forms.Button();
+            this.TxtEmailTo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.MainTabControl.SuspendLayout();
@@ -142,13 +160,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel3.SuspendLayout();
             this.TabReports.SuspendLayout();
-            this.TabImageSupport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.TabImageSupport.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
+            this.TabGetBatch.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnTest
@@ -270,6 +291,7 @@
             // 
             this.MainTabControl.Controls.Add(this.TabUploadFiles);
             this.MainTabControl.Controls.Add(this.TabGetBatches);
+            this.MainTabControl.Controls.Add(this.TabGetBatch);
             this.MainTabControl.Controls.Add(this.TabDownloadBatch);
             this.MainTabControl.Controls.Add(this.TabReports);
             this.MainTabControl.Controls.Add(this.TabImageSupport);
@@ -321,8 +343,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -520,12 +542,12 @@
             this.tableLayoutPanel2.Controls.Add(this.LstBatches, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.PropGridBatch, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 89);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 167);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(627, 463);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(627, 385);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // LstBatches
@@ -535,7 +557,7 @@
             this.LstBatches.FormattingEnabled = true;
             this.LstBatches.Location = new System.Drawing.Point(3, 3);
             this.LstBatches.Name = "LstBatches";
-            this.LstBatches.Size = new System.Drawing.Size(307, 457);
+            this.LstBatches.Size = new System.Drawing.Size(307, 379);
             this.LstBatches.TabIndex = 0;
             this.LstBatches.SelectedValueChanged += new System.EventHandler(this.LstBatches_SelectedValueChanged);
             // 
@@ -544,28 +566,29 @@
             this.PropGridBatch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PropGridBatch.Location = new System.Drawing.Point(316, 3);
             this.PropGridBatch.Name = "PropGridBatch";
-            this.PropGridBatch.Size = new System.Drawing.Size(308, 457);
+            this.PropGridBatch.Size = new System.Drawing.Size(308, 379);
             this.PropGridBatch.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ChkShowClosed);
+            this.panel1.Controls.Add(this.BtnGetBatch);
+            this.panel1.Controls.Add(this.PropGridBatchOptions);
             this.panel1.Controls.Add(this.BtnDownload);
             this.panel1.Controls.Add(this.BtnBatchReport);
             this.panel1.Controls.Add(this.LblGetBatchStatus);
             this.panel1.Controls.Add(this.BtnCloseBatch);
-            this.panel1.Controls.Add(this.dateGetBatch);
             this.panel1.Controls.Add(this.BtnGetBatches);
-            this.panel1.Controls.Add(this.label4);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 86);
+            this.panel1.Size = new System.Drawing.Size(627, 164);
             this.panel1.TabIndex = 3;
             // 
             // BtnDownload
             // 
             this.BtnDownload.Enabled = false;
-            this.BtnDownload.Location = new System.Drawing.Point(249, 43);
+            this.BtnDownload.Location = new System.Drawing.Point(17, 97);
             this.BtnDownload.Name = "BtnDownload";
             this.BtnDownload.Size = new System.Drawing.Size(93, 23);
             this.BtnDownload.TabIndex = 6;
@@ -576,7 +599,7 @@
             // BtnBatchReport
             // 
             this.BtnBatchReport.Enabled = false;
-            this.BtnBatchReport.Location = new System.Drawing.Point(249, 14);
+            this.BtnBatchReport.Location = new System.Drawing.Point(17, 68);
             this.BtnBatchReport.Name = "BtnBatchReport";
             this.BtnBatchReport.Size = new System.Drawing.Size(93, 23);
             this.BtnBatchReport.TabIndex = 5;
@@ -588,49 +611,31 @@
             // 
             this.LblGetBatchStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblGetBatchStatus.Location = new System.Drawing.Point(348, 14);
+            this.LblGetBatchStatus.Location = new System.Drawing.Point(427, 14);
             this.LblGetBatchStatus.Name = "LblGetBatchStatus";
-            this.LblGetBatchStatus.Size = new System.Drawing.Size(274, 52);
+            this.LblGetBatchStatus.Size = new System.Drawing.Size(195, 144);
             this.LblGetBatchStatus.TabIndex = 4;
             // 
             // BtnCloseBatch
             // 
             this.BtnCloseBatch.Enabled = false;
-            this.BtnCloseBatch.Location = new System.Drawing.Point(158, 43);
+            this.BtnCloseBatch.Location = new System.Drawing.Point(17, 126);
             this.BtnCloseBatch.Name = "BtnCloseBatch";
-            this.BtnCloseBatch.Size = new System.Drawing.Size(75, 23);
+            this.BtnCloseBatch.Size = new System.Drawing.Size(93, 23);
             this.BtnCloseBatch.TabIndex = 3;
             this.BtnCloseBatch.Text = "Close Batch";
             this.BtnCloseBatch.UseVisualStyleBackColor = true;
             this.BtnCloseBatch.Click += new System.EventHandler(this.BtnCloseBatch_Click);
             // 
-            // dateGetBatch
-            // 
-            this.dateGetBatch.CustomFormat = "yyyy-MM-dd";
-            this.dateGetBatch.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateGetBatch.Location = new System.Drawing.Point(25, 42);
-            this.dateGetBatch.Name = "dateGetBatch";
-            this.dateGetBatch.Size = new System.Drawing.Size(105, 20);
-            this.dateGetBatch.TabIndex = 1;
-            // 
             // BtnGetBatches
             // 
-            this.BtnGetBatches.Location = new System.Drawing.Point(158, 14);
+            this.BtnGetBatches.Location = new System.Drawing.Point(17, 9);
             this.BtnGetBatches.Name = "BtnGetBatches";
-            this.BtnGetBatches.Size = new System.Drawing.Size(75, 23);
+            this.BtnGetBatches.Size = new System.Drawing.Size(93, 23);
             this.BtnGetBatches.TabIndex = 2;
             this.BtnGetBatches.Text = "GetBatches";
             this.BtnGetBatches.UseVisualStyleBackColor = true;
             this.BtnGetBatches.Click += new System.EventHandler(this.BtnGetBatches_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(22, 14);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Batch Date:";
             // 
             // TabDownloadBatch
             // 
@@ -675,8 +680,8 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView2.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowTemplate.Height = 35;
             this.dataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -751,6 +756,7 @@
             // 
             // BtnBrowseFolder
             // 
+            this.BtnBrowseFolder.CausesValidation = false;
             this.BtnBrowseFolder.Location = new System.Drawing.Point(180, 62);
             this.BtnBrowseFolder.Name = "BtnBrowseFolder";
             this.BtnBrowseFolder.Size = new System.Drawing.Size(75, 23);
@@ -843,6 +849,78 @@
             this.TabReports.Text = "Get Report";
             this.TabReports.UseVisualStyleBackColor = true;
             // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.TxtJsonReport);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 102);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(627, 450);
+            this.panel9.TabIndex = 1;
+            // 
+            // TxtJsonReport
+            // 
+            this.TxtJsonReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtJsonReport.Location = new System.Drawing.Point(0, 0);
+            this.TxtJsonReport.Multiline = true;
+            this.TxtJsonReport.Name = "TxtJsonReport";
+            this.TxtJsonReport.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TxtJsonReport.Size = new System.Drawing.Size(627, 450);
+            this.TxtJsonReport.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.TxtEmailTo);
+            this.panel8.Controls.Add(this.label4);
+            this.panel8.Controls.Add(this.BtnEmailBatchSummaryReport);
+            this.panel8.Controls.Add(this.BtnEmailBatchReport);
+            this.panel8.Controls.Add(this.BtnGetBatchSummaryReport);
+            this.panel8.Controls.Add(this.LblGetReportStatus);
+            this.panel8.Controls.Add(this.BtnGetReport);
+            this.panel8.Controls.Add(this.TxtBatchNameGetReport);
+            this.panel8.Controls.Add(this.label8);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(627, 99);
+            this.panel8.TabIndex = 0;
+            // 
+            // LblGetReportStatus
+            // 
+            this.LblGetReportStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LblGetReportStatus.Location = new System.Drawing.Point(0, 65);
+            this.LblGetReportStatus.Name = "LblGetReportStatus";
+            this.LblGetReportStatus.Padding = new System.Windows.Forms.Padding(5);
+            this.LblGetReportStatus.Size = new System.Drawing.Size(627, 34);
+            this.LblGetReportStatus.TabIndex = 3;
+            // 
+            // BtnGetReport
+            // 
+            this.BtnGetReport.Location = new System.Drawing.Point(296, 8);
+            this.BtnGetReport.Name = "BtnGetReport";
+            this.BtnGetReport.Size = new System.Drawing.Size(154, 20);
+            this.BtnGetReport.TabIndex = 2;
+            this.BtnGetReport.Text = "Get Batch Report";
+            this.BtnGetReport.UseVisualStyleBackColor = true;
+            this.BtnGetReport.Click += new System.EventHandler(this.BtnGetReport_Click);
+            // 
+            // TxtBatchNameGetReport
+            // 
+            this.TxtBatchNameGetReport.Location = new System.Drawing.Point(88, 8);
+            this.TxtBatchNameGetReport.Name = "TxtBatchNameGetReport";
+            this.TxtBatchNameGetReport.Size = new System.Drawing.Size(201, 20);
+            this.TxtBatchNameGetReport.TabIndex = 1;
+            this.TxtBatchNameGetReport.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Batch Name:";
+            // 
             // TabImageSupport
             // 
             this.TabImageSupport.Controls.Add(this.panel6);
@@ -855,6 +933,115 @@
             this.TabImageSupport.TabIndex = 4;
             this.TabImageSupport.Text = "Image Info";
             this.TabImageSupport.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.LstImageBrowser);
+            this.panel6.Controls.Add(this.BtnBrowseImageFolder);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(291, 549);
+            this.panel6.TabIndex = 3;
+            // 
+            // LstImageBrowser
+            // 
+            this.LstImageBrowser.DisplayMember = "FileName";
+            this.LstImageBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LstImageBrowser.FormattingEnabled = true;
+            this.LstImageBrowser.Location = new System.Drawing.Point(0, 23);
+            this.LstImageBrowser.Name = "LstImageBrowser";
+            this.LstImageBrowser.Size = new System.Drawing.Size(291, 526);
+            this.LstImageBrowser.TabIndex = 1;
+            this.LstImageBrowser.SelectedValueChanged += new System.EventHandler(this.LstImageBrowser_SelectedValueChanged);
+            // 
+            // BtnBrowseImageFolder
+            // 
+            this.BtnBrowseImageFolder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBrowseImageFolder.Location = new System.Drawing.Point(0, 0);
+            this.BtnBrowseImageFolder.Name = "BtnBrowseImageFolder";
+            this.BtnBrowseImageFolder.Size = new System.Drawing.Size(291, 23);
+            this.BtnBrowseImageFolder.TabIndex = 0;
+            this.BtnBrowseImageFolder.Text = "Browse Folder";
+            this.BtnBrowseImageFolder.UseVisualStyleBackColor = true;
+            this.BtnBrowseImageFolder.Click += new System.EventHandler(this.BtnBrowseImageFolder_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.PropertyGridImageInfo);
+            this.panel5.Controls.Add(this.panel7);
+            this.panel5.Controls.Add(this.BtnSaveImage);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel5.Location = new System.Drawing.Point(294, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(336, 549);
+            this.panel5.TabIndex = 2;
+            // 
+            // PropertyGridImageInfo
+            // 
+            this.PropertyGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PropertyGridImageInfo.Location = new System.Drawing.Point(0, 0);
+            this.PropertyGridImageInfo.Name = "PropertyGridImageInfo";
+            this.PropertyGridImageInfo.Size = new System.Drawing.Size(336, 464);
+            this.PropertyGridImageInfo.TabIndex = 1;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.LblUploadImageInfoStatus);
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Controls.Add(this.TxtBatchNameImageInfo);
+            this.panel7.Controls.Add(this.BtnUploadImageFromInfo);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 464);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(336, 62);
+            this.panel7.TabIndex = 4;
+            // 
+            // LblUploadImageInfoStatus
+            // 
+            this.LblUploadImageInfoStatus.AutoSize = true;
+            this.LblUploadImageInfoStatus.Location = new System.Drawing.Point(136, 7);
+            this.LblUploadImageInfoStatus.Name = "LblUploadImageInfoStatus";
+            this.LblUploadImageInfoStatus.Size = new System.Drawing.Size(0, 13);
+            this.LblUploadImageInfoStatus.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "Batch Name:";
+            // 
+            // TxtBatchNameImageInfo
+            // 
+            this.TxtBatchNameImageInfo.Location = new System.Drawing.Point(6, 28);
+            this.TxtBatchNameImageInfo.Name = "TxtBatchNameImageInfo";
+            this.TxtBatchNameImageInfo.Size = new System.Drawing.Size(211, 20);
+            this.TxtBatchNameImageInfo.TabIndex = 4;
+            this.TxtBatchNameImageInfo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            // 
+            // BtnUploadImageFromInfo
+            // 
+            this.BtnUploadImageFromInfo.Location = new System.Drawing.Point(223, 28);
+            this.BtnUploadImageFromInfo.Name = "BtnUploadImageFromInfo";
+            this.BtnUploadImageFromInfo.Size = new System.Drawing.Size(108, 23);
+            this.BtnUploadImageFromInfo.TabIndex = 3;
+            this.BtnUploadImageFromInfo.Text = "Upload Image";
+            this.BtnUploadImageFromInfo.UseVisualStyleBackColor = true;
+            this.BtnUploadImageFromInfo.Click += new System.EventHandler(this.BtnUploadImageFromInfo_Click);
+            // 
+            // BtnSaveImage
+            // 
+            this.BtnSaveImage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnSaveImage.Location = new System.Drawing.Point(0, 526);
+            this.BtnSaveImage.Name = "BtnSaveImage";
+            this.BtnSaveImage.Size = new System.Drawing.Size(336, 23);
+            this.BtnSaveImage.TabIndex = 2;
+            this.BtnSaveImage.Text = "Save Image";
+            this.BtnSaveImage.UseVisualStyleBackColor = true;
+            this.BtnSaveImage.Click += new System.EventHandler(this.BtnSaveImage_Click);
             // 
             // BtnTestImage
             // 
@@ -894,201 +1081,224 @@
             this.dataColumn8.ColumnName = "StatusImage";
             this.dataColumn8.DataType = typeof(object);
             // 
-            // PropertyGridImageInfo
-            // 
-            this.PropertyGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PropertyGridImageInfo.Location = new System.Drawing.Point(0, 0);
-            this.PropertyGridImageInfo.Name = "PropertyGridImageInfo";
-            this.PropertyGridImageInfo.Size = new System.Drawing.Size(336, 464);
-            this.PropertyGridImageInfo.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.PropertyGridImageInfo);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.BtnSaveImage);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(294, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(336, 549);
-            this.panel5.TabIndex = 2;
-            // 
-            // BtnSaveImage
-            // 
-            this.BtnSaveImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnSaveImage.Location = new System.Drawing.Point(0, 526);
-            this.BtnSaveImage.Name = "BtnSaveImage";
-            this.BtnSaveImage.Size = new System.Drawing.Size(336, 23);
-            this.BtnSaveImage.TabIndex = 2;
-            this.BtnSaveImage.Text = "Save Image";
-            this.BtnSaveImage.UseVisualStyleBackColor = true;
-            this.BtnSaveImage.Click += new System.EventHandler(this.BtnSaveImage_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.LstImageBrowser);
-            this.panel6.Controls.Add(this.BtnBrowseImageFolder);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(291, 549);
-            this.panel6.TabIndex = 3;
-            // 
             // folderBrowserDialogImageInfo
             // 
             this.folderBrowserDialogImageInfo.RootFolder = System.Environment.SpecialFolder.MyComputer;
             this.folderBrowserDialogImageInfo.ShowNewFolderButton = false;
-            // 
-            // BtnBrowseImageFolder
-            // 
-            this.BtnBrowseImageFolder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnBrowseImageFolder.Location = new System.Drawing.Point(0, 0);
-            this.BtnBrowseImageFolder.Name = "BtnBrowseImageFolder";
-            this.BtnBrowseImageFolder.Size = new System.Drawing.Size(291, 23);
-            this.BtnBrowseImageFolder.TabIndex = 0;
-            this.BtnBrowseImageFolder.Text = "Browse Folder";
-            this.BtnBrowseImageFolder.UseVisualStyleBackColor = true;
-            this.BtnBrowseImageFolder.Click += new System.EventHandler(this.BtnBrowseImageFolder_Click);
-            // 
-            // LstImageBrowser
-            // 
-            this.LstImageBrowser.DisplayMember = "FileName";
-            this.LstImageBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LstImageBrowser.FormattingEnabled = true;
-            this.LstImageBrowser.Location = new System.Drawing.Point(0, 23);
-            this.LstImageBrowser.Name = "LstImageBrowser";
-            this.LstImageBrowser.Size = new System.Drawing.Size(291, 526);
-            this.LstImageBrowser.TabIndex = 1;
-            this.LstImageBrowser.SelectedValueChanged += new System.EventHandler(this.LstImageBrowser_SelectedValueChanged);
             // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "tif";
             this.saveFileDialog1.Filter = "Tif Files|*.tif;*.tiff";
             // 
-            // BtnUploadImageFromInfo
+            // PropGridBatchOptions
             // 
-            this.BtnUploadImageFromInfo.Location = new System.Drawing.Point(223, 28);
-            this.BtnUploadImageFromInfo.Name = "BtnUploadImageFromInfo";
-            this.BtnUploadImageFromInfo.Size = new System.Drawing.Size(108, 23);
-            this.BtnUploadImageFromInfo.TabIndex = 3;
-            this.BtnUploadImageFromInfo.Text = "Upload Image";
-            this.BtnUploadImageFromInfo.UseVisualStyleBackColor = true;
-            this.BtnUploadImageFromInfo.Click += new System.EventHandler(this.BtnUploadImageFromInfo_Click);
+            this.PropGridBatchOptions.HelpVisible = false;
+            this.PropGridBatchOptions.Location = new System.Drawing.Point(211, 9);
+            this.PropGridBatchOptions.Name = "PropGridBatchOptions";
+            this.PropGridBatchOptions.Size = new System.Drawing.Size(210, 149);
+            this.PropGridBatchOptions.TabIndex = 7;
             // 
-            // panel7
+            // BtnGetBatch
             // 
-            this.panel7.Controls.Add(this.LblUploadImageInfoStatus);
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.TxtBatchNameImageInfo);
-            this.panel7.Controls.Add(this.BtnUploadImageFromInfo);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 464);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(336, 62);
-            this.panel7.TabIndex = 4;
+            this.BtnGetBatch.Enabled = false;
+            this.BtnGetBatch.Location = new System.Drawing.Point(17, 39);
+            this.BtnGetBatch.Name = "BtnGetBatch";
+            this.BtnGetBatch.Size = new System.Drawing.Size(93, 23);
+            this.BtnGetBatch.TabIndex = 8;
+            this.BtnGetBatch.Text = "GetBatch";
+            this.BtnGetBatch.UseVisualStyleBackColor = true;
+            this.BtnGetBatch.Click += new System.EventHandler(this.BtnGetBatch_Click);
             // 
-            // TxtBatchNameImageInfo
+            // ChkShowClosed
             // 
-            this.TxtBatchNameImageInfo.Location = new System.Drawing.Point(6, 28);
-            this.TxtBatchNameImageInfo.Name = "TxtBatchNameImageInfo";
-            this.TxtBatchNameImageInfo.Size = new System.Drawing.Size(211, 20);
-            this.TxtBatchNameImageInfo.TabIndex = 4;
-            this.TxtBatchNameImageInfo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            this.ChkShowClosed.AutoSize = true;
+            this.ChkShowClosed.Location = new System.Drawing.Point(117, 14);
+            this.ChkShowClosed.Name = "ChkShowClosed";
+            this.ChkShowClosed.Size = new System.Drawing.Size(88, 17);
+            this.ChkShowClosed.TabIndex = 9;
+            this.ChkShowClosed.Text = "Show Closed";
+            this.ChkShowClosed.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // TabGetBatch
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Batch Name:";
+            this.TabGetBatch.Controls.Add(this.tableLayoutPanel3);
+            this.TabGetBatch.Controls.Add(this.panel10);
+            this.TabGetBatch.Controls.Add(this.listBox1);
+            this.TabGetBatch.Controls.Add(this.propertyGrid2);
+            this.TabGetBatch.Location = new System.Drawing.Point(4, 22);
+            this.TabGetBatch.Name = "TabGetBatch";
+            this.TabGetBatch.Padding = new System.Windows.Forms.Padding(3);
+            this.TabGetBatch.Size = new System.Drawing.Size(633, 555);
+            this.TabGetBatch.TabIndex = 5;
+            this.TabGetBatch.Text = "Get Batch";
+            this.TabGetBatch.UseVisualStyleBackColor = true;
             // 
-            // LblUploadImageInfoStatus
+            // panel10
             // 
-            this.LblUploadImageInfoStatus.AutoSize = true;
-            this.LblUploadImageInfoStatus.Location = new System.Drawing.Point(136, 7);
-            this.LblUploadImageInfoStatus.Name = "LblUploadImageInfoStatus";
-            this.LblUploadImageInfoStatus.Size = new System.Drawing.Size(0, 13);
-            this.LblUploadImageInfoStatus.TabIndex = 6;
+            this.panel10.Controls.Add(this.TxtBatchNameGetBatch);
+            this.panel10.Controls.Add(this.label9);
+            this.panel10.Controls.Add(this.BtnGetBatchGetBatch);
+            this.panel10.Controls.Add(this.PropGridGetBatchOptions);
+            this.panel10.Controls.Add(this.LblGetBatchStatusGetBatch);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(3, 3);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(627, 164);
+            this.panel10.TabIndex = 6;
             // 
-            // panel8
+            // BtnGetBatchGetBatch
             // 
-            this.panel8.Controls.Add(this.LblGetReportStatus);
-            this.panel8.Controls.Add(this.BtnGetReport);
-            this.panel8.Controls.Add(this.TxtBatchNameGetReport);
-            this.panel8.Controls.Add(this.label8);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(3, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(627, 80);
-            this.panel8.TabIndex = 0;
+            this.BtnGetBatchGetBatch.Location = new System.Drawing.Point(16, 68);
+            this.BtnGetBatchGetBatch.Name = "BtnGetBatchGetBatch";
+            this.BtnGetBatchGetBatch.Size = new System.Drawing.Size(170, 23);
+            this.BtnGetBatchGetBatch.TabIndex = 8;
+            this.BtnGetBatchGetBatch.Text = "GetBatch";
+            this.BtnGetBatchGetBatch.UseVisualStyleBackColor = true;
+            this.BtnGetBatchGetBatch.Click += new System.EventHandler(this.BtnGetBatchGetBatch_Click);
             // 
-            // panel9
+            // PropGridGetBatchOptions
             // 
-            this.panel9.Controls.Add(this.TxtJsonReport);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 83);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(627, 469);
-            this.panel9.TabIndex = 1;
+            this.PropGridGetBatchOptions.HelpVisible = false;
+            this.PropGridGetBatchOptions.Location = new System.Drawing.Point(211, 9);
+            this.PropGridGetBatchOptions.Name = "PropGridGetBatchOptions";
+            this.PropGridGetBatchOptions.Size = new System.Drawing.Size(210, 149);
+            this.PropGridGetBatchOptions.TabIndex = 7;
             // 
-            // TxtJsonReport
+            // LblGetBatchStatusGetBatch
             // 
-            this.TxtJsonReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtJsonReport.Location = new System.Drawing.Point(0, 0);
-            this.TxtJsonReport.Multiline = true;
-            this.TxtJsonReport.Name = "TxtJsonReport";
-            this.TxtJsonReport.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtJsonReport.Size = new System.Drawing.Size(627, 469);
-            this.TxtJsonReport.TabIndex = 0;
+            this.LblGetBatchStatusGetBatch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblGetBatchStatusGetBatch.Location = new System.Drawing.Point(427, 14);
+            this.LblGetBatchStatusGetBatch.Name = "LblGetBatchStatusGetBatch";
+            this.LblGetBatchStatusGetBatch.Size = new System.Drawing.Size(195, 144);
+            this.LblGetBatchStatusGetBatch.TabIndex = 4;
             // 
-            // label8
+            // listBox1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 11);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Batch Name:";
+            this.listBox1.DisplayMember = "BatchName";
+            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(3, 3);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(627, 549);
+            this.listBox1.TabIndex = 4;
             // 
-            // TxtBatchNameGetReport
+            // propertyGrid2
             // 
-            this.TxtBatchNameGetReport.Location = new System.Drawing.Point(88, 8);
-            this.TxtBatchNameGetReport.Name = "TxtBatchNameGetReport";
-            this.TxtBatchNameGetReport.Size = new System.Drawing.Size(201, 20);
-            this.TxtBatchNameGetReport.TabIndex = 1;
-            this.TxtBatchNameGetReport.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            this.propertyGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGrid2.Location = new System.Drawing.Point(3, 3);
+            this.propertyGrid2.Name = "propertyGrid2";
+            this.propertyGrid2.Size = new System.Drawing.Size(627, 549);
+            this.propertyGrid2.TabIndex = 5;
             // 
-            // BtnGetReport
+            // tableLayoutPanel3
             // 
-            this.BtnGetReport.Location = new System.Drawing.Point(296, 8);
-            this.BtnGetReport.Name = "BtnGetReport";
-            this.BtnGetReport.Size = new System.Drawing.Size(101, 20);
-            this.BtnGetReport.TabIndex = 2;
-            this.BtnGetReport.Text = "Get Report";
-            this.BtnGetReport.UseVisualStyleBackColor = true;
-            this.BtnGetReport.Click += new System.EventHandler(this.BtnGetReport_Click);
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.LstImages, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.PropGridImageInfo, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 167);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(627, 385);
+            this.tableLayoutPanel3.TabIndex = 7;
             // 
-            // LblGetReportStatus
+            // LstImages
             // 
-            this.LblGetReportStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LblGetReportStatus.Location = new System.Drawing.Point(0, 46);
-            this.LblGetReportStatus.Name = "LblGetReportStatus";
-            this.LblGetReportStatus.Padding = new System.Windows.Forms.Padding(5);
-            this.LblGetReportStatus.Size = new System.Drawing.Size(627, 34);
-            this.LblGetReportStatus.TabIndex = 3;
+            this.LstImages.DisplayMember = "FileName";
+            this.LstImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LstImages.FormattingEnabled = true;
+            this.LstImages.Location = new System.Drawing.Point(3, 3);
+            this.LstImages.Name = "LstImages";
+            this.LstImages.Size = new System.Drawing.Size(307, 379);
+            this.LstImages.TabIndex = 0;
+            this.LstImages.SelectedValueChanged += new System.EventHandler(this.LstImages_SelectedValueChanged);
+            // 
+            // PropGridImageInfo
+            // 
+            this.PropGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PropGridImageInfo.Location = new System.Drawing.Point(316, 3);
+            this.PropGridImageInfo.Name = "PropGridImageInfo";
+            this.PropGridImageInfo.Size = new System.Drawing.Size(308, 379);
+            this.PropGridImageInfo.TabIndex = 1;
+            // 
+            // TxtBatchNameGetBatch
+            // 
+            this.TxtBatchNameGetBatch.Location = new System.Drawing.Point(16, 30);
+            this.TxtBatchNameGetBatch.Name = "TxtBatchNameGetBatch";
+            this.TxtBatchNameGetBatch.Size = new System.Drawing.Size(170, 20);
+            this.TxtBatchNameGetBatch.TabIndex = 10;
+            this.TxtBatchNameGetBatch.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 14);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(69, 13);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Batch Name:";
+            // 
+            // BtnGetBatchSummaryReport
+            // 
+            this.BtnGetBatchSummaryReport.Location = new System.Drawing.Point(296, 34);
+            this.BtnGetBatchSummaryReport.Name = "BtnGetBatchSummaryReport";
+            this.BtnGetBatchSummaryReport.Size = new System.Drawing.Size(154, 23);
+            this.BtnGetBatchSummaryReport.TabIndex = 4;
+            this.BtnGetBatchSummaryReport.Text = "Get Batch Summary Report";
+            this.BtnGetBatchSummaryReport.UseVisualStyleBackColor = true;
+            this.BtnGetBatchSummaryReport.Click += new System.EventHandler(this.BtnGetBatchSummaryReport_Click);
+            // 
+            // BtnEmailBatchReport
+            // 
+            this.BtnEmailBatchReport.Location = new System.Drawing.Point(456, 7);
+            this.BtnEmailBatchReport.Name = "BtnEmailBatchReport";
+            this.BtnEmailBatchReport.Size = new System.Drawing.Size(154, 20);
+            this.BtnEmailBatchReport.TabIndex = 5;
+            this.BtnEmailBatchReport.Text = "Email Batch Report";
+            this.BtnEmailBatchReport.UseVisualStyleBackColor = true;
+            this.BtnEmailBatchReport.Click += new System.EventHandler(this.BtnEmailBatchReport_Click);
+            // 
+            // BtnEmailBatchSummaryReport
+            // 
+            this.BtnEmailBatchSummaryReport.Location = new System.Drawing.Point(456, 35);
+            this.BtnEmailBatchSummaryReport.Name = "BtnEmailBatchSummaryReport";
+            this.BtnEmailBatchSummaryReport.Size = new System.Drawing.Size(154, 22);
+            this.BtnEmailBatchSummaryReport.TabIndex = 6;
+            this.BtnEmailBatchSummaryReport.Text = "Email Batch Summary Report";
+            this.BtnEmailBatchSummaryReport.UseVisualStyleBackColor = true;
+            this.BtnEmailBatchSummaryReport.Click += new System.EventHandler(this.BtnEmailBatchSummaryReport_Click);
+            // 
+            // TxtEmailTo
+            // 
+            this.TxtEmailTo.Location = new System.Drawing.Point(89, 34);
+            this.TxtEmailTo.Name = "TxtEmailTo";
+            this.TxtEmailTo.Size = new System.Drawing.Size(201, 20);
+            this.TxtEmailTo.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Email To:";
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 581);
+            this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.MainTabControl);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.BtnTest);
             this.Name = "FrmMain";
             this.Text = "Image API Test Application";
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -1114,16 +1324,20 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.TabReports.ResumeLayout(false);
-            this.TabImageSupport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.TabImageSupport.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
+            this.TabGetBatch.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1166,9 +1380,7 @@
         private System.Windows.Forms.ListBox LstBatches;
         private System.Windows.Forms.PropertyGrid PropGridBatch;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateGetBatch;
         private System.Windows.Forms.Button BtnGetBatches;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblGetBatchStatus;
         private System.Windows.Forms.Button BtnCloseBatch;
         private System.Windows.Forms.Button BtnDownload;
@@ -1222,6 +1434,26 @@
         private System.Windows.Forms.Button BtnGetReport;
         private System.Windows.Forms.TextBox TxtBatchNameGetReport;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button BtnGetBatch;
+        private System.Windows.Forms.PropertyGrid PropGridBatchOptions;
+        private System.Windows.Forms.CheckBox ChkShowClosed;
+        private System.Windows.Forms.TabPage TabGetBatch;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.ListBox LstImages;
+        private System.Windows.Forms.PropertyGrid PropGridImageInfo;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button BtnGetBatchGetBatch;
+        private System.Windows.Forms.PropertyGrid PropGridGetBatchOptions;
+        private System.Windows.Forms.Label LblGetBatchStatusGetBatch;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.PropertyGrid propertyGrid2;
+        private System.Windows.Forms.TextBox TxtBatchNameGetBatch;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button BtnGetBatchSummaryReport;
+        private System.Windows.Forms.Button BtnEmailBatchSummaryReport;
+        private System.Windows.Forms.Button BtnEmailBatchReport;
+        private System.Windows.Forms.TextBox TxtEmailTo;
+        private System.Windows.Forms.Label label4;
     }
 }
 

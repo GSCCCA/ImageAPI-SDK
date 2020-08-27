@@ -323,7 +323,7 @@ namespace GSCCCA.ImageAPI.TestApplication
                     batch = await client.GetBatchAsync(TxtDownloadBatchName.Text, options);
                     images.AddRange(batch.ImageSubmissions);
                     options.PageNumber++;
-                } while (batch.ImageSubmissions.Count == pageSize);
+                } while (!string.IsNullOrEmpty(batch.Paging.Next));
 
                 DownloadFilesTable.Clear();
 

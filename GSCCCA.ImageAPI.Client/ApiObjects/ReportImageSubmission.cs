@@ -6,8 +6,6 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
 {
     public class ReportImageSubmission : ImageSubmission
     {
-
-        public string CountyName { get; set; }
-        public string Description { get; set; }
+        public string RejectDescription { get; set; }
     }
 }

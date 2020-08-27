@@ -17,7 +17,7 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
         public string County { get; set; }
 
         [JsonProperty("countyCode")]
-        public int CountyCode { get; set; }
+        public int? CountyCode { get; set; }
 
         [JsonProperty("book")]
         public string Book { get; set; }

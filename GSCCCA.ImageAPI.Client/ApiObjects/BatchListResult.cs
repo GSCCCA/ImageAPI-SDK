@@ -4,8 +4,9 @@ using System.Text;
 
 namespace GSCCCA.ImageAPI.Client.ApiObjects
 {
-    public class BatchListResult
+    public class BatchListResult : IPagingInfo
     {
         public List<BatchSummary> BatchResults { get; set; }
+        public PagingInfo Paging { get; set; }
     }
 }

@@ -33,11 +33,12 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
 
     }
 
-    public class Batch : BatchSummary
+    public class Batch : BatchSummary,  IPagingInfo
     {
         [JsonProperty("imageSubmissions")]
         public List<ImageSubmission> ImageSubmissions { get; set; }
-    }
+        public PagingInfo Paging { get; set; }
+}
 
 
 
