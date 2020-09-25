@@ -299,6 +299,7 @@
             // 
             // MainTabControl
             // 
+            this.MainTabControl.CausesValidation = false;
             this.MainTabControl.Controls.Add(this.TabUploadFiles);
             this.MainTabControl.Controls.Add(this.TabGetBatches);
             this.MainTabControl.Controls.Add(this.TabGetBatch);
@@ -1171,7 +1172,7 @@
             this.LblGetReportStatus.Location = new System.Drawing.Point(0, 75);
             this.LblGetReportStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LblGetReportStatus.Name = "LblGetReportStatus";
-            this.LblGetReportStatus.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.LblGetReportStatus.Padding = new System.Windows.Forms.Padding(6);
             this.LblGetReportStatus.Size = new System.Drawing.Size(732, 39);
             this.LblGetReportStatus.TabIndex = 3;
             // 
@@ -1245,6 +1246,7 @@
             // 
             // BtnBrowseImageFolder
             // 
+            this.BtnBrowseImageFolder.CausesValidation = false;
             this.BtnBrowseImageFolder.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnBrowseImageFolder.Location = new System.Drawing.Point(0, 0);
             this.BtnBrowseImageFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1330,6 +1332,7 @@
             // 
             // BtnSaveImage
             // 
+            this.BtnSaveImage.CausesValidation = false;
             this.BtnSaveImage.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnSaveImage.Location = new System.Drawing.Point(0, 609);
             this.BtnSaveImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -1396,6 +1399,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1068, 670);
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.MainTabControl);

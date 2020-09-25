@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.BtnTest = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -290,6 +290,7 @@
             // 
             // MainTabControl
             // 
+            this.MainTabControl.CausesValidation = false;
             this.MainTabControl.Controls.Add(this.TabUploadFiles);
             this.MainTabControl.Controls.Add(this.TabGetBatches);
             this.MainTabControl.Controls.Add(this.TabGetBatch);
@@ -344,8 +345,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.RowTemplate.Height = 35;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -834,8 +835,8 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowTemplate.Height = 35;
             this.dataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -1157,6 +1158,7 @@
             // 
             // BtnBrowseImageFolder
             // 
+            this.BtnBrowseImageFolder.CausesValidation = false;
             this.BtnBrowseImageFolder.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnBrowseImageFolder.Location = new System.Drawing.Point(0, 0);
             this.BtnBrowseImageFolder.Name = "BtnBrowseImageFolder";
@@ -1234,6 +1236,7 @@
             // 
             // BtnSaveImage
             // 
+            this.BtnSaveImage.CausesValidation = false;
             this.BtnSaveImage.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnSaveImage.Location = new System.Drawing.Point(0, 526);
             this.BtnSaveImage.Name = "BtnSaveImage";
@@ -1295,7 +1298,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(915, 581);
+            this.ControlBox = false;
             this.Controls.Add(this.BtnTest);
             this.Controls.Add(this.MainTabControl);
             this.Controls.Add(this.splitter1);

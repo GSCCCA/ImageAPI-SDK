@@ -14,10 +14,10 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
     {
         //If this RegEx is modified, it must continue to return the doc type (an enum value) as group 1,
         //the County ID as group 2, the book as group 3, and the page as group 4
-        public const string DocumentNameRegex = @"\A(deed|plat|lien|ucc)\\(\d{1,3})\\(\d{1,5})\\(\d{1,6}[\w]?)";
+        public const string DocumentNameRegex = @"\A(deed|plat|lien|ucc)\\(\d{1,3})\\(\w{1,5})\\(\w{1,6})";
         
-        public const string PageRegex = @"\A\d{1,6}[\w]?\z";
-        public const string BookRegex = @"\A\d{1,5}\z";
+        public const string PageRegex = @"\A\w{1,6}\z";
+        public const string BookRegex = @"\A\w{1,5}\z";
 
 
         private const TiffTag TIFFTAG_PreviousPage = (TiffTag)37572;

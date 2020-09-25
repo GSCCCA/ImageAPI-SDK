@@ -519,15 +519,21 @@ namespace GSCCCA.ImageAPI.TestApplication
         {
             if (folderBrowserDialogImageInfo.ShowDialog() == DialogResult.OK)
             {
-                var files = Directory.EnumerateFiles(folderBrowserDialogImageInfo.SelectedPath, "*.tif").ToList();
-                files.AddRange(Directory.EnumerateFiles(folderBrowserDialogImageInfo.SelectedPath, "*.tiff"));
-
-                var data = files.Select(f => new TiffFileInfo {FileName = Path.GetFileName(f), Path = f}).ToList();
-
-                PropertyGridImageInfo.SelectedObject = null;
-                LstImageBrowser.DataSource = data;
-                LstImageBrowser_SelectedValueChanged(LstImageBrowser, EventArgs.Empty);
+                LoadDirectory(folderBrowserDialogImageInfo.SelectedPath);
             }
+        }
+
+
+        private void LoadDirectory(string directory)
+        {
+            var files = Directory.EnumerateFiles(directory, "*.tif").ToList();
+            files.AddRange(Directory.EnumerateFiles(directory, "*.tiff"));
+
+            var data = files.Select(f => new TiffFileInfo { FileName = Path.GetFileName(f), Path = f }).ToList();
+
+            PropertyGridImageInfo.SelectedObject = null;
+            LstImageBrowser.DataSource = data;
+            LstImageBrowser_SelectedValueChanged(LstImageBrowser, EventArgs.Empty);
         }
 
         private GSCCCATiff _lastImage = null;
@@ -555,8 +561,24 @@ namespace GSCCCA.ImageAPI.TestApplication
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     await _lastImage.SaveToFileAsync(saveFileDialog1.FileName);
-                }
 
+                    if (Path.GetDirectoryName(saveFileDialog1.FileName).Equals(Path.GetDirectoryName(item.Path),
+                        StringComparison.OrdinalIgnoreCase))
+                    {
+                        LoadDirectory(Path.GetDirectoryName(saveFileDialog1.FileName));
+                        foreach (TiffFileInfo i in LstImageBrowser.Items)
+                        {
+                            if (i.FileName.Equals(Path.GetFileName(saveFileDialog1.FileName)))
+                            {
+                                LstImageBrowser.SelectedItem = i;
+                                LstImageBrowser_SelectedValueChanged(LstImageBrowser, EventArgs.Empty);
+                                break;
+                            }
+                        }
+                    }
+
+
+                }
 
             }
         }
