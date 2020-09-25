@@ -17,8 +17,8 @@ namespace GSCCCA.ImageAPI.Client.ApiObjects
         public int CountyCode { get; set; }
         public string CountyName { get; set; }
         public string Book { get; set; }
-        public int PageFrom { get; set; }
-        public int PageTo { get; set; }
+        public string PageFrom { get; set; }
+        public string PageTo { get; set; }
         public int PageCount { get; set; }
         public int DocumentTypeId { get; set; }
         public string DocumentTypeName { get; set; }
