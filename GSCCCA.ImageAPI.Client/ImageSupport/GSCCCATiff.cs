@@ -75,7 +75,7 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
         public decimal XRes => GetTagField<decimal>(TiffTag.XRESOLUTION);
         public decimal YRes => GetTagField<decimal>(TiffTag.YRESOLUTION);
         public int? BitPerPixel => GetTagField<int?>(TiffTag.BITSPERSAMPLE) * GetTagField<int?>(TiffTag.SAMPLESPERPIXEL);
-        public int ColorDepth => GetTagField<int>(TiffTag.PHOTOMETRIC);
+       // public int ColorDepth => GetTagField<int>(TiffTag.PHOTOMETRIC);
 
         public Compression Compression => GetTagField<Compression>(TiffTag.COMPRESSION);
 

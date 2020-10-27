@@ -38,9 +38,9 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
 
         private void ValidateColorDepth(GSCCCATiff tiff)
         {
-            if (!ColorDepthOptions.Contains(tiff.ColorDepth))
+            if (!ColorDepthOptions.Contains(tiff.BitPerPixel.GetValueOrDefault()))
             {
-                throw new ImageValidationException(tiff.FileName, $"Invalid Color Depth: {tiff.ColorDepth}");
+                throw new ImageValidationException(tiff.FileName, $"Invalid Color Depth: {tiff.BitPerPixel}");
             }
         }
 

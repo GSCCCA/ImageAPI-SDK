@@ -8,7 +8,7 @@ namespace GSCCCA.ImageAPI.Client.ImageSupport
         /// A comma delimited list of all bit depths that should be allowed
         /// </summary>
         [Description("A comma delimited list of all color depths that should be allowed")]
-        public string AllowedColorDepths { get; set; } = "0";
+        public string AllowedColorDepths { get; set; } = "1";
 
         /// <summary>
         /// A comma delimited list of all resolutions that should be allowed
