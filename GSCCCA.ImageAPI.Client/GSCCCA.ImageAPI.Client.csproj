@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>GSCCCA.ImageAPI.Client</AssemblyName>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageId>GSCCCA.ImageAPI.Client</PackageId>
+    <PackageVersion>1.0.1</PackageVersion>
     <Authors>GSCCCA, mbommicino</Authors>
     <Description>.NET SDK for the GSCCCA Image API</Description>
     <PackageProjectUrl>https://github.com/GSCCCA/ImageAPI-SDK</PackageProjectUrl>
