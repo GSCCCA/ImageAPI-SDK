@@ -8,8 +8,8 @@ namespace GSCCCA.ImageAPI.Client
 {
     public class ImageApiClientOptions
     {
-        private string _authenticationUrl = "https://identitydev.gsccca.org/connect/token";
-        private string _apiUrl = "https://apisdev.gsccca.org/imaging/v1/";
+        private string _authenticationUrl = "https://identitystg.gsccca.org/connect/token";
+        private string _apiUrl = "https://apisstg.gsccca.org/imaging/v1/";
 
         /// <summary>
         /// The url used to retrieve bearer tokens from GSCCCA
