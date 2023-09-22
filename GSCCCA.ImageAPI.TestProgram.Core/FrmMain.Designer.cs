@@ -28,1425 +28,1397 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BtnTest = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtClientSecret = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtClientId = new System.Windows.Forms.TextBox();
-            this.ClientOptionsGrid = new System.Windows.Forms.PropertyGrid();
-            this.PropertyGridTiffValidation = new System.Windows.Forms.PropertyGrid();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.MainTabControl = new System.Windows.Forms.TabControl();
-            this.TabUploadFiles = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileData = new System.Data.DataSet();
-            this.UploadFilesTable = new System.Data.DataTable();
-            this.dataColumn1 = new System.Data.DataColumn();
-            this.dataColumn2 = new System.Data.DataColumn();
-            this.dataColumn3 = new System.Data.DataColumn();
-            this.DownloadFilesTable = new System.Data.DataTable();
-            this.dataColumn6 = new System.Data.DataColumn();
-            this.dataColumn4 = new System.Data.DataColumn();
-            this.dataColumn5 = new System.Data.DataColumn();
-            this.dataColumn7 = new System.Data.DataColumn();
-            this.PnlUploadFiles = new System.Windows.Forms.Panel();
-            this.PrgUploadProgress = new System.Windows.Forms.ProgressBar();
-            this.LblUploadStatus = new System.Windows.Forms.Label();
-            this.TxtUploadBatchName = new System.Windows.Forms.TextBox();
-            this.BtnPerformUpload = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnSelectFiles = new System.Windows.Forms.Button();
-            this.TabGetBatches = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.LstBatches = new System.Windows.Forms.ListBox();
-            this.PropGridBatch = new System.Windows.Forms.PropertyGrid();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ChkShowClosed = new System.Windows.Forms.CheckBox();
-            this.BtnGetBatch = new System.Windows.Forms.Button();
-            this.PropGridBatchOptions = new System.Windows.Forms.PropertyGrid();
-            this.BtnDownload = new System.Windows.Forms.Button();
-            this.BtnBatchReport = new System.Windows.Forms.Button();
-            this.LblGetBatchStatus = new System.Windows.Forms.Label();
-            this.BtnCloseBatch = new System.Windows.Forms.Button();
-            this.BtnGetBatches = new System.Windows.Forms.Button();
-            this.TabGetBatch = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.LstImages = new System.Windows.Forms.ListBox();
-            this.PropGridImageInfo = new System.Windows.Forms.PropertyGrid();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.TxtBatchNameGetBatch = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.BtnGetBatchGetBatch = new System.Windows.Forms.Button();
-            this.PropGridGetBatchOptions = new System.Windows.Forms.PropertyGrid();
-            this.LblGetBatchStatusGetBatch = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.propertyGrid2 = new System.Windows.Forms.PropertyGrid();
-            this.TabDownloadBatch = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.statusImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.FileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDownloadButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnBrowseFolder = new System.Windows.Forms.Button();
-            this.BtnListFiles = new System.Windows.Forms.Button();
-            this.TxtTargetPath = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.PrgDownloadProgress = new System.Windows.Forms.ProgressBar();
-            this.LblDownloadStatus = new System.Windows.Forms.Label();
-            this.TxtDownloadBatchName = new System.Windows.Forms.TextBox();
-            this.BtnDownloadAll = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TabReports = new System.Windows.Forms.TabPage();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.TxtJsonReport = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.TxtEmailTo = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BtnEmailBatchSummaryReport = new System.Windows.Forms.Button();
-            this.BtnEmailBatchReport = new System.Windows.Forms.Button();
-            this.BtnGetBatchSummaryReport = new System.Windows.Forms.Button();
-            this.LblGetReportStatus = new System.Windows.Forms.Label();
-            this.BtnGetReport = new System.Windows.Forms.Button();
-            this.TxtBatchNameGetReport = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TabImageSupport = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.LstImageBrowser = new System.Windows.Forms.ListBox();
-            this.BtnBrowseImageFolder = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.PropertyGridImageInfo = new System.Windows.Forms.PropertyGrid();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.LblUploadImageInfoStatus = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TxtBatchNameImageInfo = new System.Windows.Forms.TextBox();
-            this.BtnUploadImageFromInfo = new System.Windows.Forms.Button();
-            this.BtnSaveImage = new System.Windows.Forms.Button();
-            this.BtnTestImage = new System.Windows.Forms.Button();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.ImageList = new System.Windows.Forms.ImageList(this.components);
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.dataColumn8 = new System.Data.DataColumn();
-            this.folderBrowserDialogImageInfo = new System.Windows.Forms.FolderBrowserDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.groupBox1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.MainTabControl.SuspendLayout();
-            this.TabUploadFiles.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FileData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UploadFilesTable)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DownloadFilesTable)).BeginInit();
-            this.PnlUploadFiles.SuspendLayout();
-            this.TabGetBatches.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.TabGetBatch.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.TabDownloadBatch.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.TabReports.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.TabImageSupport.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.SuspendLayout();
+            BtnTest = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            TxtClientSecret = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            TxtClientId = new System.Windows.Forms.TextBox();
+            ClientOptionsGrid = new System.Windows.Forms.PropertyGrid();
+            PropertyGridTiffValidation = new System.Windows.Forms.PropertyGrid();
+            splitter1 = new System.Windows.Forms.Splitter();
+            MainTabControl = new System.Windows.Forms.TabControl();
+            TabUploadFiles = new System.Windows.Forms.TabPage();
+            panel2 = new System.Windows.Forms.Panel();
+            dataGridView1 = new System.Windows.Forms.DataGridView();
+            dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            FileData = new System.Data.DataSet();
+            UploadFilesTable = new System.Data.DataTable();
+            dataColumn1 = new System.Data.DataColumn();
+            dataColumn2 = new System.Data.DataColumn();
+            dataColumn3 = new System.Data.DataColumn();
+            DownloadFilesTable = new System.Data.DataTable();
+            dataColumn6 = new System.Data.DataColumn();
+            dataColumn4 = new System.Data.DataColumn();
+            dataColumn5 = new System.Data.DataColumn();
+            dataColumn7 = new System.Data.DataColumn();
+            PnlUploadFiles = new System.Windows.Forms.Panel();
+            PrgUploadProgress = new System.Windows.Forms.ProgressBar();
+            LblUploadStatus = new System.Windows.Forms.Label();
+            TxtUploadBatchName = new System.Windows.Forms.TextBox();
+            BtnPerformUpload = new System.Windows.Forms.Button();
+            label3 = new System.Windows.Forms.Label();
+            BtnSelectFiles = new System.Windows.Forms.Button();
+            TabGetBatches = new System.Windows.Forms.TabPage();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            LstBatches = new System.Windows.Forms.ListBox();
+            PropGridBatch = new System.Windows.Forms.PropertyGrid();
+            panel1 = new System.Windows.Forms.Panel();
+            ChkShowClosed = new System.Windows.Forms.CheckBox();
+            BtnGetBatch = new System.Windows.Forms.Button();
+            PropGridBatchOptions = new System.Windows.Forms.PropertyGrid();
+            BtnDownload = new System.Windows.Forms.Button();
+            BtnBatchReport = new System.Windows.Forms.Button();
+            LblGetBatchStatus = new System.Windows.Forms.Label();
+            BtnCloseBatch = new System.Windows.Forms.Button();
+            BtnGetBatches = new System.Windows.Forms.Button();
+            TabGetBatch = new System.Windows.Forms.TabPage();
+            tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            LstImages = new System.Windows.Forms.ListBox();
+            PropGridImageInfo = new System.Windows.Forms.PropertyGrid();
+            panel10 = new System.Windows.Forms.Panel();
+            TxtBatchNameGetBatch = new System.Windows.Forms.TextBox();
+            label9 = new System.Windows.Forms.Label();
+            BtnGetBatchGetBatch = new System.Windows.Forms.Button();
+            PropGridGetBatchOptions = new System.Windows.Forms.PropertyGrid();
+            LblGetBatchStatusGetBatch = new System.Windows.Forms.Label();
+            listBox1 = new System.Windows.Forms.ListBox();
+            propertyGrid2 = new System.Windows.Forms.PropertyGrid();
+            TabDownloadBatch = new System.Windows.Forms.TabPage();
+            panel4 = new System.Windows.Forms.Panel();
+            dataGridView2 = new System.Windows.Forms.DataGridView();
+            statusImageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            FileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ColumnDownloadButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            panel3 = new System.Windows.Forms.Panel();
+            BtnBrowseFolder = new System.Windows.Forms.Button();
+            BtnListFiles = new System.Windows.Forms.Button();
+            TxtTargetPath = new System.Windows.Forms.TextBox();
+            label7 = new System.Windows.Forms.Label();
+            PrgDownloadProgress = new System.Windows.Forms.ProgressBar();
+            LblDownloadStatus = new System.Windows.Forms.Label();
+            TxtDownloadBatchName = new System.Windows.Forms.TextBox();
+            BtnDownloadAll = new System.Windows.Forms.Button();
+            label6 = new System.Windows.Forms.Label();
+            TabReports = new System.Windows.Forms.TabPage();
+            panel9 = new System.Windows.Forms.Panel();
+            TxtJsonReport = new System.Windows.Forms.TextBox();
+            panel8 = new System.Windows.Forms.Panel();
+            TxtEmailTo = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            BtnEmailBatchSummaryReport = new System.Windows.Forms.Button();
+            BtnEmailBatchReport = new System.Windows.Forms.Button();
+            BtnGetBatchSummaryReport = new System.Windows.Forms.Button();
+            LblGetReportStatus = new System.Windows.Forms.Label();
+            BtnGetReport = new System.Windows.Forms.Button();
+            TxtBatchNameGetReport = new System.Windows.Forms.TextBox();
+            label8 = new System.Windows.Forms.Label();
+            TabImageSupport = new System.Windows.Forms.TabPage();
+            panel6 = new System.Windows.Forms.Panel();
+            LstImageBrowser = new System.Windows.Forms.ListBox();
+            BtnBrowseImageFolder = new System.Windows.Forms.Button();
+            panel5 = new System.Windows.Forms.Panel();
+            PropertyGridImageInfo = new System.Windows.Forms.PropertyGrid();
+            panel7 = new System.Windows.Forms.Panel();
+            LblUploadImageInfoStatus = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            TxtBatchNameImageInfo = new System.Windows.Forms.TextBox();
+            BtnUploadImageFromInfo = new System.Windows.Forms.Button();
+            BtnSaveImage = new System.Windows.Forms.Button();
+            BtnTestImage = new System.Windows.Forms.Button();
+            openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            ImageList = new System.Windows.Forms.ImageList(components);
+            errorProvider = new System.Windows.Forms.ErrorProvider(components);
+            folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            dataColumn8 = new System.Data.DataColumn();
+            folderBrowserDialogImageInfo = new System.Windows.Forms.FolderBrowserDialog();
+            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            groupBox1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            MainTabControl.SuspendLayout();
+            TabUploadFiles.SuspendLayout();
+            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)FileData).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)UploadFilesTable).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DownloadFilesTable).BeginInit();
+            PnlUploadFiles.SuspendLayout();
+            TabGetBatches.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            panel1.SuspendLayout();
+            TabGetBatch.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            panel10.SuspendLayout();
+            TabDownloadBatch.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            panel3.SuspendLayout();
+            TabReports.SuspendLayout();
+            panel9.SuspendLayout();
+            panel8.SuspendLayout();
+            TabImageSupport.SuspendLayout();
+            panel6.SuspendLayout();
+            panel5.SuspendLayout();
+            panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
+            SuspendLayout();
             // 
             // BtnTest
             // 
-            this.BtnTest.Location = new System.Drawing.Point(46, 606);
-            this.BtnTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnTest.Name = "BtnTest";
-            this.BtnTest.Size = new System.Drawing.Size(88, 27);
-            this.BtnTest.TabIndex = 0;
-            this.BtnTest.Text = "Test";
-            this.BtnTest.UseVisualStyleBackColor = true;
-            this.BtnTest.Visible = false;
-            this.BtnTest.Click += new System.EventHandler(this.BtnTest_Click);
+            BtnTest.Location = new System.Drawing.Point(46, 606);
+            BtnTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnTest.Name = "BtnTest";
+            BtnTest.Size = new System.Drawing.Size(88, 27);
+            BtnTest.TabIndex = 0;
+            BtnTest.Text = "Test";
+            BtnTest.UseVisualStyleBackColor = true;
+            BtnTest.Visible = false;
+            BtnTest.Click += BtnTest_Click;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(316, 670);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Client Options";
+            groupBox1.Controls.Add(tableLayoutPanel1);
+            groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            groupBox1.Location = new System.Drawing.Point(0, 0);
+            groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox1.Size = new System.Drawing.Size(316, 670);
+            groupBox1.TabIndex = 1;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Client Options";
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.01887F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.98113F));
-            this.tableLayoutPanel1.Controls.Add(this.TxtClientSecret, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.TxtClientId, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ClientOptionsGrid, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.PropertyGridTiffValidation, 0, 3);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 19);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(308, 648);
-            this.tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.01887F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.98113F));
+            tableLayoutPanel1.Controls.Add(TxtClientSecret, 1, 1);
+            tableLayoutPanel1.Controls.Add(label2, 0, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(TxtClientId, 1, 0);
+            tableLayoutPanel1.Controls.Add(ClientOptionsGrid, 0, 2);
+            tableLayoutPanel1.Controls.Add(PropertyGridTiffValidation, 0, 3);
+            tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel1.Location = new System.Drawing.Point(4, 19);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 4;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(308, 648);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // TxtClientSecret
             // 
-            this.TxtClientSecret.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TxtClientSecret.Location = new System.Drawing.Point(74, 38);
-            this.TxtClientSecret.Margin = new System.Windows.Forms.Padding(4, 3, 35, 3);
-            this.TxtClientSecret.Name = "TxtClientSecret";
-            this.TxtClientSecret.Size = new System.Drawing.Size(199, 23);
-            this.TxtClientSecret.TabIndex = 5;
-            this.TxtClientSecret.Tag = "Client Secret";
-            this.TxtClientSecret.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
+            TxtClientSecret.Dock = System.Windows.Forms.DockStyle.Top;
+            TxtClientSecret.Location = new System.Drawing.Point(74, 38);
+            TxtClientSecret.Margin = new System.Windows.Forms.Padding(4, 3, 35, 3);
+            TxtClientSecret.Name = "TxtClientSecret";
+            TxtClientSecret.Size = new System.Drawing.Size(199, 23);
+            TxtClientSecret.TabIndex = 5;
+            TxtClientSecret.Tag = "Client Secret";
+            TxtClientSecret.Validating += RequiredTextBox_Validating;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Location = new System.Drawing.Point(4, 35);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 30);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Client Secret:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label2.AutoSize = true;
+            label2.Dock = System.Windows.Forms.DockStyle.Top;
+            label2.Location = new System.Drawing.Point(4, 35);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(62, 30);
+            label2.TabIndex = 4;
+            label2.Text = "Client Secret:";
+            label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Location = new System.Drawing.Point(4, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Client ID:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            label1.AutoSize = true;
+            label1.Dock = System.Windows.Forms.DockStyle.Top;
+            label1.Location = new System.Drawing.Point(4, 0);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(62, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Client ID:";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // TxtClientId
             // 
-            this.TxtClientId.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TxtClientId.Location = new System.Drawing.Point(74, 3);
-            this.TxtClientId.Margin = new System.Windows.Forms.Padding(4, 3, 35, 3);
-            this.TxtClientId.Name = "TxtClientId";
-            this.TxtClientId.Size = new System.Drawing.Size(199, 23);
-            this.TxtClientId.TabIndex = 1;
-            this.TxtClientId.Tag = "Client ID";
-            this.TxtClientId.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
+            TxtClientId.Dock = System.Windows.Forms.DockStyle.Top;
+            TxtClientId.Location = new System.Drawing.Point(74, 3);
+            TxtClientId.Margin = new System.Windows.Forms.Padding(4, 3, 35, 3);
+            TxtClientId.Name = "TxtClientId";
+            TxtClientId.Size = new System.Drawing.Size(199, 23);
+            TxtClientId.TabIndex = 1;
+            TxtClientId.Tag = "Client ID";
+            TxtClientId.Validating += RequiredTextBox_Validating;
             // 
             // ClientOptionsGrid
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.ClientOptionsGrid, 2);
-            this.ClientOptionsGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ClientOptionsGrid.Location = new System.Drawing.Point(4, 73);
-            this.ClientOptionsGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ClientOptionsGrid.Name = "ClientOptionsGrid";
-            this.ClientOptionsGrid.Size = new System.Drawing.Size(300, 283);
-            this.ClientOptionsGrid.TabIndex = 6;
-            this.ClientOptionsGrid.ToolbarVisible = false;
+            tableLayoutPanel1.SetColumnSpan(ClientOptionsGrid, 2);
+            ClientOptionsGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            ClientOptionsGrid.Location = new System.Drawing.Point(4, 73);
+            ClientOptionsGrid.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ClientOptionsGrid.Name = "ClientOptionsGrid";
+            ClientOptionsGrid.Size = new System.Drawing.Size(300, 283);
+            ClientOptionsGrid.TabIndex = 6;
+            ClientOptionsGrid.ToolbarVisible = false;
             // 
             // PropertyGridTiffValidation
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.PropertyGridTiffValidation, 2);
-            this.PropertyGridTiffValidation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PropertyGridTiffValidation.Location = new System.Drawing.Point(4, 362);
-            this.PropertyGridTiffValidation.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PropertyGridTiffValidation.Name = "PropertyGridTiffValidation";
-            this.PropertyGridTiffValidation.Size = new System.Drawing.Size(300, 283);
-            this.PropertyGridTiffValidation.TabIndex = 7;
-            this.PropertyGridTiffValidation.ToolbarVisible = false;
+            tableLayoutPanel1.SetColumnSpan(PropertyGridTiffValidation, 2);
+            PropertyGridTiffValidation.Dock = System.Windows.Forms.DockStyle.Fill;
+            PropertyGridTiffValidation.Location = new System.Drawing.Point(4, 362);
+            PropertyGridTiffValidation.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PropertyGridTiffValidation.Name = "PropertyGridTiffValidation";
+            PropertyGridTiffValidation.Size = new System.Drawing.Size(300, 283);
+            PropertyGridTiffValidation.TabIndex = 7;
+            PropertyGridTiffValidation.ToolbarVisible = false;
             // 
             // splitter1
             // 
-            this.splitter1.Location = new System.Drawing.Point(316, 0);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(4, 670);
-            this.splitter1.TabIndex = 2;
-            this.splitter1.TabStop = false;
+            splitter1.Location = new System.Drawing.Point(316, 0);
+            splitter1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitter1.Name = "splitter1";
+            splitter1.Size = new System.Drawing.Size(4, 670);
+            splitter1.TabIndex = 2;
+            splitter1.TabStop = false;
             // 
             // MainTabControl
             // 
-            this.MainTabControl.CausesValidation = false;
-            this.MainTabControl.Controls.Add(this.TabUploadFiles);
-            this.MainTabControl.Controls.Add(this.TabGetBatches);
-            this.MainTabControl.Controls.Add(this.TabGetBatch);
-            this.MainTabControl.Controls.Add(this.TabDownloadBatch);
-            this.MainTabControl.Controls.Add(this.TabReports);
-            this.MainTabControl.Controls.Add(this.TabImageSupport);
-            this.MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainTabControl.Location = new System.Drawing.Point(320, 0);
-            this.MainTabControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MainTabControl.Name = "MainTabControl";
-            this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(748, 670);
-            this.MainTabControl.TabIndex = 3;
+            MainTabControl.CausesValidation = false;
+            MainTabControl.Controls.Add(TabUploadFiles);
+            MainTabControl.Controls.Add(TabGetBatches);
+            MainTabControl.Controls.Add(TabGetBatch);
+            MainTabControl.Controls.Add(TabDownloadBatch);
+            MainTabControl.Controls.Add(TabReports);
+            MainTabControl.Controls.Add(TabImageSupport);
+            MainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            MainTabControl.Location = new System.Drawing.Point(320, 0);
+            MainTabControl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            MainTabControl.Name = "MainTabControl";
+            MainTabControl.SelectedIndex = 0;
+            MainTabControl.Size = new System.Drawing.Size(748, 670);
+            MainTabControl.TabIndex = 3;
             // 
             // TabUploadFiles
             // 
-            this.TabUploadFiles.Controls.Add(this.panel2);
-            this.TabUploadFiles.Controls.Add(this.PnlUploadFiles);
-            this.TabUploadFiles.Location = new System.Drawing.Point(4, 24);
-            this.TabUploadFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabUploadFiles.Name = "TabUploadFiles";
-            this.TabUploadFiles.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabUploadFiles.Size = new System.Drawing.Size(740, 642);
-            this.TabUploadFiles.TabIndex = 0;
-            this.TabUploadFiles.Text = "Upload Files";
-            this.TabUploadFiles.UseVisualStyleBackColor = true;
+            TabUploadFiles.Controls.Add(panel2);
+            TabUploadFiles.Controls.Add(PnlUploadFiles);
+            TabUploadFiles.Location = new System.Drawing.Point(4, 24);
+            TabUploadFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabUploadFiles.Name = "TabUploadFiles";
+            TabUploadFiles.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabUploadFiles.Size = new System.Drawing.Size(740, 642);
+            TabUploadFiles.TabIndex = 0;
+            TabUploadFiles.Text = "Upload Files";
+            TabUploadFiles.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(4, 105);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(732, 534);
-            this.panel2.TabIndex = 3;
+            panel2.Controls.Add(dataGridView1);
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(4, 105);
+            panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(732, 534);
+            panel2.TabIndex = 3;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn2,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridView1.DataMember = "UploadFiles";
-            this.dataGridView1.DataSource = this.FileData;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeRows = false;
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataGridViewImageColumn2, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
+            dataGridView1.DataMember = "UploadFiles";
+            dataGridView1.DataSource = FileData;
+            dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView1.Location = new System.Drawing.Point(0, 0);
+            dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dataGridView1.MultiSelect = false;
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(732, 534);
-            this.dataGridView1.TabIndex = 0;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new System.Drawing.Size(732, 534);
+            dataGridView1.TabIndex = 0;
             // 
             // dataGridViewImageColumn2
             // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dataGridViewImageColumn2.DataPropertyName = "StatusImage";
-            this.dataGridViewImageColumn2.FillWeight = 60F;
-            this.dataGridViewImageColumn2.HeaderText = "Status";
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn2.Width = 50;
+            dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewImageColumn2.DataPropertyName = "StatusImage";
+            dataGridViewImageColumn2.FillWeight = 60F;
+            dataGridViewImageColumn2.HeaderText = "Status";
+            dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            dataGridViewImageColumn2.ReadOnly = true;
+            dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            dataGridViewImageColumn2.Width = 50;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FilePath";
-            this.dataGridViewTextBoxColumn2.FillWeight = 104.3148F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "FilePath";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            dataGridViewTextBoxColumn2.DataPropertyName = "FilePath";
+            dataGridViewTextBoxColumn2.FillWeight = 104.3148F;
+            dataGridViewTextBoxColumn2.HeaderText = "FilePath";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Result";
-            this.dataGridViewTextBoxColumn3.FillWeight = 104.3148F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Result";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.DataPropertyName = "Result";
+            dataGridViewTextBoxColumn3.FillWeight = 104.3148F;
+            dataGridViewTextBoxColumn3.HeaderText = "Result";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // FileData
             // 
-            this.FileData.DataSetName = "NewDataSet";
-            this.FileData.Tables.AddRange(new System.Data.DataTable[] {
-            this.UploadFilesTable,
-            this.DownloadFilesTable});
+            FileData.DataSetName = "NewDataSet";
+            FileData.Tables.AddRange(new System.Data.DataTable[] { UploadFilesTable, DownloadFilesTable });
             // 
             // UploadFilesTable
             // 
-            this.UploadFilesTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.dataColumn1,
-            this.dataColumn2,
-            this.dataColumn3});
-            this.UploadFilesTable.Constraints.AddRange(new System.Data.Constraint[] {
-            new System.Data.UniqueConstraint("Constraint1", new string[] {
-                        "FilePath"}, true)});
-            this.UploadFilesTable.Namespace = "";
-            this.UploadFilesTable.PrimaryKey = new System.Data.DataColumn[] {
-        this.dataColumn2};
-            this.UploadFilesTable.TableName = "UploadFiles";
+            UploadFilesTable.Columns.AddRange(new System.Data.DataColumn[] { dataColumn1, dataColumn2, dataColumn3 });
+            UploadFilesTable.Constraints.AddRange(new System.Data.Constraint[] { new System.Data.UniqueConstraint("Constraint1", new string[] { "FilePath" }, true) });
+            UploadFilesTable.Namespace = "";
+            UploadFilesTable.PrimaryKey = new System.Data.DataColumn[] { dataColumn2 };
+            UploadFilesTable.TableName = "UploadFiles";
             // 
             // dataColumn1
             // 
-            this.dataColumn1.Caption = "Status";
-            this.dataColumn1.ColumnName = "StatusImage";
-            this.dataColumn1.DataType = typeof(object);
-            this.dataColumn1.DefaultValue = ((object)(resources.GetObject("dataColumn1.DefaultValue")));
-            this.dataColumn1.Namespace = "";
+            dataColumn1.Caption = "Status";
+            dataColumn1.ColumnName = "StatusImage";
+            dataColumn1.DataType = typeof(object);
+            dataColumn1.DefaultValue = resources.GetObject("dataColumn1.DefaultValue");
+            dataColumn1.Namespace = "";
             // 
             // dataColumn2
             // 
-            this.dataColumn2.AllowDBNull = false;
-            this.dataColumn2.Caption = "File Path";
-            this.dataColumn2.ColumnName = "FilePath";
-            this.dataColumn2.DefaultValue = ((object)(resources.GetObject("dataColumn2.DefaultValue")));
-            this.dataColumn2.Namespace = "";
+            dataColumn2.AllowDBNull = false;
+            dataColumn2.Caption = "File Path";
+            dataColumn2.ColumnName = "FilePath";
+            dataColumn2.DefaultValue = resources.GetObject("dataColumn2.DefaultValue");
+            dataColumn2.Namespace = "";
             // 
             // dataColumn3
             // 
-            this.dataColumn3.Caption = "Result";
-            this.dataColumn3.ColumnName = "Result";
-            this.dataColumn3.DefaultValue = ((object)(resources.GetObject("dataColumn3.DefaultValue")));
-            this.dataColumn3.Namespace = "";
+            dataColumn3.Caption = "Result";
+            dataColumn3.ColumnName = "Result";
+            dataColumn3.DefaultValue = resources.GetObject("dataColumn3.DefaultValue");
+            dataColumn3.Namespace = "";
             // 
             // DownloadFilesTable
             // 
-            this.DownloadFilesTable.Columns.AddRange(new System.Data.DataColumn[] {
-            this.dataColumn6,
-            this.dataColumn4,
-            this.dataColumn5,
-            this.dataColumn7});
-            this.DownloadFilesTable.Constraints.AddRange(new System.Data.Constraint[] {
-            new System.Data.UniqueConstraint("Constraint1", new string[] {
-                        "FileId"}, true)});
-            this.DownloadFilesTable.Namespace = "";
-            this.DownloadFilesTable.PrimaryKey = new System.Data.DataColumn[] {
-        this.dataColumn4};
-            this.DownloadFilesTable.TableName = "DownloadFiles";
+            DownloadFilesTable.Columns.AddRange(new System.Data.DataColumn[] { dataColumn6, dataColumn4, dataColumn5, dataColumn7 });
+            DownloadFilesTable.Constraints.AddRange(new System.Data.Constraint[] { new System.Data.UniqueConstraint("Constraint1", new string[] { "FileId" }, true) });
+            DownloadFilesTable.Namespace = "";
+            DownloadFilesTable.PrimaryKey = new System.Data.DataColumn[] { dataColumn4 };
+            DownloadFilesTable.TableName = "DownloadFiles";
             // 
             // dataColumn6
             // 
-            this.dataColumn6.Caption = "Status";
-            this.dataColumn6.ColumnName = "StatusImage";
-            this.dataColumn6.DataType = typeof(object);
-            this.dataColumn6.DefaultValue = ((object)(resources.GetObject("dataColumn6.DefaultValue")));
-            this.dataColumn6.Namespace = "";
+            dataColumn6.Caption = "Status";
+            dataColumn6.ColumnName = "StatusImage";
+            dataColumn6.DataType = typeof(object);
+            dataColumn6.DefaultValue = resources.GetObject("dataColumn6.DefaultValue");
+            dataColumn6.Namespace = "";
             // 
             // dataColumn4
             // 
-            this.dataColumn4.AllowDBNull = false;
-            this.dataColumn4.Caption = "File ID";
-            this.dataColumn4.ColumnName = "FileId";
-            this.dataColumn4.DataType = typeof(long);
-            this.dataColumn4.DefaultValue = ((object)(resources.GetObject("dataColumn4.DefaultValue")));
-            this.dataColumn4.Namespace = "";
+            dataColumn4.AllowDBNull = false;
+            dataColumn4.Caption = "File ID";
+            dataColumn4.ColumnName = "FileId";
+            dataColumn4.DataType = typeof(long);
+            dataColumn4.DefaultValue = resources.GetObject("dataColumn4.DefaultValue");
+            dataColumn4.Namespace = "";
             // 
             // dataColumn5
             // 
-            this.dataColumn5.Caption = "File Name";
-            this.dataColumn5.ColumnName = "FileName";
-            this.dataColumn5.DefaultValue = ((object)(resources.GetObject("dataColumn5.DefaultValue")));
-            this.dataColumn5.Namespace = "";
+            dataColumn5.Caption = "File Name";
+            dataColumn5.ColumnName = "FileName";
+            dataColumn5.DefaultValue = resources.GetObject("dataColumn5.DefaultValue");
+            dataColumn5.Namespace = "";
             // 
             // dataColumn7
             // 
-            this.dataColumn7.Caption = "Result";
-            this.dataColumn7.ColumnName = "Result";
-            this.dataColumn7.DefaultValue = ((object)(resources.GetObject("dataColumn7.DefaultValue")));
-            this.dataColumn7.Namespace = "";
+            dataColumn7.Caption = "Result";
+            dataColumn7.ColumnName = "Result";
+            dataColumn7.DefaultValue = resources.GetObject("dataColumn7.DefaultValue");
+            dataColumn7.Namespace = "";
             // 
             // PnlUploadFiles
             // 
-            this.PnlUploadFiles.Controls.Add(this.PrgUploadProgress);
-            this.PnlUploadFiles.Controls.Add(this.LblUploadStatus);
-            this.PnlUploadFiles.Controls.Add(this.TxtUploadBatchName);
-            this.PnlUploadFiles.Controls.Add(this.BtnPerformUpload);
-            this.PnlUploadFiles.Controls.Add(this.label3);
-            this.PnlUploadFiles.Controls.Add(this.BtnSelectFiles);
-            this.PnlUploadFiles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PnlUploadFiles.Location = new System.Drawing.Point(4, 3);
-            this.PnlUploadFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PnlUploadFiles.Name = "PnlUploadFiles";
-            this.PnlUploadFiles.Size = new System.Drawing.Size(732, 102);
-            this.PnlUploadFiles.TabIndex = 2;
+            PnlUploadFiles.Controls.Add(PrgUploadProgress);
+            PnlUploadFiles.Controls.Add(LblUploadStatus);
+            PnlUploadFiles.Controls.Add(TxtUploadBatchName);
+            PnlUploadFiles.Controls.Add(BtnPerformUpload);
+            PnlUploadFiles.Controls.Add(label3);
+            PnlUploadFiles.Controls.Add(BtnSelectFiles);
+            PnlUploadFiles.Dock = System.Windows.Forms.DockStyle.Top;
+            PnlUploadFiles.Location = new System.Drawing.Point(4, 3);
+            PnlUploadFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PnlUploadFiles.Name = "PnlUploadFiles";
+            PnlUploadFiles.Size = new System.Drawing.Size(732, 102);
+            PnlUploadFiles.TabIndex = 2;
             // 
             // PrgUploadProgress
             // 
-            this.PrgUploadProgress.Location = new System.Drawing.Point(355, 54);
-            this.PrgUploadProgress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PrgUploadProgress.Name = "PrgUploadProgress";
-            this.PrgUploadProgress.Size = new System.Drawing.Size(345, 27);
-            this.PrgUploadProgress.TabIndex = 6;
+            PrgUploadProgress.Location = new System.Drawing.Point(355, 54);
+            PrgUploadProgress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PrgUploadProgress.Name = "PrgUploadProgress";
+            PrgUploadProgress.Size = new System.Drawing.Size(345, 27);
+            PrgUploadProgress.TabIndex = 6;
             // 
             // LblUploadStatus
             // 
-            this.LblUploadStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblUploadStatus.Location = new System.Drawing.Point(351, 10);
-            this.LblUploadStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblUploadStatus.Name = "LblUploadStatus";
-            this.LblUploadStatus.Size = new System.Drawing.Size(349, 40);
-            this.LblUploadStatus.TabIndex = 5;
+            LblUploadStatus.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            LblUploadStatus.Location = new System.Drawing.Point(351, 10);
+            LblUploadStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LblUploadStatus.Name = "LblUploadStatus";
+            LblUploadStatus.Size = new System.Drawing.Size(349, 40);
+            LblUploadStatus.TabIndex = 5;
             // 
             // TxtUploadBatchName
             // 
-            this.TxtUploadBatchName.Location = new System.Drawing.Point(99, 14);
-            this.TxtUploadBatchName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtUploadBatchName.Name = "TxtUploadBatchName";
-            this.TxtUploadBatchName.Size = new System.Drawing.Size(198, 23);
-            this.TxtUploadBatchName.TabIndex = 4;
-            this.TxtUploadBatchName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            TxtUploadBatchName.Location = new System.Drawing.Point(99, 14);
+            TxtUploadBatchName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtUploadBatchName.Name = "TxtUploadBatchName";
+            TxtUploadBatchName.Size = new System.Drawing.Size(198, 23);
+            TxtUploadBatchName.TabIndex = 4;
+            TxtUploadBatchName.Validating += TxtBatchName_Validating;
             // 
             // BtnPerformUpload
             // 
-            this.BtnPerformUpload.Enabled = false;
-            this.BtnPerformUpload.Location = new System.Drawing.Point(126, 54);
-            this.BtnPerformUpload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnPerformUpload.Name = "BtnPerformUpload";
-            this.BtnPerformUpload.Size = new System.Drawing.Size(172, 27);
-            this.BtnPerformUpload.TabIndex = 3;
-            this.BtnPerformUpload.Text = "Perform Upload";
-            this.BtnPerformUpload.UseVisualStyleBackColor = true;
-            this.BtnPerformUpload.Click += new System.EventHandler(this.BtnPerformUpload_Click);
+            BtnPerformUpload.Enabled = false;
+            BtnPerformUpload.Location = new System.Drawing.Point(126, 54);
+            BtnPerformUpload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnPerformUpload.Name = "BtnPerformUpload";
+            BtnPerformUpload.Size = new System.Drawing.Size(172, 27);
+            BtnPerformUpload.TabIndex = 3;
+            BtnPerformUpload.Text = "Perform Upload";
+            BtnPerformUpload.UseVisualStyleBackColor = true;
+            BtnPerformUpload.Click += BtnPerformUpload_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Batch Name:";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(10, 14);
+            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(75, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Batch Name:";
             // 
             // BtnSelectFiles
             // 
-            this.BtnSelectFiles.Location = new System.Drawing.Point(14, 54);
-            this.BtnSelectFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnSelectFiles.Name = "BtnSelectFiles";
-            this.BtnSelectFiles.Size = new System.Drawing.Size(88, 27);
-            this.BtnSelectFiles.TabIndex = 1;
-            this.BtnSelectFiles.Text = "Select Files";
-            this.BtnSelectFiles.UseVisualStyleBackColor = true;
-            this.BtnSelectFiles.Click += new System.EventHandler(this.BtnSelectFiles_Click);
+            BtnSelectFiles.Location = new System.Drawing.Point(14, 54);
+            BtnSelectFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnSelectFiles.Name = "BtnSelectFiles";
+            BtnSelectFiles.Size = new System.Drawing.Size(88, 27);
+            BtnSelectFiles.TabIndex = 1;
+            BtnSelectFiles.Text = "Select Files";
+            BtnSelectFiles.UseVisualStyleBackColor = true;
+            BtnSelectFiles.Click += BtnSelectFiles_Click;
             // 
             // TabGetBatches
             // 
-            this.TabGetBatches.Controls.Add(this.tableLayoutPanel2);
-            this.TabGetBatches.Controls.Add(this.panel1);
-            this.TabGetBatches.Location = new System.Drawing.Point(4, 24);
-            this.TabGetBatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabGetBatches.Name = "TabGetBatches";
-            this.TabGetBatches.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabGetBatches.Size = new System.Drawing.Size(740, 642);
-            this.TabGetBatches.TabIndex = 2;
-            this.TabGetBatches.Text = "Get Batches";
-            this.TabGetBatches.UseVisualStyleBackColor = true;
+            TabGetBatches.Controls.Add(tableLayoutPanel2);
+            TabGetBatches.Controls.Add(panel1);
+            TabGetBatches.Location = new System.Drawing.Point(4, 24);
+            TabGetBatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabGetBatches.Name = "TabGetBatches";
+            TabGetBatches.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabGetBatches.Size = new System.Drawing.Size(740, 642);
+            TabGetBatches.TabIndex = 2;
+            TabGetBatches.Text = "Get Batches";
+            TabGetBatches.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.LstBatches, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.PropGridBatch, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 192);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(732, 447);
-            this.tableLayoutPanel2.TabIndex = 4;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(LstBatches, 0, 0);
+            tableLayoutPanel2.Controls.Add(PropGridBatch, 1, 0);
+            tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel2.Location = new System.Drawing.Point(4, 192);
+            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(732, 447);
+            tableLayoutPanel2.TabIndex = 4;
             // 
             // LstBatches
             // 
-            this.LstBatches.DisplayMember = "BatchName";
-            this.LstBatches.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LstBatches.FormattingEnabled = true;
-            this.LstBatches.ItemHeight = 15;
-            this.LstBatches.Location = new System.Drawing.Point(4, 3);
-            this.LstBatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.LstBatches.Name = "LstBatches";
-            this.LstBatches.Size = new System.Drawing.Size(358, 441);
-            this.LstBatches.TabIndex = 0;
-            this.LstBatches.SelectedValueChanged += new System.EventHandler(this.LstBatches_SelectedValueChanged);
+            LstBatches.DisplayMember = "BatchName";
+            LstBatches.Dock = System.Windows.Forms.DockStyle.Fill;
+            LstBatches.FormattingEnabled = true;
+            LstBatches.ItemHeight = 15;
+            LstBatches.Location = new System.Drawing.Point(4, 3);
+            LstBatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            LstBatches.Name = "LstBatches";
+            LstBatches.Size = new System.Drawing.Size(358, 441);
+            LstBatches.TabIndex = 0;
+            LstBatches.SelectedValueChanged += LstBatches_SelectedValueChanged;
             // 
             // PropGridBatch
             // 
-            this.PropGridBatch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PropGridBatch.Location = new System.Drawing.Point(370, 3);
-            this.PropGridBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PropGridBatch.Name = "PropGridBatch";
-            this.PropGridBatch.Size = new System.Drawing.Size(358, 441);
-            this.PropGridBatch.TabIndex = 1;
+            PropGridBatch.Dock = System.Windows.Forms.DockStyle.Fill;
+            PropGridBatch.Location = new System.Drawing.Point(370, 3);
+            PropGridBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PropGridBatch.Name = "PropGridBatch";
+            PropGridBatch.Size = new System.Drawing.Size(358, 441);
+            PropGridBatch.TabIndex = 1;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.ChkShowClosed);
-            this.panel1.Controls.Add(this.BtnGetBatch);
-            this.panel1.Controls.Add(this.PropGridBatchOptions);
-            this.panel1.Controls.Add(this.BtnDownload);
-            this.panel1.Controls.Add(this.BtnBatchReport);
-            this.panel1.Controls.Add(this.LblGetBatchStatus);
-            this.panel1.Controls.Add(this.BtnCloseBatch);
-            this.panel1.Controls.Add(this.BtnGetBatches);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(4, 3);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(732, 189);
-            this.panel1.TabIndex = 3;
+            panel1.Controls.Add(ChkShowClosed);
+            panel1.Controls.Add(BtnGetBatch);
+            panel1.Controls.Add(PropGridBatchOptions);
+            panel1.Controls.Add(BtnDownload);
+            panel1.Controls.Add(BtnBatchReport);
+            panel1.Controls.Add(LblGetBatchStatus);
+            panel1.Controls.Add(BtnCloseBatch);
+            panel1.Controls.Add(BtnGetBatches);
+            panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            panel1.Location = new System.Drawing.Point(4, 3);
+            panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(732, 189);
+            panel1.TabIndex = 3;
             // 
             // ChkShowClosed
             // 
-            this.ChkShowClosed.AutoSize = true;
-            this.ChkShowClosed.Location = new System.Drawing.Point(136, 16);
-            this.ChkShowClosed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.ChkShowClosed.Name = "ChkShowClosed";
-            this.ChkShowClosed.Size = new System.Drawing.Size(94, 19);
-            this.ChkShowClosed.TabIndex = 9;
-            this.ChkShowClosed.Text = "Show Closed";
-            this.ChkShowClosed.UseVisualStyleBackColor = true;
+            ChkShowClosed.AutoSize = true;
+            ChkShowClosed.Location = new System.Drawing.Point(136, 16);
+            ChkShowClosed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            ChkShowClosed.Name = "ChkShowClosed";
+            ChkShowClosed.Size = new System.Drawing.Size(94, 19);
+            ChkShowClosed.TabIndex = 9;
+            ChkShowClosed.Text = "Show Closed";
+            ChkShowClosed.UseVisualStyleBackColor = true;
             // 
             // BtnGetBatch
             // 
-            this.BtnGetBatch.Enabled = false;
-            this.BtnGetBatch.Location = new System.Drawing.Point(20, 45);
-            this.BtnGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnGetBatch.Name = "BtnGetBatch";
-            this.BtnGetBatch.Size = new System.Drawing.Size(108, 27);
-            this.BtnGetBatch.TabIndex = 8;
-            this.BtnGetBatch.Text = "GetBatch";
-            this.BtnGetBatch.UseVisualStyleBackColor = true;
-            this.BtnGetBatch.Click += new System.EventHandler(this.BtnGetBatch_Click);
+            BtnGetBatch.Enabled = false;
+            BtnGetBatch.Location = new System.Drawing.Point(20, 45);
+            BtnGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnGetBatch.Name = "BtnGetBatch";
+            BtnGetBatch.Size = new System.Drawing.Size(108, 27);
+            BtnGetBatch.TabIndex = 8;
+            BtnGetBatch.Text = "GetBatch";
+            BtnGetBatch.UseVisualStyleBackColor = true;
+            BtnGetBatch.Click += BtnGetBatch_Click;
             // 
             // PropGridBatchOptions
             // 
-            this.PropGridBatchOptions.HelpVisible = false;
-            this.PropGridBatchOptions.Location = new System.Drawing.Point(246, 10);
-            this.PropGridBatchOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PropGridBatchOptions.Name = "PropGridBatchOptions";
-            this.PropGridBatchOptions.Size = new System.Drawing.Size(245, 172);
-            this.PropGridBatchOptions.TabIndex = 7;
+            PropGridBatchOptions.HelpVisible = false;
+            PropGridBatchOptions.Location = new System.Drawing.Point(246, 10);
+            PropGridBatchOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PropGridBatchOptions.Name = "PropGridBatchOptions";
+            PropGridBatchOptions.Size = new System.Drawing.Size(245, 172);
+            PropGridBatchOptions.TabIndex = 7;
             // 
             // BtnDownload
             // 
-            this.BtnDownload.Enabled = false;
-            this.BtnDownload.Location = new System.Drawing.Point(20, 112);
-            this.BtnDownload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnDownload.Name = "BtnDownload";
-            this.BtnDownload.Size = new System.Drawing.Size(108, 27);
-            this.BtnDownload.TabIndex = 6;
-            this.BtnDownload.Text = "Download";
-            this.BtnDownload.UseVisualStyleBackColor = true;
-            this.BtnDownload.Click += new System.EventHandler(this.BtnDownload_Click);
+            BtnDownload.Enabled = false;
+            BtnDownload.Location = new System.Drawing.Point(20, 112);
+            BtnDownload.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnDownload.Name = "BtnDownload";
+            BtnDownload.Size = new System.Drawing.Size(108, 27);
+            BtnDownload.TabIndex = 6;
+            BtnDownload.Text = "Download";
+            BtnDownload.UseVisualStyleBackColor = true;
+            BtnDownload.Click += BtnDownload_Click;
             // 
             // BtnBatchReport
             // 
-            this.BtnBatchReport.Enabled = false;
-            this.BtnBatchReport.Location = new System.Drawing.Point(20, 78);
-            this.BtnBatchReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnBatchReport.Name = "BtnBatchReport";
-            this.BtnBatchReport.Size = new System.Drawing.Size(108, 27);
-            this.BtnBatchReport.TabIndex = 5;
-            this.BtnBatchReport.Text = "Batch Report";
-            this.BtnBatchReport.UseVisualStyleBackColor = true;
-            this.BtnBatchReport.Click += new System.EventHandler(this.BtnBatchReport_Click);
+            BtnBatchReport.Enabled = false;
+            BtnBatchReport.Location = new System.Drawing.Point(20, 78);
+            BtnBatchReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnBatchReport.Name = "BtnBatchReport";
+            BtnBatchReport.Size = new System.Drawing.Size(108, 27);
+            BtnBatchReport.TabIndex = 5;
+            BtnBatchReport.Text = "Batch Report";
+            BtnBatchReport.UseVisualStyleBackColor = true;
+            BtnBatchReport.Click += BtnBatchReport_Click;
             // 
             // LblGetBatchStatus
             // 
-            this.LblGetBatchStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblGetBatchStatus.Location = new System.Drawing.Point(498, 16);
-            this.LblGetBatchStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblGetBatchStatus.Name = "LblGetBatchStatus";
-            this.LblGetBatchStatus.Size = new System.Drawing.Size(227, 166);
-            this.LblGetBatchStatus.TabIndex = 4;
+            LblGetBatchStatus.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            LblGetBatchStatus.Location = new System.Drawing.Point(498, 16);
+            LblGetBatchStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LblGetBatchStatus.Name = "LblGetBatchStatus";
+            LblGetBatchStatus.Size = new System.Drawing.Size(227, 166);
+            LblGetBatchStatus.TabIndex = 4;
             // 
             // BtnCloseBatch
             // 
-            this.BtnCloseBatch.Enabled = false;
-            this.BtnCloseBatch.Location = new System.Drawing.Point(20, 145);
-            this.BtnCloseBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnCloseBatch.Name = "BtnCloseBatch";
-            this.BtnCloseBatch.Size = new System.Drawing.Size(108, 27);
-            this.BtnCloseBatch.TabIndex = 3;
-            this.BtnCloseBatch.Text = "Close Batch";
-            this.BtnCloseBatch.UseVisualStyleBackColor = true;
-            this.BtnCloseBatch.Click += new System.EventHandler(this.BtnCloseBatch_Click);
+            BtnCloseBatch.Enabled = false;
+            BtnCloseBatch.Location = new System.Drawing.Point(20, 145);
+            BtnCloseBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnCloseBatch.Name = "BtnCloseBatch";
+            BtnCloseBatch.Size = new System.Drawing.Size(108, 27);
+            BtnCloseBatch.TabIndex = 3;
+            BtnCloseBatch.Text = "Close Batch";
+            BtnCloseBatch.UseVisualStyleBackColor = true;
+            BtnCloseBatch.Click += BtnCloseBatch_Click;
             // 
             // BtnGetBatches
             // 
-            this.BtnGetBatches.Location = new System.Drawing.Point(20, 10);
-            this.BtnGetBatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnGetBatches.Name = "BtnGetBatches";
-            this.BtnGetBatches.Size = new System.Drawing.Size(108, 27);
-            this.BtnGetBatches.TabIndex = 2;
-            this.BtnGetBatches.Text = "GetBatches";
-            this.BtnGetBatches.UseVisualStyleBackColor = true;
-            this.BtnGetBatches.Click += new System.EventHandler(this.BtnGetBatches_Click);
+            BtnGetBatches.Location = new System.Drawing.Point(20, 10);
+            BtnGetBatches.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnGetBatches.Name = "BtnGetBatches";
+            BtnGetBatches.Size = new System.Drawing.Size(108, 27);
+            BtnGetBatches.TabIndex = 2;
+            BtnGetBatches.Text = "GetBatches";
+            BtnGetBatches.UseVisualStyleBackColor = true;
+            BtnGetBatches.Click += BtnGetBatches_Click;
             // 
             // TabGetBatch
             // 
-            this.TabGetBatch.Controls.Add(this.tableLayoutPanel3);
-            this.TabGetBatch.Controls.Add(this.panel10);
-            this.TabGetBatch.Controls.Add(this.listBox1);
-            this.TabGetBatch.Controls.Add(this.propertyGrid2);
-            this.TabGetBatch.Location = new System.Drawing.Point(4, 24);
-            this.TabGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabGetBatch.Name = "TabGetBatch";
-            this.TabGetBatch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabGetBatch.Size = new System.Drawing.Size(740, 642);
-            this.TabGetBatch.TabIndex = 5;
-            this.TabGetBatch.Text = "Get Batch";
-            this.TabGetBatch.UseVisualStyleBackColor = true;
+            TabGetBatch.Controls.Add(tableLayoutPanel3);
+            TabGetBatch.Controls.Add(panel10);
+            TabGetBatch.Controls.Add(listBox1);
+            TabGetBatch.Controls.Add(propertyGrid2);
+            TabGetBatch.Location = new System.Drawing.Point(4, 24);
+            TabGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabGetBatch.Name = "TabGetBatch";
+            TabGetBatch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabGetBatch.Size = new System.Drawing.Size(740, 642);
+            TabGetBatch.TabIndex = 5;
+            TabGetBatch.Text = "Get Batch";
+            TabGetBatch.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.LstImages, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.PropGridImageInfo, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 192);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(732, 447);
-            this.tableLayoutPanel3.TabIndex = 7;
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(LstImages, 0, 0);
+            tableLayoutPanel3.Controls.Add(PropGridImageInfo, 1, 0);
+            tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableLayoutPanel3.Location = new System.Drawing.Point(4, 192);
+            tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel3.Size = new System.Drawing.Size(732, 447);
+            tableLayoutPanel3.TabIndex = 7;
             // 
             // LstImages
             // 
-            this.LstImages.DisplayMember = "FileName";
-            this.LstImages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LstImages.FormattingEnabled = true;
-            this.LstImages.ItemHeight = 15;
-            this.LstImages.Location = new System.Drawing.Point(4, 3);
-            this.LstImages.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.LstImages.Name = "LstImages";
-            this.LstImages.Size = new System.Drawing.Size(358, 441);
-            this.LstImages.TabIndex = 0;
-            this.LstImages.SelectedValueChanged += new System.EventHandler(this.LstImages_SelectedValueChanged);
+            LstImages.DisplayMember = "FileName";
+            LstImages.Dock = System.Windows.Forms.DockStyle.Fill;
+            LstImages.FormattingEnabled = true;
+            LstImages.ItemHeight = 15;
+            LstImages.Location = new System.Drawing.Point(4, 3);
+            LstImages.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            LstImages.Name = "LstImages";
+            LstImages.Size = new System.Drawing.Size(358, 441);
+            LstImages.TabIndex = 0;
+            LstImages.SelectedValueChanged += LstImages_SelectedValueChanged;
             // 
             // PropGridImageInfo
             // 
-            this.PropGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PropGridImageInfo.Location = new System.Drawing.Point(370, 3);
-            this.PropGridImageInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PropGridImageInfo.Name = "PropGridImageInfo";
-            this.PropGridImageInfo.Size = new System.Drawing.Size(358, 441);
-            this.PropGridImageInfo.TabIndex = 1;
+            PropGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            PropGridImageInfo.Location = new System.Drawing.Point(370, 3);
+            PropGridImageInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PropGridImageInfo.Name = "PropGridImageInfo";
+            PropGridImageInfo.Size = new System.Drawing.Size(358, 441);
+            PropGridImageInfo.TabIndex = 1;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.TxtBatchNameGetBatch);
-            this.panel10.Controls.Add(this.label9);
-            this.panel10.Controls.Add(this.BtnGetBatchGetBatch);
-            this.panel10.Controls.Add(this.PropGridGetBatchOptions);
-            this.panel10.Controls.Add(this.LblGetBatchStatusGetBatch);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(4, 3);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(732, 189);
-            this.panel10.TabIndex = 6;
+            panel10.Controls.Add(TxtBatchNameGetBatch);
+            panel10.Controls.Add(label9);
+            panel10.Controls.Add(BtnGetBatchGetBatch);
+            panel10.Controls.Add(PropGridGetBatchOptions);
+            panel10.Controls.Add(LblGetBatchStatusGetBatch);
+            panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            panel10.Location = new System.Drawing.Point(4, 3);
+            panel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel10.Name = "panel10";
+            panel10.Size = new System.Drawing.Size(732, 189);
+            panel10.TabIndex = 6;
             // 
             // TxtBatchNameGetBatch
             // 
-            this.TxtBatchNameGetBatch.Location = new System.Drawing.Point(19, 35);
-            this.TxtBatchNameGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtBatchNameGetBatch.Name = "TxtBatchNameGetBatch";
-            this.TxtBatchNameGetBatch.Size = new System.Drawing.Size(198, 23);
-            this.TxtBatchNameGetBatch.TabIndex = 10;
-            this.TxtBatchNameGetBatch.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            TxtBatchNameGetBatch.Location = new System.Drawing.Point(19, 35);
+            TxtBatchNameGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtBatchNameGetBatch.Name = "TxtBatchNameGetBatch";
+            TxtBatchNameGetBatch.Size = new System.Drawing.Size(198, 23);
+            TxtBatchNameGetBatch.TabIndex = 10;
+            TxtBatchNameGetBatch.Validating += TxtBatchName_Validating;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 16);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 15);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Batch Name:";
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(15, 16);
+            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(75, 15);
+            label9.TabIndex = 9;
+            label9.Text = "Batch Name:";
             // 
             // BtnGetBatchGetBatch
             // 
-            this.BtnGetBatchGetBatch.Location = new System.Drawing.Point(19, 78);
-            this.BtnGetBatchGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnGetBatchGetBatch.Name = "BtnGetBatchGetBatch";
-            this.BtnGetBatchGetBatch.Size = new System.Drawing.Size(198, 27);
-            this.BtnGetBatchGetBatch.TabIndex = 8;
-            this.BtnGetBatchGetBatch.Text = "GetBatch";
-            this.BtnGetBatchGetBatch.UseVisualStyleBackColor = true;
-            this.BtnGetBatchGetBatch.Click += new System.EventHandler(this.BtnGetBatchGetBatch_Click);
+            BtnGetBatchGetBatch.Location = new System.Drawing.Point(19, 78);
+            BtnGetBatchGetBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnGetBatchGetBatch.Name = "BtnGetBatchGetBatch";
+            BtnGetBatchGetBatch.Size = new System.Drawing.Size(198, 27);
+            BtnGetBatchGetBatch.TabIndex = 8;
+            BtnGetBatchGetBatch.Text = "GetBatch";
+            BtnGetBatchGetBatch.UseVisualStyleBackColor = true;
+            BtnGetBatchGetBatch.Click += BtnGetBatchGetBatch_Click;
             // 
             // PropGridGetBatchOptions
             // 
-            this.PropGridGetBatchOptions.HelpVisible = false;
-            this.PropGridGetBatchOptions.Location = new System.Drawing.Point(246, 10);
-            this.PropGridGetBatchOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PropGridGetBatchOptions.Name = "PropGridGetBatchOptions";
-            this.PropGridGetBatchOptions.Size = new System.Drawing.Size(245, 172);
-            this.PropGridGetBatchOptions.TabIndex = 7;
+            PropGridGetBatchOptions.HelpVisible = false;
+            PropGridGetBatchOptions.Location = new System.Drawing.Point(246, 10);
+            PropGridGetBatchOptions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PropGridGetBatchOptions.Name = "PropGridGetBatchOptions";
+            PropGridGetBatchOptions.Size = new System.Drawing.Size(245, 172);
+            PropGridGetBatchOptions.TabIndex = 7;
             // 
             // LblGetBatchStatusGetBatch
             // 
-            this.LblGetBatchStatusGetBatch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblGetBatchStatusGetBatch.Location = new System.Drawing.Point(498, 16);
-            this.LblGetBatchStatusGetBatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblGetBatchStatusGetBatch.Name = "LblGetBatchStatusGetBatch";
-            this.LblGetBatchStatusGetBatch.Size = new System.Drawing.Size(227, 166);
-            this.LblGetBatchStatusGetBatch.TabIndex = 4;
+            LblGetBatchStatusGetBatch.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            LblGetBatchStatusGetBatch.Location = new System.Drawing.Point(498, 16);
+            LblGetBatchStatusGetBatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LblGetBatchStatusGetBatch.Name = "LblGetBatchStatusGetBatch";
+            LblGetBatchStatusGetBatch.Size = new System.Drawing.Size(227, 166);
+            LblGetBatchStatusGetBatch.TabIndex = 4;
             // 
             // listBox1
             // 
-            this.listBox1.DisplayMember = "BatchName";
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(4, 3);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(732, 636);
-            this.listBox1.TabIndex = 4;
+            listBox1.DisplayMember = "BatchName";
+            listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new System.Drawing.Point(4, 3);
+            listBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new System.Drawing.Size(732, 636);
+            listBox1.TabIndex = 4;
             // 
             // propertyGrid2
             // 
-            this.propertyGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.propertyGrid2.Location = new System.Drawing.Point(4, 3);
-            this.propertyGrid2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.propertyGrid2.Name = "propertyGrid2";
-            this.propertyGrid2.Size = new System.Drawing.Size(732, 636);
-            this.propertyGrid2.TabIndex = 5;
+            propertyGrid2.Dock = System.Windows.Forms.DockStyle.Fill;
+            propertyGrid2.Location = new System.Drawing.Point(4, 3);
+            propertyGrid2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            propertyGrid2.Name = "propertyGrid2";
+            propertyGrid2.Size = new System.Drawing.Size(732, 636);
+            propertyGrid2.TabIndex = 5;
             // 
             // TabDownloadBatch
             // 
-            this.TabDownloadBatch.Controls.Add(this.panel4);
-            this.TabDownloadBatch.Controls.Add(this.panel3);
-            this.TabDownloadBatch.Location = new System.Drawing.Point(4, 24);
-            this.TabDownloadBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabDownloadBatch.Name = "TabDownloadBatch";
-            this.TabDownloadBatch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabDownloadBatch.Size = new System.Drawing.Size(740, 642);
-            this.TabDownloadBatch.TabIndex = 1;
-            this.TabDownloadBatch.Text = "Download Batch";
-            this.TabDownloadBatch.UseVisualStyleBackColor = true;
+            TabDownloadBatch.Controls.Add(panel4);
+            TabDownloadBatch.Controls.Add(panel3);
+            TabDownloadBatch.Location = new System.Drawing.Point(4, 24);
+            TabDownloadBatch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabDownloadBatch.Name = "TabDownloadBatch";
+            TabDownloadBatch.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabDownloadBatch.Size = new System.Drawing.Size(740, 642);
+            TabDownloadBatch.TabIndex = 1;
+            TabDownloadBatch.Text = "Download Batch";
+            TabDownloadBatch.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.dataGridView2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(4, 105);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(732, 534);
-            this.panel4.TabIndex = 4;
+            panel4.Controls.Add(dataGridView2);
+            panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel4.Location = new System.Drawing.Point(4, 105);
+            panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(732, 534);
+            panel4.TabIndex = 4;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AllowUserToResizeRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.statusImageDataGridViewTextBoxColumn,
-            this.FileId,
-            this.FileName,
-            this.dataGridViewTextBoxColumn5,
-            this.ColumnDownloadButton});
-            this.dataGridView2.DataMember = "DownloadFiles";
-            this.dataGridView2.DataSource = this.FileData;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView2.MultiSelect = false;
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
+            dataGridView2.AllowUserToAddRows = false;
+            dataGridView2.AllowUserToDeleteRows = false;
+            dataGridView2.AllowUserToResizeRows = false;
+            dataGridView2.AutoGenerateColumns = false;
+            dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { statusImageDataGridViewTextBoxColumn, FileId, FileName, dataGridViewTextBoxColumn5, ColumnDownloadButton });
+            dataGridView2.DataMember = "DownloadFiles";
+            dataGridView2.DataSource = FileData;
+            dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            dataGridView2.Location = new System.Drawing.Point(0, 0);
+            dataGridView2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dataGridView2.MultiSelect = false;
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.ReadOnly = true;
+            dataGridView2.RowHeadersVisible = false;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(732, 534);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            dataGridView2.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.Size = new System.Drawing.Size(732, 534);
+            dataGridView2.TabIndex = 0;
+            dataGridView2.CellContentClick += dataGridView2_CellContentClick;
             // 
             // statusImageDataGridViewTextBoxColumn
             // 
-            this.statusImageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.statusImageDataGridViewTextBoxColumn.DataPropertyName = "StatusImage";
-            this.statusImageDataGridViewTextBoxColumn.FillWeight = 60F;
-            this.statusImageDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusImageDataGridViewTextBoxColumn.Name = "statusImageDataGridViewTextBoxColumn";
-            this.statusImageDataGridViewTextBoxColumn.ReadOnly = true;
-            this.statusImageDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.statusImageDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.statusImageDataGridViewTextBoxColumn.Width = 50;
+            statusImageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            statusImageDataGridViewTextBoxColumn.DataPropertyName = "StatusImage";
+            statusImageDataGridViewTextBoxColumn.FillWeight = 60F;
+            statusImageDataGridViewTextBoxColumn.HeaderText = "Status";
+            statusImageDataGridViewTextBoxColumn.Name = "statusImageDataGridViewTextBoxColumn";
+            statusImageDataGridViewTextBoxColumn.ReadOnly = true;
+            statusImageDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            statusImageDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            statusImageDataGridViewTextBoxColumn.Width = 50;
             // 
             // FileId
             // 
-            this.FileId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FileId.DataPropertyName = "FileId";
-            this.FileId.HeaderText = "File Id";
-            this.FileId.Name = "FileId";
-            this.FileId.ReadOnly = true;
+            FileId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            FileId.DataPropertyName = "FileId";
+            FileId.HeaderText = "File Id";
+            FileId.Name = "FileId";
+            FileId.ReadOnly = true;
             // 
             // FileName
             // 
-            this.FileName.DataPropertyName = "FileName";
-            this.FileName.HeaderText = "File Name";
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
+            FileName.DataPropertyName = "FileName";
+            FileName.HeaderText = "File Name";
+            FileName.Name = "FileName";
+            FileName.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Result";
-            this.dataGridViewTextBoxColumn5.FillWeight = 104.3148F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Result";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            dataGridViewTextBoxColumn5.DataPropertyName = "Result";
+            dataGridViewTextBoxColumn5.FillWeight = 104.3148F;
+            dataGridViewTextBoxColumn5.HeaderText = "Result";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
             // ColumnDownloadButton
             // 
-            this.ColumnDownloadButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ColumnDownloadButton.HeaderText = "Download";
-            this.ColumnDownloadButton.Name = "ColumnDownloadButton";
-            this.ColumnDownloadButton.ReadOnly = true;
-            this.ColumnDownloadButton.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnDownloadButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnDownloadButton.Text = "Download";
-            this.ColumnDownloadButton.UseColumnTextForButtonValue = true;
-            this.ColumnDownloadButton.Width = 60;
+            ColumnDownloadButton.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            ColumnDownloadButton.HeaderText = "Download";
+            ColumnDownloadButton.Name = "ColumnDownloadButton";
+            ColumnDownloadButton.ReadOnly = true;
+            ColumnDownloadButton.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            ColumnDownloadButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            ColumnDownloadButton.Text = "Download";
+            ColumnDownloadButton.UseColumnTextForButtonValue = true;
+            ColumnDownloadButton.Width = 60;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.BtnBrowseFolder);
-            this.panel3.Controls.Add(this.BtnListFiles);
-            this.panel3.Controls.Add(this.TxtTargetPath);
-            this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.PrgDownloadProgress);
-            this.panel3.Controls.Add(this.LblDownloadStatus);
-            this.panel3.Controls.Add(this.TxtDownloadBatchName);
-            this.panel3.Controls.Add(this.BtnDownloadAll);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(4, 3);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(732, 102);
-            this.panel3.TabIndex = 3;
+            panel3.Controls.Add(BtnBrowseFolder);
+            panel3.Controls.Add(BtnListFiles);
+            panel3.Controls.Add(TxtTargetPath);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(PrgDownloadProgress);
+            panel3.Controls.Add(LblDownloadStatus);
+            panel3.Controls.Add(TxtDownloadBatchName);
+            panel3.Controls.Add(BtnDownloadAll);
+            panel3.Controls.Add(label6);
+            panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            panel3.Location = new System.Drawing.Point(4, 3);
+            panel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(732, 102);
+            panel3.TabIndex = 3;
             // 
             // BtnBrowseFolder
             // 
-            this.BtnBrowseFolder.CausesValidation = false;
-            this.BtnBrowseFolder.Location = new System.Drawing.Point(210, 72);
-            this.BtnBrowseFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnBrowseFolder.Name = "BtnBrowseFolder";
-            this.BtnBrowseFolder.Size = new System.Drawing.Size(88, 27);
-            this.BtnBrowseFolder.TabIndex = 10;
-            this.BtnBrowseFolder.Text = "Browse";
-            this.BtnBrowseFolder.UseVisualStyleBackColor = true;
-            this.BtnBrowseFolder.Click += new System.EventHandler(this.BtnBrowseFolder_Click);
+            BtnBrowseFolder.CausesValidation = false;
+            BtnBrowseFolder.Location = new System.Drawing.Point(210, 72);
+            BtnBrowseFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnBrowseFolder.Name = "BtnBrowseFolder";
+            BtnBrowseFolder.Size = new System.Drawing.Size(88, 27);
+            BtnBrowseFolder.TabIndex = 10;
+            BtnBrowseFolder.Text = "Browse";
+            BtnBrowseFolder.UseVisualStyleBackColor = true;
+            BtnBrowseFolder.Click += BtnBrowseFolder_Click;
             // 
             // BtnListFiles
             // 
-            this.BtnListFiles.Location = new System.Drawing.Point(315, 14);
-            this.BtnListFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnListFiles.Name = "BtnListFiles";
-            this.BtnListFiles.Size = new System.Drawing.Size(107, 27);
-            this.BtnListFiles.TabIndex = 9;
-            this.BtnListFiles.Text = "List Files";
-            this.BtnListFiles.UseVisualStyleBackColor = true;
-            this.BtnListFiles.Click += new System.EventHandler(this.BtnListFiles_Click);
+            BtnListFiles.Location = new System.Drawing.Point(315, 14);
+            BtnListFiles.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnListFiles.Name = "BtnListFiles";
+            BtnListFiles.Size = new System.Drawing.Size(107, 27);
+            BtnListFiles.TabIndex = 9;
+            BtnListFiles.Text = "List Files";
+            BtnListFiles.UseVisualStyleBackColor = true;
+            BtnListFiles.Click += BtnListFiles_Click;
             // 
             // TxtTargetPath
             // 
-            this.TxtTargetPath.Location = new System.Drawing.Point(99, 46);
-            this.TxtTargetPath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtTargetPath.Name = "TxtTargetPath";
-            this.TxtTargetPath.Size = new System.Drawing.Size(198, 23);
-            this.TxtTargetPath.TabIndex = 8;
-            this.TxtTargetPath.Tag = "Target Path";
-            this.TxtTargetPath.Validating += new System.ComponentModel.CancelEventHandler(this.RequiredTextBox_Validating);
+            TxtTargetPath.Location = new System.Drawing.Point(99, 46);
+            TxtTargetPath.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtTargetPath.Name = "TxtTargetPath";
+            TxtTargetPath.Size = new System.Drawing.Size(198, 23);
+            TxtTargetPath.TabIndex = 8;
+            TxtTargetPath.Tag = "Target Path";
+            TxtTargetPath.Validating += RequiredTextBox_Validating;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(10, 50);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 15);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Target Path:";
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(10, 50);
+            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(69, 15);
+            label7.TabIndex = 7;
+            label7.Text = "Target Path:";
             // 
             // PrgDownloadProgress
             // 
-            this.PrgDownloadProgress.Location = new System.Drawing.Point(446, 54);
-            this.PrgDownloadProgress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PrgDownloadProgress.Name = "PrgDownloadProgress";
-            this.PrgDownloadProgress.Size = new System.Drawing.Size(254, 27);
-            this.PrgDownloadProgress.TabIndex = 6;
+            PrgDownloadProgress.Location = new System.Drawing.Point(446, 54);
+            PrgDownloadProgress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PrgDownloadProgress.Name = "PrgDownloadProgress";
+            PrgDownloadProgress.Size = new System.Drawing.Size(254, 27);
+            PrgDownloadProgress.TabIndex = 6;
             // 
             // LblDownloadStatus
             // 
-            this.LblDownloadStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblDownloadStatus.Location = new System.Drawing.Point(446, 10);
-            this.LblDownloadStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblDownloadStatus.Name = "LblDownloadStatus";
-            this.LblDownloadStatus.Size = new System.Drawing.Size(254, 40);
-            this.LblDownloadStatus.TabIndex = 5;
+            LblDownloadStatus.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            LblDownloadStatus.Location = new System.Drawing.Point(446, 10);
+            LblDownloadStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LblDownloadStatus.Name = "LblDownloadStatus";
+            LblDownloadStatus.Size = new System.Drawing.Size(254, 40);
+            LblDownloadStatus.TabIndex = 5;
             // 
             // TxtDownloadBatchName
             // 
-            this.TxtDownloadBatchName.Location = new System.Drawing.Point(99, 14);
-            this.TxtDownloadBatchName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtDownloadBatchName.Name = "TxtDownloadBatchName";
-            this.TxtDownloadBatchName.Size = new System.Drawing.Size(198, 23);
-            this.TxtDownloadBatchName.TabIndex = 4;
-            this.TxtDownloadBatchName.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            TxtDownloadBatchName.Location = new System.Drawing.Point(99, 14);
+            TxtDownloadBatchName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtDownloadBatchName.Name = "TxtDownloadBatchName";
+            TxtDownloadBatchName.Size = new System.Drawing.Size(198, 23);
+            TxtDownloadBatchName.TabIndex = 4;
+            TxtDownloadBatchName.Validating += TxtBatchName_Validating;
             // 
             // BtnDownloadAll
             // 
-            this.BtnDownloadAll.Enabled = false;
-            this.BtnDownloadAll.Location = new System.Drawing.Point(315, 47);
-            this.BtnDownloadAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnDownloadAll.Name = "BtnDownloadAll";
-            this.BtnDownloadAll.Size = new System.Drawing.Size(107, 27);
-            this.BtnDownloadAll.TabIndex = 3;
-            this.BtnDownloadAll.Text = "Download All";
-            this.BtnDownloadAll.UseVisualStyleBackColor = true;
-            this.BtnDownloadAll.Click += new System.EventHandler(this.BtnDownloadAll_Click);
+            BtnDownloadAll.Enabled = false;
+            BtnDownloadAll.Location = new System.Drawing.Point(315, 47);
+            BtnDownloadAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnDownloadAll.Name = "BtnDownloadAll";
+            BtnDownloadAll.Size = new System.Drawing.Size(107, 27);
+            BtnDownloadAll.TabIndex = 3;
+            BtnDownloadAll.Text = "Download All";
+            BtnDownloadAll.UseVisualStyleBackColor = true;
+            BtnDownloadAll.Click += BtnDownloadAll_Click;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 14);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 15);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Batch Name:";
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(10, 14);
+            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(75, 15);
+            label6.TabIndex = 2;
+            label6.Text = "Batch Name:";
             // 
             // TabReports
             // 
-            this.TabReports.Controls.Add(this.panel9);
-            this.TabReports.Controls.Add(this.panel8);
-            this.TabReports.Location = new System.Drawing.Point(4, 24);
-            this.TabReports.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabReports.Name = "TabReports";
-            this.TabReports.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabReports.Size = new System.Drawing.Size(740, 642);
-            this.TabReports.TabIndex = 3;
-            this.TabReports.Text = "Get Report";
-            this.TabReports.UseVisualStyleBackColor = true;
+            TabReports.Controls.Add(panel9);
+            TabReports.Controls.Add(panel8);
+            TabReports.Location = new System.Drawing.Point(4, 24);
+            TabReports.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabReports.Name = "TabReports";
+            TabReports.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabReports.Size = new System.Drawing.Size(740, 642);
+            TabReports.TabIndex = 3;
+            TabReports.Text = "Get Report";
+            TabReports.UseVisualStyleBackColor = true;
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.TxtJsonReport);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(4, 117);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(732, 522);
-            this.panel9.TabIndex = 1;
+            panel9.Controls.Add(TxtJsonReport);
+            panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel9.Location = new System.Drawing.Point(4, 117);
+            panel9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel9.Name = "panel9";
+            panel9.Size = new System.Drawing.Size(732, 522);
+            panel9.TabIndex = 1;
             // 
             // TxtJsonReport
             // 
-            this.TxtJsonReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtJsonReport.Location = new System.Drawing.Point(0, 0);
-            this.TxtJsonReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtJsonReport.Multiline = true;
-            this.TxtJsonReport.Name = "TxtJsonReport";
-            this.TxtJsonReport.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtJsonReport.Size = new System.Drawing.Size(732, 522);
-            this.TxtJsonReport.TabIndex = 0;
+            TxtJsonReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            TxtJsonReport.Location = new System.Drawing.Point(0, 0);
+            TxtJsonReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtJsonReport.Multiline = true;
+            TxtJsonReport.Name = "TxtJsonReport";
+            TxtJsonReport.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            TxtJsonReport.Size = new System.Drawing.Size(732, 522);
+            TxtJsonReport.TabIndex = 0;
             // 
             // panel8
             // 
-            this.panel8.Controls.Add(this.TxtEmailTo);
-            this.panel8.Controls.Add(this.label4);
-            this.panel8.Controls.Add(this.BtnEmailBatchSummaryReport);
-            this.panel8.Controls.Add(this.BtnEmailBatchReport);
-            this.panel8.Controls.Add(this.BtnGetBatchSummaryReport);
-            this.panel8.Controls.Add(this.LblGetReportStatus);
-            this.panel8.Controls.Add(this.BtnGetReport);
-            this.panel8.Controls.Add(this.TxtBatchNameGetReport);
-            this.panel8.Controls.Add(this.label8);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(4, 3);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(732, 114);
-            this.panel8.TabIndex = 0;
+            panel8.Controls.Add(TxtEmailTo);
+            panel8.Controls.Add(label4);
+            panel8.Controls.Add(BtnEmailBatchSummaryReport);
+            panel8.Controls.Add(BtnEmailBatchReport);
+            panel8.Controls.Add(BtnGetBatchSummaryReport);
+            panel8.Controls.Add(LblGetReportStatus);
+            panel8.Controls.Add(BtnGetReport);
+            panel8.Controls.Add(TxtBatchNameGetReport);
+            panel8.Controls.Add(label8);
+            panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            panel8.Location = new System.Drawing.Point(4, 3);
+            panel8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel8.Name = "panel8";
+            panel8.Size = new System.Drawing.Size(732, 114);
+            panel8.TabIndex = 0;
             // 
             // TxtEmailTo
             // 
-            this.TxtEmailTo.Location = new System.Drawing.Point(104, 39);
-            this.TxtEmailTo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtEmailTo.Name = "TxtEmailTo";
-            this.TxtEmailTo.Size = new System.Drawing.Size(234, 23);
-            this.TxtEmailTo.TabIndex = 8;
+            TxtEmailTo.Location = new System.Drawing.Point(104, 39);
+            TxtEmailTo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtEmailTo.Name = "TxtEmailTo";
+            TxtEmailTo.Size = new System.Drawing.Size(234, 23);
+            TxtEmailTo.TabIndex = 8;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 43);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Email To:";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(16, 43);
+            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(54, 15);
+            label4.TabIndex = 7;
+            label4.Text = "Email To:";
             // 
             // BtnEmailBatchSummaryReport
             // 
-            this.BtnEmailBatchSummaryReport.Location = new System.Drawing.Point(532, 40);
-            this.BtnEmailBatchSummaryReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnEmailBatchSummaryReport.Name = "BtnEmailBatchSummaryReport";
-            this.BtnEmailBatchSummaryReport.Size = new System.Drawing.Size(180, 25);
-            this.BtnEmailBatchSummaryReport.TabIndex = 6;
-            this.BtnEmailBatchSummaryReport.Text = "Email Batch Summary Report";
-            this.BtnEmailBatchSummaryReport.UseVisualStyleBackColor = true;
-            this.BtnEmailBatchSummaryReport.Click += new System.EventHandler(this.BtnEmailBatchSummaryReport_Click);
+            BtnEmailBatchSummaryReport.Location = new System.Drawing.Point(532, 40);
+            BtnEmailBatchSummaryReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnEmailBatchSummaryReport.Name = "BtnEmailBatchSummaryReport";
+            BtnEmailBatchSummaryReport.Size = new System.Drawing.Size(180, 25);
+            BtnEmailBatchSummaryReport.TabIndex = 6;
+            BtnEmailBatchSummaryReport.Text = "Email Batch Summary Report";
+            BtnEmailBatchSummaryReport.UseVisualStyleBackColor = true;
+            BtnEmailBatchSummaryReport.Click += BtnEmailBatchSummaryReport_Click;
             // 
             // BtnEmailBatchReport
             // 
-            this.BtnEmailBatchReport.Location = new System.Drawing.Point(532, 8);
-            this.BtnEmailBatchReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnEmailBatchReport.Name = "BtnEmailBatchReport";
-            this.BtnEmailBatchReport.Size = new System.Drawing.Size(180, 23);
-            this.BtnEmailBatchReport.TabIndex = 5;
-            this.BtnEmailBatchReport.Text = "Email Batch Report";
-            this.BtnEmailBatchReport.UseVisualStyleBackColor = true;
-            this.BtnEmailBatchReport.Click += new System.EventHandler(this.BtnEmailBatchReport_Click);
+            BtnEmailBatchReport.Location = new System.Drawing.Point(532, 8);
+            BtnEmailBatchReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnEmailBatchReport.Name = "BtnEmailBatchReport";
+            BtnEmailBatchReport.Size = new System.Drawing.Size(180, 23);
+            BtnEmailBatchReport.TabIndex = 5;
+            BtnEmailBatchReport.Text = "Email Batch Report";
+            BtnEmailBatchReport.UseVisualStyleBackColor = true;
+            BtnEmailBatchReport.Click += BtnEmailBatchReport_Click;
             // 
             // BtnGetBatchSummaryReport
             // 
-            this.BtnGetBatchSummaryReport.Location = new System.Drawing.Point(345, 39);
-            this.BtnGetBatchSummaryReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnGetBatchSummaryReport.Name = "BtnGetBatchSummaryReport";
-            this.BtnGetBatchSummaryReport.Size = new System.Drawing.Size(180, 27);
-            this.BtnGetBatchSummaryReport.TabIndex = 4;
-            this.BtnGetBatchSummaryReport.Text = "Get Batch Summary Report";
-            this.BtnGetBatchSummaryReport.UseVisualStyleBackColor = true;
-            this.BtnGetBatchSummaryReport.Click += new System.EventHandler(this.BtnGetBatchSummaryReport_Click);
+            BtnGetBatchSummaryReport.Location = new System.Drawing.Point(345, 39);
+            BtnGetBatchSummaryReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnGetBatchSummaryReport.Name = "BtnGetBatchSummaryReport";
+            BtnGetBatchSummaryReport.Size = new System.Drawing.Size(180, 27);
+            BtnGetBatchSummaryReport.TabIndex = 4;
+            BtnGetBatchSummaryReport.Text = "Get Batch Summary Report";
+            BtnGetBatchSummaryReport.UseVisualStyleBackColor = true;
+            BtnGetBatchSummaryReport.Click += BtnGetBatchSummaryReport_Click;
             // 
             // LblGetReportStatus
             // 
-            this.LblGetReportStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.LblGetReportStatus.Location = new System.Drawing.Point(0, 75);
-            this.LblGetReportStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblGetReportStatus.Name = "LblGetReportStatus";
-            this.LblGetReportStatus.Padding = new System.Windows.Forms.Padding(6);
-            this.LblGetReportStatus.Size = new System.Drawing.Size(732, 39);
-            this.LblGetReportStatus.TabIndex = 3;
+            LblGetReportStatus.Dock = System.Windows.Forms.DockStyle.Bottom;
+            LblGetReportStatus.Location = new System.Drawing.Point(0, 75);
+            LblGetReportStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LblGetReportStatus.Name = "LblGetReportStatus";
+            LblGetReportStatus.Padding = new System.Windows.Forms.Padding(6);
+            LblGetReportStatus.Size = new System.Drawing.Size(732, 39);
+            LblGetReportStatus.TabIndex = 3;
             // 
             // BtnGetReport
             // 
-            this.BtnGetReport.Location = new System.Drawing.Point(345, 9);
-            this.BtnGetReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnGetReport.Name = "BtnGetReport";
-            this.BtnGetReport.Size = new System.Drawing.Size(180, 23);
-            this.BtnGetReport.TabIndex = 2;
-            this.BtnGetReport.Text = "Get Batch Report";
-            this.BtnGetReport.UseVisualStyleBackColor = true;
-            this.BtnGetReport.Click += new System.EventHandler(this.BtnGetReport_Click);
+            BtnGetReport.Location = new System.Drawing.Point(345, 9);
+            BtnGetReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnGetReport.Name = "BtnGetReport";
+            BtnGetReport.Size = new System.Drawing.Size(180, 23);
+            BtnGetReport.TabIndex = 2;
+            BtnGetReport.Text = "Get Batch Report";
+            BtnGetReport.UseVisualStyleBackColor = true;
+            BtnGetReport.Click += BtnGetReport_Click;
             // 
             // TxtBatchNameGetReport
             // 
-            this.TxtBatchNameGetReport.Location = new System.Drawing.Point(103, 9);
-            this.TxtBatchNameGetReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtBatchNameGetReport.Name = "TxtBatchNameGetReport";
-            this.TxtBatchNameGetReport.Size = new System.Drawing.Size(234, 23);
-            this.TxtBatchNameGetReport.TabIndex = 1;
-            this.TxtBatchNameGetReport.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            TxtBatchNameGetReport.Location = new System.Drawing.Point(103, 9);
+            TxtBatchNameGetReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtBatchNameGetReport.Name = "TxtBatchNameGetReport";
+            TxtBatchNameGetReport.Size = new System.Drawing.Size(234, 23);
+            TxtBatchNameGetReport.TabIndex = 1;
+            TxtBatchNameGetReport.Validating += TxtBatchName_Validating;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 13);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Batch Name:";
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(15, 13);
+            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(75, 15);
+            label8.TabIndex = 0;
+            label8.Text = "Batch Name:";
             // 
             // TabImageSupport
             // 
-            this.TabImageSupport.Controls.Add(this.panel6);
-            this.TabImageSupport.Controls.Add(this.panel5);
-            this.TabImageSupport.Controls.Add(this.BtnTestImage);
-            this.TabImageSupport.Location = new System.Drawing.Point(4, 24);
-            this.TabImageSupport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabImageSupport.Name = "TabImageSupport";
-            this.TabImageSupport.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TabImageSupport.Size = new System.Drawing.Size(740, 642);
-            this.TabImageSupport.TabIndex = 4;
-            this.TabImageSupport.Text = "Image Info";
-            this.TabImageSupport.UseVisualStyleBackColor = true;
+            TabImageSupport.Controls.Add(panel6);
+            TabImageSupport.Controls.Add(panel5);
+            TabImageSupport.Controls.Add(BtnTestImage);
+            TabImageSupport.Location = new System.Drawing.Point(4, 24);
+            TabImageSupport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabImageSupport.Name = "TabImageSupport";
+            TabImageSupport.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TabImageSupport.Size = new System.Drawing.Size(740, 642);
+            TabImageSupport.TabIndex = 4;
+            TabImageSupport.Text = "Image Info";
+            TabImageSupport.UseVisualStyleBackColor = true;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.LstImageBrowser);
-            this.panel6.Controls.Add(this.BtnBrowseImageFolder);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(4, 3);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(340, 636);
-            this.panel6.TabIndex = 3;
+            panel6.Controls.Add(LstImageBrowser);
+            panel6.Controls.Add(BtnBrowseImageFolder);
+            panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel6.Location = new System.Drawing.Point(4, 3);
+            panel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(340, 636);
+            panel6.TabIndex = 3;
             // 
             // LstImageBrowser
             // 
-            this.LstImageBrowser.DisplayMember = "FileName";
-            this.LstImageBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LstImageBrowser.FormattingEnabled = true;
-            this.LstImageBrowser.ItemHeight = 15;
-            this.LstImageBrowser.Location = new System.Drawing.Point(0, 27);
-            this.LstImageBrowser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.LstImageBrowser.Name = "LstImageBrowser";
-            this.LstImageBrowser.Size = new System.Drawing.Size(340, 609);
-            this.LstImageBrowser.TabIndex = 1;
-            this.LstImageBrowser.SelectedValueChanged += new System.EventHandler(this.LstImageBrowser_SelectedValueChanged);
+            LstImageBrowser.DisplayMember = "FileName";
+            LstImageBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            LstImageBrowser.FormattingEnabled = true;
+            LstImageBrowser.ItemHeight = 15;
+            LstImageBrowser.Location = new System.Drawing.Point(0, 27);
+            LstImageBrowser.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            LstImageBrowser.Name = "LstImageBrowser";
+            LstImageBrowser.Size = new System.Drawing.Size(340, 609);
+            LstImageBrowser.TabIndex = 1;
+            LstImageBrowser.SelectedValueChanged += LstImageBrowser_SelectedValueChanged;
             // 
             // BtnBrowseImageFolder
             // 
-            this.BtnBrowseImageFolder.CausesValidation = false;
-            this.BtnBrowseImageFolder.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnBrowseImageFolder.Location = new System.Drawing.Point(0, 0);
-            this.BtnBrowseImageFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnBrowseImageFolder.Name = "BtnBrowseImageFolder";
-            this.BtnBrowseImageFolder.Size = new System.Drawing.Size(340, 27);
-            this.BtnBrowseImageFolder.TabIndex = 0;
-            this.BtnBrowseImageFolder.Text = "Browse Folder";
-            this.BtnBrowseImageFolder.UseVisualStyleBackColor = true;
-            this.BtnBrowseImageFolder.Click += new System.EventHandler(this.BtnBrowseImageFolder_Click);
+            BtnBrowseImageFolder.CausesValidation = false;
+            BtnBrowseImageFolder.Dock = System.Windows.Forms.DockStyle.Top;
+            BtnBrowseImageFolder.Location = new System.Drawing.Point(0, 0);
+            BtnBrowseImageFolder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnBrowseImageFolder.Name = "BtnBrowseImageFolder";
+            BtnBrowseImageFolder.Size = new System.Drawing.Size(340, 27);
+            BtnBrowseImageFolder.TabIndex = 0;
+            BtnBrowseImageFolder.Text = "Browse Folder";
+            BtnBrowseImageFolder.UseVisualStyleBackColor = true;
+            BtnBrowseImageFolder.Click += BtnBrowseImageFolder_Click;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.PropertyGridImageInfo);
-            this.panel5.Controls.Add(this.panel7);
-            this.panel5.Controls.Add(this.BtnSaveImage);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(344, 3);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(392, 636);
-            this.panel5.TabIndex = 2;
+            panel5.Controls.Add(PropertyGridImageInfo);
+            panel5.Controls.Add(panel7);
+            panel5.Controls.Add(BtnSaveImage);
+            panel5.Dock = System.Windows.Forms.DockStyle.Right;
+            panel5.Location = new System.Drawing.Point(344, 3);
+            panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(392, 636);
+            panel5.TabIndex = 2;
             // 
             // PropertyGridImageInfo
             // 
-            this.PropertyGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PropertyGridImageInfo.Location = new System.Drawing.Point(0, 0);
-            this.PropertyGridImageInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.PropertyGridImageInfo.Name = "PropertyGridImageInfo";
-            this.PropertyGridImageInfo.Size = new System.Drawing.Size(392, 537);
-            this.PropertyGridImageInfo.TabIndex = 1;
+            PropertyGridImageInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            PropertyGridImageInfo.Location = new System.Drawing.Point(0, 0);
+            PropertyGridImageInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PropertyGridImageInfo.Name = "PropertyGridImageInfo";
+            PropertyGridImageInfo.Size = new System.Drawing.Size(392, 537);
+            PropertyGridImageInfo.TabIndex = 1;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.LblUploadImageInfoStatus);
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.TxtBatchNameImageInfo);
-            this.panel7.Controls.Add(this.BtnUploadImageFromInfo);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 537);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(392, 72);
-            this.panel7.TabIndex = 4;
+            panel7.Controls.Add(LblUploadImageInfoStatus);
+            panel7.Controls.Add(label5);
+            panel7.Controls.Add(TxtBatchNameImageInfo);
+            panel7.Controls.Add(BtnUploadImageFromInfo);
+            panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel7.Location = new System.Drawing.Point(0, 537);
+            panel7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new System.Drawing.Size(392, 72);
+            panel7.TabIndex = 4;
             // 
             // LblUploadImageInfoStatus
             // 
-            this.LblUploadImageInfoStatus.AutoSize = true;
-            this.LblUploadImageInfoStatus.Location = new System.Drawing.Point(159, 8);
-            this.LblUploadImageInfoStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblUploadImageInfoStatus.Name = "LblUploadImageInfoStatus";
-            this.LblUploadImageInfoStatus.Size = new System.Drawing.Size(0, 15);
-            this.LblUploadImageInfoStatus.TabIndex = 6;
+            LblUploadImageInfoStatus.AutoSize = true;
+            LblUploadImageInfoStatus.Location = new System.Drawing.Point(159, 8);
+            LblUploadImageInfoStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            LblUploadImageInfoStatus.Name = "LblUploadImageInfoStatus";
+            LblUploadImageInfoStatus.Size = new System.Drawing.Size(0, 15);
+            LblUploadImageInfoStatus.TabIndex = 6;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 10);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 15);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Batch Name:";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(8, 10);
+            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(75, 15);
+            label5.TabIndex = 5;
+            label5.Text = "Batch Name:";
             // 
             // TxtBatchNameImageInfo
             // 
-            this.TxtBatchNameImageInfo.Location = new System.Drawing.Point(7, 32);
-            this.TxtBatchNameImageInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.TxtBatchNameImageInfo.Name = "TxtBatchNameImageInfo";
-            this.TxtBatchNameImageInfo.Size = new System.Drawing.Size(245, 23);
-            this.TxtBatchNameImageInfo.TabIndex = 4;
-            this.TxtBatchNameImageInfo.Validating += new System.ComponentModel.CancelEventHandler(this.TxtBatchName_Validating);
+            TxtBatchNameImageInfo.Location = new System.Drawing.Point(7, 32);
+            TxtBatchNameImageInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            TxtBatchNameImageInfo.Name = "TxtBatchNameImageInfo";
+            TxtBatchNameImageInfo.Size = new System.Drawing.Size(245, 23);
+            TxtBatchNameImageInfo.TabIndex = 4;
+            TxtBatchNameImageInfo.Validating += TxtBatchName_Validating;
             // 
             // BtnUploadImageFromInfo
             // 
-            this.BtnUploadImageFromInfo.Location = new System.Drawing.Point(260, 32);
-            this.BtnUploadImageFromInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnUploadImageFromInfo.Name = "BtnUploadImageFromInfo";
-            this.BtnUploadImageFromInfo.Size = new System.Drawing.Size(126, 27);
-            this.BtnUploadImageFromInfo.TabIndex = 3;
-            this.BtnUploadImageFromInfo.Text = "Upload Image";
-            this.BtnUploadImageFromInfo.UseVisualStyleBackColor = true;
-            this.BtnUploadImageFromInfo.Click += new System.EventHandler(this.BtnUploadImageFromInfo_Click);
+            BtnUploadImageFromInfo.Location = new System.Drawing.Point(260, 32);
+            BtnUploadImageFromInfo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnUploadImageFromInfo.Name = "BtnUploadImageFromInfo";
+            BtnUploadImageFromInfo.Size = new System.Drawing.Size(126, 27);
+            BtnUploadImageFromInfo.TabIndex = 3;
+            BtnUploadImageFromInfo.Text = "Upload Image";
+            BtnUploadImageFromInfo.UseVisualStyleBackColor = true;
+            BtnUploadImageFromInfo.Click += BtnUploadImageFromInfo_Click;
             // 
             // BtnSaveImage
             // 
-            this.BtnSaveImage.CausesValidation = false;
-            this.BtnSaveImage.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnSaveImage.Location = new System.Drawing.Point(0, 609);
-            this.BtnSaveImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnSaveImage.Name = "BtnSaveImage";
-            this.BtnSaveImage.Size = new System.Drawing.Size(392, 27);
-            this.BtnSaveImage.TabIndex = 2;
-            this.BtnSaveImage.Text = "Save Image";
-            this.BtnSaveImage.UseVisualStyleBackColor = true;
-            this.BtnSaveImage.Click += new System.EventHandler(this.BtnSaveImage_Click);
+            BtnSaveImage.CausesValidation = false;
+            BtnSaveImage.Dock = System.Windows.Forms.DockStyle.Bottom;
+            BtnSaveImage.Location = new System.Drawing.Point(0, 609);
+            BtnSaveImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnSaveImage.Name = "BtnSaveImage";
+            BtnSaveImage.Size = new System.Drawing.Size(392, 27);
+            BtnSaveImage.TabIndex = 2;
+            BtnSaveImage.Text = "Save Image";
+            BtnSaveImage.UseVisualStyleBackColor = true;
+            BtnSaveImage.Click += BtnSaveImage_Click;
             // 
             // BtnTestImage
             // 
-            this.BtnTestImage.Location = new System.Drawing.Point(55, 66);
-            this.BtnTestImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnTestImage.Name = "BtnTestImage";
-            this.BtnTestImage.Size = new System.Drawing.Size(88, 27);
-            this.BtnTestImage.TabIndex = 0;
-            this.BtnTestImage.Text = "Test";
-            this.BtnTestImage.UseVisualStyleBackColor = true;
-            this.BtnTestImage.Visible = false;
-            this.BtnTestImage.Click += new System.EventHandler(this.BtnTestImage_Click);
+            BtnTestImage.Location = new System.Drawing.Point(55, 66);
+            BtnTestImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            BtnTestImage.Name = "BtnTestImage";
+            BtnTestImage.Size = new System.Drawing.Size(88, 27);
+            BtnTestImage.TabIndex = 0;
+            BtnTestImage.Text = "Test";
+            BtnTestImage.UseVisualStyleBackColor = true;
+            BtnTestImage.Visible = false;
+            BtnTestImage.Click += BtnTestImage_Click;
             // 
             // openFileDialog
             // 
-            this.openFileDialog.Filter = "Tiff Files|*.tif;*.tiff";
-            this.openFileDialog.Multiselect = true;
+            openFileDialog.Filter = "Tiff Files|*.tif;*.tiff";
+            openFileDialog.Multiselect = true;
             // 
             // ImageList
             // 
-            this.ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImageList.ImageStream")));
-            this.ImageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.ImageList.Images.SetKeyName(0, "Success");
-            this.ImageList.Images.SetKeyName(1, "Error");
-            this.ImageList.Images.SetKeyName(2, "Processing");
-            this.ImageList.Images.SetKeyName(3, "Pending");
-            this.ImageList.Images.SetKeyName(4, "Downloading");
-            this.ImageList.Images.SetKeyName(5, "Uploading");
+            ImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            ImageList.ImageStream = (System.Windows.Forms.ImageListStreamer)resources.GetObject("ImageList.ImageStream");
+            ImageList.TransparentColor = System.Drawing.Color.Transparent;
+            ImageList.Images.SetKeyName(0, "Success");
+            ImageList.Images.SetKeyName(1, "Error");
+            ImageList.Images.SetKeyName(2, "Processing");
+            ImageList.Images.SetKeyName(3, "Pending");
+            ImageList.Images.SetKeyName(4, "Downloading");
+            ImageList.Images.SetKeyName(5, "Uploading");
             // 
             // errorProvider
             // 
-            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
-            this.errorProvider.ContainerControl = this;
+            errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            errorProvider.ContainerControl = this;
             // 
             // dataColumn8
             // 
-            this.dataColumn8.Caption = "Status";
-            this.dataColumn8.ColumnName = "StatusImage";
-            this.dataColumn8.DataType = typeof(object);
-            this.dataColumn8.DefaultValue = ((object)(resources.GetObject("dataColumn8.DefaultValue")));
-            this.dataColumn8.Namespace = "";
+            dataColumn8.Caption = "Status";
+            dataColumn8.ColumnName = "StatusImage";
+            dataColumn8.DataType = typeof(object);
+            dataColumn8.DefaultValue = resources.GetObject("dataColumn8.DefaultValue");
+            dataColumn8.Namespace = "";
             // 
             // folderBrowserDialogImageInfo
             // 
-            this.folderBrowserDialogImageInfo.RootFolder = System.Environment.SpecialFolder.MyComputer;
-            this.folderBrowserDialogImageInfo.ShowNewFolderButton = false;
+            folderBrowserDialogImageInfo.RootFolder = System.Environment.SpecialFolder.MyComputer;
+            folderBrowserDialogImageInfo.ShowNewFolderButton = false;
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.DefaultExt = "tif";
-            this.saveFileDialog1.Filter = "Tif Files|*.tif;*.tiff";
+            saveFileDialog1.DefaultExt = "tif";
+            saveFileDialog1.Filter = "Tif Files|*.tif;*.tiff";
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ClientSize = new System.Drawing.Size(1068, 670);
-            this.Controls.Add(this.BtnTest);
-            this.Controls.Add(this.MainTabControl);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.Name = "FrmMain";
-            this.Text = "Image API Test Application";
-            this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.MainTabControl.ResumeLayout(false);
-            this.TabUploadFiles.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FileData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.UploadFilesTable)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DownloadFilesTable)).EndInit();
-            this.PnlUploadFiles.ResumeLayout(false);
-            this.PnlUploadFiles.PerformLayout();
-            this.TabGetBatches.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.TabGetBatch.ResumeLayout(false);
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.TabDownloadBatch.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.TabReports.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            this.TabImageSupport.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            ClientSize = new System.Drawing.Size(1068, 670);
+            Controls.Add(BtnTest);
+            Controls.Add(MainTabControl);
+            Controls.Add(splitter1);
+            Controls.Add(groupBox1);
+            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Name = "FrmMain";
+            Text = "Image API Test Application";
+            Load += FrmMain_Load;
+            groupBox1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            MainTabControl.ResumeLayout(false);
+            TabUploadFiles.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)FileData).EndInit();
+            ((System.ComponentModel.ISupportInitialize)UploadFilesTable).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DownloadFilesTable).EndInit();
+            PnlUploadFiles.ResumeLayout(false);
+            PnlUploadFiles.PerformLayout();
+            TabGetBatches.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            TabGetBatch.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
+            TabDownloadBatch.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            TabReports.ResumeLayout(false);
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            TabImageSupport.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion

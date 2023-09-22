@@ -157,6 +157,18 @@ namespace GSCCCA.ImageAPI.Client
             return GetImageHeader(url);
         }
 
+        
+        /// <summary>
+        /// Use this call to get information about the currently authenticated vendor
+        /// </summary>
+        /// <returns>Information about the vendor calling the API</returns>
+        public Task<Vendor> GetVendorInfo()
+        {
+            var url = GetApiUrl($"Reports/VendorInfo");
+            return PerformGet<Vendor>(url);
+        }
+        
+        
 
         /// <summary>
         /// Use this call to email an HTML representation of a report not yet available when this SDK was released

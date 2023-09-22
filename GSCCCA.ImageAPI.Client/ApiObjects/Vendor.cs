@@ -5,21 +5,31 @@ using Newtonsoft.Json;
 
 namespace GSCCCA.ImageAPI.Client.ApiObjects
 {
-    public class VendorEmail
+
+    public class CountyModel
     {
-        [JsonProperty("emailAddress")]
-        public string EmailAddress { get; set; }
+        [JsonProperty("countyCode")]
+        public int CountyCode { get; set; }
+        
+        [JsonProperty("countyName")]
+        public string CountyName { get; set; }
     }
 
     public class Vendor
     {
         [JsonProperty("vendorId")]
+        public int VendorId { get; set; }
+        
+        [JsonProperty("clientId")]
+        public string ClientId { get; set; }
+        
+        [JsonProperty("vendorName")]
         public string VendorName { get; set; }
-
-        [JsonProperty("active")]
-        public bool Active { get; set; }
-
-        [JsonProperty("vendorEmail")]
-        public List<VendorEmail> VendorEmails { get; set; }
+        
+        [JsonProperty("vendorEmails")]
+        public string VendorEmails { get; set; }
+        
+        [JsonProperty("counties")]
+        public List<CountyModel> Counties { get; set; }
     }
 }

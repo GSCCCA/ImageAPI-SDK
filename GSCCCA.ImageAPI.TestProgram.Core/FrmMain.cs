@@ -37,7 +37,8 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
         private async void BtnTest_Click(object sender, EventArgs e)
         {
             var client = GetClient();
-            var result = await client.ListAvailableReports();
+            var result = await client.GetVendorInfo();
+            var i = 0;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                 }
 
                 ResetUpload();
-                
+
 
             }
         }
@@ -136,7 +137,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                 LblUploadStatus.Text = "Upload Started";
                 var batchName = TxtUploadBatchName.Text;
 
-               
+
                 var files = new List<string>();
                 foreach (DataRow row in UploadFilesTable.Rows)
                 {
@@ -289,10 +290,10 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             {
                 TxtTargetPath.CausesValidation = true;
             }
-           
-          
 
-           
+
+
+
 
 
             LblDownloadStatus.Text = "Getting File List";
@@ -311,7 +312,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                 options.SortDirection = SortDirection.Ascending;
 
                 Batch batch;
-                
+
 
                 var images = new List<ImageSubmission>();
 
@@ -325,12 +326,12 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                 DownloadFilesTable.Clear();
 
 
-                    images.Where(i => i.Success)
-                    .ToList().ForEach(f =>
-                    {
-                        AddOrSetDownloadFileStatus(f.ImageSubmissionId, f.FileName, "Pending", "Pending");
-                    });
-                LblDownloadStatus.Text ="List Files Completed";
+                images.Where(i => i.Success)
+                .ToList().ForEach(f =>
+                {
+                    AddOrSetDownloadFileStatus(f.ImageSubmissionId, f.FileName, "Pending", "Pending");
+                });
+                LblDownloadStatus.Text = "List Files Completed";
             }
             catch (Exception exception)
             {
@@ -376,7 +377,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             }
 
 
-            
+
         }
 
         private void BtnDownload_Click(object sender, EventArgs e)
@@ -384,11 +385,11 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             PropGridBatch.SelectedObject = LstBatches.SelectedItem;
             if (LstBatches.SelectedItem is BatchSummary batch)
             {
-    
-                    TxtDownloadBatchName.Text = batch.BatchName;
-                    MainTabControl.SelectTab(TabDownloadBatch);
-                    BtnListFiles_Click(BtnListFiles, EventArgs.Empty);
-               
+
+                TxtDownloadBatchName.Text = batch.BatchName;
+                MainTabControl.SelectTab(TabDownloadBatch);
+                BtnListFiles_Click(BtnListFiles, EventArgs.Empty);
+
             }
         }
 
@@ -402,7 +403,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                 var item = dataGridView2.Rows[e.RowIndex].DataBoundItem as DataRowView;
                 if (item != null)
                 {
-                    var id = (long) item.Row["FileId"];
+                    var id = (long)item.Row["FileId"];
                     var filename = item.Row["FileName"] as string ?? $"{id}.tif";
                     if (!ValidateChildren(ValidationConstraints.Visible))
                         return;
@@ -415,7 +416,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                         var path = Path.Combine(TxtTargetPath.Text, filename);
                         await client.DownloadImageAsync(id, path);
                         LblDownloadStatus.Text = "Download Success";
-                        AddOrSetDownloadFileStatus(id, filename, "Success","Success");
+                        AddOrSetDownloadFileStatus(id, filename, "Success", "Success");
                     }
                     catch (Exception exception)
                     {
@@ -439,65 +440,65 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             if (!ValidateChildren(ValidationConstraints.Visible))
                 return;
 
-            
-                SetDownloadControlsEnabled(false);
-                LblDownloadStatus.Text = "Download Started";
-            
-                
-                var files = new List<ImageDownloadRequest>();
-                foreach (DataRow row in DownloadFilesTable.Rows)
+
+            SetDownloadControlsEnabled(false);
+            LblDownloadStatus.Text = "Download Started";
+
+
+            var files = new List<ImageDownloadRequest>();
+            foreach (DataRow row in DownloadFilesTable.Rows)
+            {
+                var id = (long)row["FileId"];
+                var filename = row["FileName"] as string ?? $"{id}.tif";
+                var path = Path.Combine(TxtTargetPath.Text, filename);
+                if (!string.IsNullOrWhiteSpace(path))
+                    files.Add(new ImageDownloadRequest { ImageId = id, TargetPath = path });
+            }
+            PrgDownloadProgress.Value = 0;
+            PrgDownloadProgress.Maximum = files.Count;
+            var statusIndicator = new TransferStatusIndicator(SynchronizationContext.Current);
+
+            statusIndicator.StatusUpdate += (o, args) =>
+            {
+                if (args.CompletedFiles > PrgDownloadProgress.Value)
+                    PrgDownloadProgress.Value = args.CompletedFiles;
+                var image = "Pending";
+                var resultText = "Pending";
+
+                if (args.CurrentEvent == CurrentEventType.FileStarting)
                 {
-                    var id = (long) row["FileId"];
-                    var filename = row["FileName"] as string ?? $"{id}.tif";
-                    var path = Path.Combine(TxtTargetPath.Text, filename);
-                    if (!string.IsNullOrWhiteSpace(path))
-                        files.Add(new ImageDownloadRequest{ImageId = id, TargetPath = path});
+                    image = "Downloading";
+                    resultText = "Downloading";
                 }
-                PrgDownloadProgress.Value = 0;
-                PrgDownloadProgress.Maximum = files.Count;
-                var statusIndicator = new TransferStatusIndicator(SynchronizationContext.Current);
-
-                statusIndicator.StatusUpdate += (o, args) =>
+                else if (args.CurrentEvent == CurrentEventType.FileError)
                 {
-                    if (args.CompletedFiles > PrgDownloadProgress.Value)
-                        PrgDownloadProgress.Value = args.CompletedFiles;
-                    var image = "Pending";
-                    var resultText = "Pending";
-
-                    if (args.CurrentEvent == CurrentEventType.FileStarting)
-                    {
-                        image = "Downloading";
-                        resultText = "Downloading";
-                    }
-                    else if (args.CurrentEvent == CurrentEventType.FileError)
-                    {
-                        image = "Error";
-                        resultText = args.Error ?? "Error";
-                    }
-                    else if (args.CurrentEvent == CurrentEventType.FileCompleted)
-                    {
-                        image = "Success";
-                        resultText = "Success";
-                    }
-
-                    var file = files.FirstOrDefault(f => f.TargetPath == args.FilePath);
-                    if (file != null) 
-                        AddOrSetDownloadFileStatus(file.ImageId.GetValueOrDefault(), Path.GetFileName(file.TargetPath), image, resultText);
-
-                };
-
-                try
-                {
-                    var client = GetClient();
-                    var result = await client.DownloadImagesAsync(files.ToArray(), statusIndicator);
-                    LblDownloadStatus.Text = "Download Complete";
+                    image = "Error";
+                    resultText = args.Error ?? "Error";
                 }
-                catch (Exception ex)
+                else if (args.CurrentEvent == CurrentEventType.FileCompleted)
                 {
-                    LblDownloadStatus.Text = $"Error: {ex}";
+                    image = "Success";
+                    resultText = "Success";
                 }
-                SetDownloadControlsEnabled(true);
-            
+
+                var file = files.FirstOrDefault(f => f.TargetPath == args.FilePath);
+                if (file != null)
+                    AddOrSetDownloadFileStatus(file.ImageId.GetValueOrDefault(), Path.GetFileName(file.TargetPath), image, resultText);
+
+            };
+
+            try
+            {
+                var client = GetClient();
+                var result = await client.DownloadImagesAsync(files.ToArray(), statusIndicator);
+                LblDownloadStatus.Text = "Download Complete";
+            }
+            catch (Exception ex)
+            {
+                LblDownloadStatus.Text = $"Error: {ex}";
+            }
+            SetDownloadControlsEnabled(true);
+
         }
 
         private void BtnTestImage_Click(object sender, EventArgs e)
@@ -612,7 +613,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             }
 
 
-            
+
 
         }
 
@@ -672,7 +673,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
                 }
             }
 
-            
+
         }
 
         private async void BtnGetBatchGetBatch_Click(object sender, EventArgs e)
@@ -688,7 +689,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             var client = GetClient();
             try
             {
-                var batch = await client.GetBatchAsync(TxtBatchNameGetBatch.Text,_batchGetOptions);
+                var batch = await client.GetBatchAsync(TxtBatchNameGetBatch.Text, _batchGetOptions);
 
                 LstImages.Items.Clear();
                 var bArray = batch.ImageSubmissions.ToArray();
@@ -764,7 +765,7 @@ namespace GSCCCA.ImageAPI.TestProgram.Core
             try
             {
                 var client = GetClient();
-                var result = await client.EmailBatchSummaryReport(TxtEmailTo.Text,bn);
+                var result = await client.EmailBatchSummaryReport(TxtEmailTo.Text, bn);
 
                 var json = JsonConvert.SerializeObject(result, Formatting.Indented);
                 TxtJsonReport.Text = json;
