@@ -73,6 +73,12 @@ namespace GSCCCA.ImageAPI.Client
         [Description("If true, images will be validated locally before uploading.")]
         public bool PerformTiffValidation { get; set; } = true;
 
+        /// <summary>
+        /// If true, including files not ending in .tif or .tiff will cause an exception
+        /// </summary>
+        [Description("If true, including files not ending in .tif or .tiff will cause an exception.")]
+        public bool PerformTiffExtensionValidation { get; set; } = true;
+
 
         [Browsable(false)]
         public TiffValidationOptions TiffValidationOptions { get; set; } = new TiffValidationOptions();

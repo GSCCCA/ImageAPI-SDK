@@ -600,9 +600,12 @@ namespace GSCCCA.ImageAPI.Client
                 throw new ArgumentException($"{fileName} is invalid. the characters {invalidChars} are not allowed in file names");
             }
 
-            var ext = (Path.GetExtension(fileName) ?? "").ToLower();
-            if (ext != ".tif" && ext != ".tiff")
+            if (_clientOptions.PerformTiffExtensionValidation)
+            {
+                var ext = (Path.GetExtension(fileName) ?? "").ToLower();
+                if (ext != ".tif" && ext != ".tiff")
                 throw new ArgumentException($"{fileName} is invalid. Only files with the extension tif and tiff are accepted.");
+            }
 
         }
 
@@ -640,9 +643,12 @@ namespace GSCCCA.ImageAPI.Client
                 if (!File.Exists(filePath))
                     throw new ArgumentException($"{filePath} does not exist");
 
-                var ext = (Path.GetExtension(filePath) ?? "").ToLower();
-                if (ext != ".tif" && ext != ".tiff")
-                    throw new ArgumentException($"{filePath} is invalid. Only files with the extension tif and tiff are accepted.");
+                if (_clientOptions.PerformTiffExtensionValidation)
+                {
+                    var ext = (Path.GetExtension(filePath) ?? "").ToLower();
+                    if (ext != ".tif" && ext != ".tiff")
+                        throw new ArgumentException($"{filePath} is invalid. Only files with the extension tif and tiff are accepted.");
+                }
             }
         }
 
