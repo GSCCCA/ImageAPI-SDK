@@ -62,6 +62,14 @@ namespace GSCCCA.ImageAPI.Client
         public int MaximumWaitRetries { get; set; } = 2;
 
         /// <summary>
+        /// When true, all concurrent requests will coordinate their backoff when rate limits are encountered.
+        /// When any request hits a 429, all other requests will wait before sending new requests.
+        /// Default is true.
+        /// </summary>
+        [Description("When true, all concurrent requests will coordinate their backoff when rate limits are encountered.")]
+        public bool UseCoordinatedBackoff { get; set; } = true;
+
+        /// <summary>
         /// The maximum number of times to retry after receiving an internal server error.
         /// </summary>
         [Description("The maximum number of times to retry after receiving an internal server error.")]
