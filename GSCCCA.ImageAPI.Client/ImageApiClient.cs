@@ -25,6 +25,14 @@ namespace GSCCCA.ImageAPI.Client
         private readonly ImageApiClientOptions _clientOptions;
         private string _clientId;
         private string _clientSecret;
+        private DateTime _backoffUntil = DateTime.MinValue;
+        private readonly object _backoffLock = new object();
+
+        /// <summary>
+        /// Fired when a rate limit (HTTP 429) response is received.
+        /// This event is for monitoring/logging purposes.
+        /// </summary>
+        public event EventHandler<RateLimitEventArgs> OnRateLimitEncountered;
 
 
         public ImageApiClient(string clientId, string secret) 
@@ -733,6 +741,45 @@ namespace GSCCCA.ImageAPI.Client
             return _clientOptions.MaximumWaitRetries;
         }
 
+        private void FireRateLimitEvent(TimeSpan retryAfter, int retryAttempt, string endpoint)
+        {
+            OnRateLimitEncountered?.Invoke(this, new RateLimitEventArgs(retryAfter, retryAttempt, endpoint));
+        }
+
+        /// <summary>
+        /// Waits if there is an active backoff period from a recent 429 response.
+        /// This coordinates all threads to respect the same backoff.
+        /// </summary>
+        private async Task WaitForBackoffAsync()
+        {
+            TimeSpan waitTime;
+            lock (_backoffLock)
+            {
+                waitTime = _backoffUntil - DateTime.UtcNow;
+            }
+
+            if (waitTime > TimeSpan.Zero)
+            {
+                await Task.Delay(waitTime).ConfigureAwait(false);
+            }
+        }
+
+        /// <summary>
+        /// Sets a shared backoff period that all requests will respect.
+        /// Only updates if the new backoff extends beyond the current one.
+        /// </summary>
+        private void SetBackoff(TimeSpan retryAfter)
+        {
+            lock (_backoffLock)
+            {
+                var newBackoff = DateTime.UtcNow + retryAfter;
+                if (newBackoff > _backoffUntil)
+                {
+                    _backoffUntil = newBackoff;
+                }
+            }
+        }
+
         private async Task Login()
         {
             _httpClient.DefaultRequestHeaders.Authorization = null;
@@ -768,6 +815,12 @@ namespace GSCCCA.ImageAPI.Client
                 _loginLock.Release();
             }
 
+            // Wait for any active backoff period before sending request
+            if (_clientOptions.UseCoordinatedBackoff)
+            {
+                await WaitForBackoffAsync().ConfigureAwait(false);
+            }
+
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _bearerToken.AccessToken);
 
             //It is wasteful to create this clone before we even know if the request will fail and need to be resent.
@@ -800,6 +853,10 @@ namespace GSCCCA.ImageAPI.Client
                 if ((int)result.StatusCode == 429)
                 {
                     var waitTime = result.Headers.RetryAfter?.Delta ?? TimeSpan.FromSeconds(5);
+
+                    // Fire event for monitoring/logging
+                    FireRateLimitEvent(waitTime, retryNumber, request.RequestUri?.PathAndQuery ?? "unknown");
+
                     if (waitTime > TimeSpan.FromSeconds(GetMaxRetryWait()))
                     {
                         result.EnsureSuccessStatusCode();
@@ -808,6 +865,13 @@ namespace GSCCCA.ImageAPI.Client
                     if (retryNumber >= GetMaximumWaitRetries())
                     {
                         result.EnsureSuccessStatusCode();
+                    }
+
+                    // Set shared backoff so other threads also wait
+                    // Only set after validation - we should only impose backoff if we're actually going to wait
+                    if (_clientOptions.UseCoordinatedBackoff)
+                    {
+                        SetBackoff(waitTime);
                     }
 
                     await Task.Delay(waitTime).ConfigureAwait(false);
